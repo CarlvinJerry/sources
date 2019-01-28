@@ -17,7 +17,7 @@ paginate = 10
   subtitle = "Fitting a thousand stories,in a nutshell..."
   brand = "BRD"
   googleAnalytics = "Your Google Analytics tracking ID"
-  disqus = "rpubs-8014d2b21ca260f0485273d68d4e66cc"
+  talkyardServerUrl = "https://comments-for-carlvinjerry-github-io.talkyard.net/"
   # CSS name for highlight.js
   highlightjs = "androidstudio"
   dateFormat = "02 Jan 2006, 15:04"
@@ -78,7 +78,7 @@ paginate = 10
 
   # SNS photo/video sharing
   instagram = "i_Carlvin"
-  #flickr = "*"
+  #flickr = "https://www.linkedin.com/in/carlvinmwange/"
   #photo500px = "*"
   #pinterest = "*"
   #youtube = "*"
@@ -100,5 +100,8 @@ paginate = 10
   #bitbucket = "*"
   #stackoverflow = "*"
   #serverfault = "*"
+
+
+talkyardServerUrl = "https://comments-for-carlvinjerry-github-io.talkyard.net/"
 
   
