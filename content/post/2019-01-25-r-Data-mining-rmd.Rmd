@@ -8,7 +8,6 @@ date: '2019-01-25'
 output:
   html_document:
     includes:
-      after_body: footer.html
     df_print: paged
   pdf_document: default
   
@@ -117,7 +116,7 @@ With our twitter app set up [in part I above](#PartI) and we are able to get the
 
 ### 1.Install and Load the required packages in R
 R has a standard set of packages, each with different tasks. You can find some packages for download  
-[**here**](http://cran.cnr.berkeley.edu/). The code chunk below installs and loads the specific packages we need for this task. Take note of comments at each line of code, initiated by an octothorp.
+[**here**](https://cran.cnr.berkeley.edu/). The code chunk below installs and loads the specific packages we need for this task. Take note of comments at each line of code, initiated by an octothorp.
 
 ```{r, install_packages,cache=TRUE, eval=FALSE, background='#F7F7F7'}
 #Install packages
@@ -135,7 +134,7 @@ require("httr")#-------------Both require() and library() can be used to call an
 **NB:** Windows users might need to download a certification file and store it in the working directory. This certificate file initiates a handshake between R and the Twitter API.
 ```{r, download_cert,cache=TRUE, eval=FALSE, background='#F7F7F7'}
 # Download "cacert.pem" file
-download.file(url="http://curl.haxx.se/ca/cacert.pem",destfile="cacert.pem")
+download.file(url="https://curl.haxx.se/ca/cacert.pem",destfile="cacert.pem")
 ```
 
 <br><br>

@@ -8,7 +8,6 @@ date: '2019-01-25'
 output:
   html_document:
     includes:
-      after_body: footer.html
     df_print: paged
   pdf_document: default
   
@@ -94,7 +93,7 @@ categories:
 <div id="install-and-load-the-required-packages-in-r" class="section level3">
 <h3>1.Install and Load the required packages in R</h3>
 <p>R has a standard set of packages, each with different tasks. You can find some packages for download<br />
-<a href="http://cran.cnr.berkeley.edu/"><strong>here</strong></a>. The code chunk below installs and loads the specific packages we need for this task. Take note of comments at each line of code, initiated by an octothorp.</p>
+<a href="https://cran.cnr.berkeley.edu/"><strong>here</strong></a>. The code chunk below installs and loads the specific packages we need for this task. Take note of comments at each line of code, initiated by an octothorp.</p>
 <pre class="r"><code>#Install packages
 install.packages(&quot;twitteR&quot;)#------Extracts data from twitter
 install.packages(&quot;httr&quot;)#--------Tools for Working with URLs and HTTP</code></pre>
@@ -104,7 +103,7 @@ require(&quot;httr&quot;)#-------------Both require() and library() can be used 
 <p><br></p>
 <p><strong>NB:</strong> Windows users might need to download a certification file and store it in the working directory. This certificate file initiates a handshake between R and the Twitter API.</p>
 <pre class="r"><code># Download &quot;cacert.pem&quot; file
-download.file(url=&quot;http://curl.haxx.se/ca/cacert.pem&quot;,destfile=&quot;cacert.pem&quot;)</code></pre>
+download.file(url=&quot;https://curl.haxx.se/ca/cacert.pem&quot;,destfile=&quot;cacert.pem&quot;)</code></pre>
 <p><br><br></p>
 </div>
 <div id="create-and-store-objects-containing-the-twitter-authenticated-credentials" class="section level3">

@@ -1,4 +1,4 @@
-baseurl = "https://CarlvinJerry.github.io/"
+baseurl = "https://beyondrawdata.rbind.io/"
 languageCode = "en-us"
 title = "Beyond Raw Data"
 theme = "blackburn"
@@ -6,9 +6,8 @@ publishDir = "J://Personalprojects//Blogsite//CarlvinJerry.github.io"
 author = "Carlvin M "
 copyright = "&copy; 2019 Carlvin M."
 canonifyurls = true
-ignoreFiles = ["\\.Rmd$", "\\.Rmarkdown$", "_files$", "_cache$"]
 paginate = 10
-
+ignoreFiles = ["\\.Rmd$", "\\.Rmarkdown$", "_files$", "_cache$"]
 [permalinks]
   post = "/:year/:month/:day/:slug/"
   
@@ -21,7 +20,7 @@ paginate = 10
   subtitle = "Fitting a thousand stories,in a nutshell..."
   brand = "BRD"
   googleAnalytics = "Your Google Analytics tracking ID"
-  talkyardServerUrl = "https://comments-for-carlvinjerry-github-io.talkyard.net/"
+  #talkyardServerUrl = "https://comments-for-carlvinjerry-github-io.talkyard.net/"
   # CSS name for highlight.js
   highlightjs = "androidstudio"
   dateFormat = "02 Jan 2006"
@@ -42,19 +41,6 @@ paginate = 10
     identifier = "post"
     url = "/post/"
 	
-	# [[menu.main]]
-    #name = "R"
-    #pre = "<i class='fa fa-area-chart'></i>"
-    #weight = 3
-    #identifier = "R"
-    #url = "/R /"
-	
-	# [[menu.main]]
-    #name = "Python"
-    #pre = "<i class='fa fa-pie-chart'></i>"
-    #weight = 4
-    #identifier = "Python"
-    #url = "/Python/"
 	
   [[menu.main]]
     name = "About"
