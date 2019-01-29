@@ -92,6 +92,6 @@ ignoreFiles = ["\\.Rmd$", "\\.Rmarkdown$", "_files$", "_cache$"]
   #serverfault = "*"
 
 
-talkyardServerUrl = "https://comments-for-carlvinjerry-github-io.talkyard.net/"
+#talkyardServerUrl = "https://comments-for-carlvinjerry-github-io.talkyard.net/"
 
   

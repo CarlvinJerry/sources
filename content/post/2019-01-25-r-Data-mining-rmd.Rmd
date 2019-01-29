@@ -81,7 +81,7 @@ I would ignore the Callback URL field. If you are allowing users to log into you
  On your app is a menu with __Keys and tokens__. These are the most important components since we will need them to access data from the APIs.Generate both consumer and access tokens (if not readily available) and take note of them. __NB:__ __These keys are meant for your eyes only!__
 
 <center>
-![Figure 3: API Keys](https://carlvinjerry.github.io/post/MyImages/keys.PNG)
+![Figure 3: API Keys](https://CarlvinJerry.github.io/post/MyImages/keys.PNG)
  </center>
  
  <br>
