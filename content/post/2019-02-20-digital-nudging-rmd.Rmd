@@ -45,7 +45,7 @@ This photo a team mate took at the hackathon contains a problem statement for th
 #### Tools used:
 Our twitter data was fetched using **R**, I have done a post on setting up a twitter API to fetch twitter data [here](https://beyondrawdata.rbind.io/2019/01/25/data-mining-in-r/). **R** has several packages (such as **"tweeteR"** and **"rtweet"**) that one can use to stream data from twitter. Our data cleaning and pre-processing was mainly done in **Python**.
 
-**Note:** To keep this post concise, code for the workings has been minimized. Click on the **"Code"** buttons to expand code chunks for anyone interested in trying out the same process. The code is well commented for easier understanding as well.
+>**Note:** To keep this post concise, code for the workings has been minimized. [The source code for this post can be found herer,](https://github.com/CarlvinJerry/sources/blob/master/content/post/2019-02-20-digital-nudging-rmd.Rmd) for anyone interested in trying out the same process. The code is well commented for easier understanding as well.
  
 #### 1.Fetching Data 
 The team agreed on a few terms to query data on from twitter. For an unbiased range of topics, we settled on fetching tweets under trending topics and a few more from random words. We had tweets from or containing the following:     
@@ -56,7 +56,7 @@ The team agreed on a few terms to query data on from twitter. For an unbiased ra
 * **“PWC”**    
 * **#Friday Feeling**  
 
-```{r Fetching twitter data, eval=FALSE, tidy=TRUE}
+```{r Fetching twitter data, eval=FALSE, include=FALSE, tidy=TRUE}
 # Install And Load Requried Packages
 install.packages("twitteR") #install package if not yet
 install.packages("rtweet") #install package if not yet
@@ -86,9 +86,9 @@ bind_Data<- rbind(rstats_tweets,rstats_tweets2,friday_Feeling,Here_Tweet,PWc_Twe
 bind_Data<- as.data.frame(bind_Data)
 ```
 
-A total of **7000 tweets** were captured. The data frame had a total of 88 columns which we treated as variables for the research. However, not all variables were used in the research we therefore had to do some data cleaning.open the code chunk to view the variables in our raw data.  
+A total of **7000 tweets** were captured. The data frame had a total of 88 columns which we treated as variables for the research. However, not all variables were used in the research we therefore had to do some data cleaning. Here is a preview of the variables in our raw data.  
 
-```{r, Column names preview from the raw data,eval=FALSE, tidy=TRUE}
+```{r Column names preview from the raw data, eval=FALSE, eval=FALSE, include=FALSE, tidy=TRUE}
 > bind_Data<- as.data.frame(bind_Data)
 > names(bind_Data)
  [1] "user_id"                 "status_id"               "created_at"             
@@ -122,7 +122,39 @@ A total of **7000 tweets** were captured. The data frame had a total of 88 colum
 [85] "account_lang"            "profile_banner_url"      "profile_background_url" 
 [88] "profile_image_url"      
 ```
-  
+```{}
+ [1] "user_id"                 "status_id"               "created_at"             
+ [4] "screen_name"             "text"                    "source"                 
+ [7] "display_text_width"      "reply_to_status_id"      "reply_to_user_id"       
+[10] "reply_to_screen_name"    "is_quote"                "is_retweet"             
+[13] "favorite_count"          "retweet_count"           "hashtags"               
+[16] "symbols"                 "urls_url"                "urls_t.co"              
+[19] "urls_expanded_url"       "media_url"               "media_t.co"             
+[22] "media_expanded_url"      "media_type"              "ext_media_url"          
+[25] "ext_media_t.co"          "ext_media_expanded_url"  "ext_media_type"         
+[28] "mentions_user_id"        "mentions_screen_name"    "lang"                   
+[31] "quoted_status_id"        "quoted_text"             "quoted_created_at"      
+[34] "quoted_source"           "quoted_favorite_count"   "quoted_retweet_count"   
+[37] "quoted_user_id"          "quoted_screen_name"      "quoted_name"            
+[40] "quoted_followers_count"  "quoted_friends_count"    "quoted_statuses_count"  
+[43] "quoted_location"         "quoted_description"      "quoted_verified"        
+[46] "retweet_status_id"       "retweet_text"            "retweet_created_at"     
+[49] "retweet_source"          "retweet_favorite_count"  "retweet_retweet_count"  
+[52] "retweet_user_id"         "retweet_screen_name"     "retweet_name"           
+[55] "retweet_followers_count" "retweet_friends_count"   "retweet_statuses_count" 
+[58] "retweet_location"        "retweet_description"     "retweet_verified"       
+[61] "place_url"               "place_name"              "place_full_name"        
+[64] "place_type"              "country"                 "country_code"           
+[67] "geo_coords"              "coords_coords"           "bbox_coords"            
+[70] "status_url"              "name"                    "location"               
+[73] "description"             "url"                     "protected"              
+[76] "followers_count"         "friends_count"           "listed_count"           
+[79] "statuses_count"          "favourites_count"        "account_created_at"     
+[82] "verified"                "profile_url"             "profile_expanded_url"   
+[85] "account_lang"            "profile_banner_url"      "profile_background_url" 
+[88] "profile_image_url"      
+```
+ 
 #### 2.Data pre-processing.
 
 This stage involved cleaning up our data by removing the unwanted columns/variables. We decided to do with a select few variables we thought would be most appropriate for our case study. We chose the following **seven variables:**
@@ -135,7 +167,7 @@ This stage involved cleaning up our data by removing the unwanted columns/variab
   * **Retweet Verifie** - Whether the tweet had been retweeted by a verified user or not.
   * **Source** - Source of the tweet i.e "Android", "web client" e.t.c    
   
-```{r, data sorting and variable selection,eval=FALSE, tidy=TRUE }
+```{r data sorting and variable selection, eval=FALSE, eval=FALSE, include=FALSE, tidy=TRUE}
 #Removing unusable variables--They apear as lists in the data
 bind_Data<-subset(bind_Data, select = -c(hashtags,symbols,
                                            urls_url,urls_t.co,
@@ -165,7 +197,7 @@ Code for the data cleanup and variables setting that was done in Python can be f
 #### 2.1 Re-importing Data in R and setting up for the Models
 
 After cleaning up the data, we imported it into R, the code chunk shows a preview of the top 4 rows of the input data.   
-```{r, Data import,eval=FALSE,tidy=TRUE}
+```{r Data import,eval=FALSE, eval=FALSE, include=FALSE, tidy=TRUE}
 > #Data Prep
 > #Shuffle data
 > index.shuffle <- sample(1:nrow(data)) #Shuffle data index to randomize contents and remove bias
@@ -195,8 +227,26 @@ After cleaning up the data, we imported it into R, the code chunk shows a previe
 2939 Twitter for Android
 ```
 
+```{}
+                                                                                                                                                                    Text
+1074                                                                                                                                                            Want to know how to optimize hyper-parameters in Caret with cost-specific functions? #rstats #datascience https://t.co/cupvirSXU9
+1316                                                                                                                              via @RichardEudes - Quick Guide to R and Statistical Programming https://t.co/GfyhLMgiuB #analytics, #datascience, #rstats, #statistics https://t.co/Cx3TGJTOoI
+2636                                              small #rstats trick: if you need to know if a *sorted* variable is equally spaced (e.g., if it's a contiguous sequence of ints, which was my use case) you can look at the characteristics of diff(x), e.g.\n\nsummary(diff(x))\ntable(diff(x))
+2939 my #ggplot2 flipbook project is online! <U+0001F60E><U+0001F913><U+0001F913> Incrementally walks through plotting code (#MakeoverMonday, soon #TidyTuesday plots). Using #xaringan with reveal function; thanks, @statsgen @grrrck. #rstats. https://t.co/bBBzv0iZLw https://t.co/tFtD78IOHZ
+     Verified Protected          Location Followers VerifiedRetweet
+1074    FALSE     FALSE         Singapore      1570           FALSE
+1316    FALSE     FALSE     Paris, France      2151              NA
+2636    FALSE     FALSE Pleasant Hill, CA      1207              NA
+2939    FALSE     FALSE         Sri Lanka      2623           FALSE
+              Characters
+1074          DS-retweet
+1316               IFTTT
+2636  Twitter Web Client
+2939 Twitter for Android
+```
+
 We still had to do some data pre-processing for the models which includes checking for and removing NULL values if present. Below is a sample table of the final data set used in the analysis.   
-```{r, data prep,eval=FALSE,tidy=TRUE}
+```{r data prep,eval=FALSE, eval=FALSE, include=FALSE, tidy=TRUE}
 #Clean Data
 library(dplyr)
 # Drop variables
@@ -244,7 +294,7 @@ Due to the nature of our problem,(we had several uncorrelated variables) we deci
 
 For the training and test data sets, we randomly split our data set into two sates. Usually, the best practice is to train the model with with a larger proportion of the data set. We therefore took **80%** for training and **20%** for test purposes.   
 
-```{r, Split train and test data sets,eval=FALSE,tidy=TRUE}
+```{r Split train and test data sets,eval=FALSE, include=FALSE, eval=FALSE, tidy=TRUE}
 #Train & Test sets
 create_train_test<- function(data, size = 0.8, train = TRUE) {
   n_row = nrow(data)
@@ -268,7 +318,7 @@ dim(data_test) #Checkdimensions for test data
 
 #### Model Training.
 We trained our decision tree model to predict a **class** "location". Whether a location is **geotagged** or **not geotagged** based on whether the user is verified, protected, has over 500 followers, is retweeted by another verified user and the number of characters in their tweet. Bellow is the visual output of the trained model.
-```{r, model fit,eval=FALSE,tidy=TRUE}
+```{r model fit, eval=FALSE, include=FALSE, eval=FALSE, tidy=TRUE}
 #install.packages("rpart.plot")	-This is for decision trees.
 #Create and fit model
 library(rpart)#load package
@@ -307,7 +357,7 @@ For our case, we only focus on what we found:
 
 #### 3.1 Model Testing and performance accuracy.
 With our model trained and outputs observed, we were able to run a test with our test subset. Here is our confusion matrix.   
-```{r, prediction accuracy,eval=FALSE,tidy=TRUE}
+```{r prediction accuracy, eval=FALSE, include=FALSE,eval=FALSE, tidy=TRUE}
  #Predicting
  predict_geotags <-predict(fit, data_test, type = 'class')
  table_mat <- table(data_test$Location, predict_geotags)

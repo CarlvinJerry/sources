@@ -45,7 +45,9 @@ Figure 1: The challenge
 <div id="tools-used" class="section level4">
 <h4>Tools used:</h4>
 <p>Our twitter data was fetched using <strong>R</strong>, I have done a post on setting up a twitter API to fetch twitter data <a href="https://beyondrawdata.rbind.io/2019/01/25/data-mining-in-r/">here</a>. <strong>R</strong> has several packages (such as <strong>“tweeteR”</strong> and <strong>“rtweet”</strong>) that one can use to stream data from twitter. Our data cleaning and pre-processing was mainly done in <strong>Python</strong>.</p>
-<p><strong>Note:</strong> To keep this post concise, code for the workings has been minimized. Click on the <strong>“Code”</strong> buttons to expand code chunks for anyone interested in trying out the same process. The code is well commented for easier understanding as well.</p>
+<blockquote>
+<p><strong>Note:</strong> To keep this post concise, code for the workings has been minimized. <a href="https://github.com/CarlvinJerry/sources/blob/master/content/post/2019-02-20-digital-nudging-rmd.Rmd">The source code for this post can be found herer,</a> for anyone interested in trying out the same process. The code is well commented for easier understanding as well.</p>
+</blockquote>
 </div>
 <div id="fetching-data" class="section level4">
 <h4>1.Fetching Data</h4>
@@ -61,37 +63,8 @@ Figure 1: The challenge
 </li>
 <li><strong>#Friday Feeling</strong></li>
 </ul>
-<pre class="r"><code># Install And Load Requried Packages
-install.packages(&quot;twitteR&quot;) #install package if not yet
-install.packages(&quot;rtweet&quot;) #install package if not yet
-
-#Load
-library(&quot;twitteR&quot;)#------Extracts data from twitter
-library(&quot;rtweet&quot;)#------Extracts data from twitter
-
-# create token named &quot;twitter_token&quot;
-twitter_token &lt;- create_token(
-  app = &quot;BeyondRawData&quot;, #The name of your twitter API app
-  consumer_key &lt;- &#39;4VfuSFDGSHF4566kssgmsgUUUDsff2&#39;,
-  consumer_secret &lt;- &#39;ughjslkuynmwrtwtmwtoae&#39;,
-  access_token &lt;- &#39;6768w69w7twtw-BPHBOQT0pNdfhyFZzJ2jAsdffdRtgjgsfslZwpm&#39;,
-  access_secret &lt;- &#39;(9rHttKGJnaAVxMZHJhaxKbLt)9opodfggdgqBEHprqYnTpN5ysy&#39;)
-
-#Connect to twitter and fetch data
-rstats_tweets &lt;- search_tweets(q  = &quot;#rstats&quot;, n = 500)
-rstats_tweets2 &lt;- search_tweets(q  = &quot;#rstats&quot;, n = 5000) 
-friday_Feeling &lt;- search_tweets( q = &quot;#FridayFeeling&quot;, n = 500)
-Here_Tweet &lt;- search_tweets( q = &quot;here&quot;, n = 500)
-PWc_Tweet &lt;- search_tweets( q = &quot;PWC&quot;, n = 500)
-
-
-#Bind tweets to one data frame
-bind_Data&lt;- rbind(rstats_tweets,rstats_tweets2,friday_Feeling,Here_Tweet,PWc_Tweet)
-bind_Data&lt;- as.data.frame(bind_Data)</code></pre>
-<p>A total of <strong>7000 tweets</strong> were captured. The data frame had a total of 88 columns which we treated as variables for the research. However, not all variables were used in the research we therefore had to do some data cleaning.open the code chunk to view the variables in our raw data.</p>
-<pre class="r"><code>&gt; bind_Data&lt;- as.data.frame(bind_Data)
-&gt; names(bind_Data)
- [1] &quot;user_id&quot;                 &quot;status_id&quot;               &quot;created_at&quot;             
+<p>A total of <strong>7000 tweets</strong> were captured. The data frame had a total of 88 columns which we treated as variables for the research. However, not all variables were used in the research we therefore had to do some data cleaning. Here is a preview of the variables in our raw data.</p>
+<pre><code> [1] &quot;user_id&quot;                 &quot;status_id&quot;               &quot;created_at&quot;             
  [4] &quot;screen_name&quot;             &quot;text&quot;                    &quot;source&quot;                 
  [7] &quot;display_text_width&quot;      &quot;reply_to_status_id&quot;      &quot;reply_to_user_id&quot;       
 [10] &quot;reply_to_screen_name&quot;    &quot;is_quote&quot;                &quot;is_retweet&quot;             
@@ -134,44 +107,12 @@ bind_Data&lt;- as.data.frame(bind_Data)</code></pre>
 <li><strong>Retweet Verifie</strong> - Whether the tweet had been retweeted by a verified user or not.</li>
 <li><strong>Source</strong> - Source of the tweet i.e “Android”, “web client” e.t.c</li>
 </ul>
-<pre class="r"><code>#Removing unusable variables--They apear as lists in the data
-bind_Data&lt;-subset(bind_Data, select = -c(hashtags,symbols,
-                                           urls_url,urls_t.co,
-                                           urls_expanded_url,media_url,
-                                           media_t.co,media_expanded_url,media_type,ext_media_url,
-                                           ext_media_t.co,ext_media_expanded_url,mentions_user_id,
-                                           mentions_screen_name,geo_coords,coords_coords,bbox_coords))
-#selecting variables to use in analysis.
-selected_Variables&lt;- subset(bind_Data, select = c(text, verified, protected, location, followers_count, retweet_verified, source))
-names(selected_Variables)
-##Output 
-&gt; names(selected_Variables)
-[1] &quot;text&quot;             &quot;verified&quot;         &quot;protected&quot;        &quot;location&quot;        
-[5] &quot;followers_count&quot;  &quot;retweet_verified&quot; &quot;source&quot;  
-
-#write the data into a CSV file and load intopython for cleanup
-write.csv(selected_Variables,&quot;Myvariables.csv&quot;)#Write CSV to a working directory then clean up using python 
-
-#To check your working directory, do:
-getwd() #--For example, mine is [1] &quot;J:/Personalprojects/SafComHackathon/Tweeter&quot;</code></pre>
 <p>Code for the data cleanup and variables setting that was done in Python can be found <a href="https://github.com/Ogutu-Brian/DataCleanup/blob/develop/analysis.py">here</a>.</p>
 </div>
 <div id="re-importing-data-in-r-and-setting-up-for-the-models" class="section level4">
 <h4>2.1 Re-importing Data in R and setting up for the Models</h4>
 <p>After cleaning up the data, we imported it into R, the code chunk shows a preview of the top 4 rows of the input data.</p>
-<pre class="r"><code>&gt; #Data Prep
-&gt; #Shuffle data
-&gt; index.shuffle &lt;- sample(1:nrow(data)) #Shuffle data index to randomize contents and remove bias
-&gt; #Data
-&gt; data&lt;-read.csv(&quot;Variables3.csv&quot;, stringsAsFactors = TRUE) #read CSV data that had been cleade up in Python
-&gt; data &lt;- data[index.shuffle, ]
-&gt; head(data, 4)
-        X
-1074 1074
-1316 1316
-2636 2636
-2939 2939
-                                                                                                                                                                                                                                                                                             Text
+<pre><code>                                                                                                                                                                    Text
 1074                                                                                                                                                            Want to know how to optimize hyper-parameters in Caret with cost-specific functions? #rstats #datascience https://t.co/cupvirSXU9
 1316                                                                                                                              via @RichardEudes - Quick Guide to R and Statistical Programming https://t.co/GfyhLMgiuB #analytics, #datascience, #rstats, #statistics https://t.co/Cx3TGJTOoI
 2636                                              small #rstats trick: if you need to know if a *sorted* variable is equally spaced (e.g., if it&#39;s a contiguous sequence of ints, which was my use case) you can look at the characteristics of diff(x), e.g.\n\nsummary(diff(x))\ntable(diff(x))
@@ -187,29 +128,6 @@ getwd() #--For example, mine is [1] &quot;J:/Personalprojects/SafComHackathon/Tw
 2636  Twitter Web Client
 2939 Twitter for Android</code></pre>
 <p>We still had to do some data pre-processing for the models which includes checking for and removing NULL values if present. Below is a sample table of the final data set used in the analysis.</p>
-<pre class="r"><code>#Clean Data
-library(dplyr)
-# Drop variables
-clean_data&lt;- data %&gt;%
-  mutate( Text= as.numeric(Text),VerifiedRetweet = as.numeric(VerifiedRetweet), Characters= as.numeric(Characters),
-         Verified = as.numeric(Verified), Protected = as.numeric(Protected),Location = as.numeric(Location))%&gt;% data.frame()
-
-clean_data$Location = ifelse(clean_data$Location &lt; 2, &quot;NON-TAGGED&quot;, &quot;TAGGED&quot;) #set geotags to true or false 
-clean_data$Followers = ifelse(clean_data$Followers &lt; 500, 0, 1) # if number of followers is greater than 500 then TRUE
-is.na(clean_data$VerifiedRetweet) &lt;- 1 #Remove NA values
-clean_data[is.na(clean_data[-1,])] = 1 #Convert NA values to 1
-#View(clean_data)
-head(clean_data)
-#Output
-&gt; head(clean_data)
-   Verified Protected Location Followers VerifiedRetweet Characters
-1         0         0   TAGGED         1               1         55
-2         1         1   NON-TAGGED         1               1         80
-3         0         0   TAGGED         1               1        193
-4         0         0   TAGGED         1               0        188
-5         1         0   TAGGED         0               1        188
-6         0         0   NON-TAGGED         0               0        190
-&gt; </code></pre>
 <table>
 <thead>
 <tr class="header">
@@ -282,40 +200,10 @@ head(clean_data)
 <div id="creating-train-test-sets." class="section level4">
 <h4>Creating Train &amp; Test Sets.</h4>
 <p>For the training and test data sets, we randomly split our data set into two sates. Usually, the best practice is to train the model with with a larger proportion of the data set. We therefore took <strong>80%</strong> for training and <strong>20%</strong> for test purposes.</p>
-<pre class="r"><code># Train &amp; Test sets
-create_train_test &lt;- function(data, size = 0.8, train = TRUE) {
-    n_row = nrow(data)
-    total_row = size * n_row
-    train_sample &lt;- 1:total_row
-    if (train == TRUE) {
-        return(data[train_sample, ])
-    } else {
-        return(data[-train_sample, ])
-    }
-}
-
-
-clean_data1 = subset(clean_data, select = -c(X, Protected))  #remove unwanted variables
-data_train &lt;- create_train_test(clean_data1, 0.8, train = TRUE)
-data_test &lt;- create_train_test(clean_data1, 0.8, train = FALSE)
-dim(data_train)  #Checkdimensions for train data
-dim(data_test)  #Checkdimensions for test data</code></pre>
 </div>
 <div id="model-training." class="section level4">
 <h4>Model Training.</h4>
 <p>We trained our decision tree model to predict a <strong>class</strong> “location”. Whether a location is <strong>geotagged</strong> or <strong>not geotagged</strong> based on whether the user is verified, protected, has over 500 followers, is retweeted by another verified user and the number of characters in their tweet. Bellow is the visual output of the trained model.</p>
-<pre class="r"><code># install.packages(&#39;rpart.plot&#39;) -This is for decision trees. Create and fit
-# model
-library(rpart)  #load package
-library(rpart.plot)  #load package
-
-fit &lt;- rpart(Location ~ ., data = data_train, method = &quot;class&quot;)
-
-# set.seed(27) fit &lt;- rpart(Location ~ ., data = data_train, method =
-# &#39;class&#39;, control = rpart.control(xval = 10, minbucket = 2, cp = 0), parms
-# = list(split = &#39;information&#39;))
-
-rpart.plot(fit)</code></pre>
 <center>
 <figure>
 <img  = src = "https://carlvinjerry.github.io/post/MyImages/tagged.png", width = "503", height = "433">
@@ -336,18 +224,6 @@ For our case, we only focus on what we found:</p>
 <div id="model-testing-and-performance-accuracy." class="section level4">
 <h4>3.1 Model Testing and performance accuracy.</h4>
 <p>With our model trained and outputs observed, we were able to run a test with our test subset. Here is our confusion matrix.</p>
-<pre class="r"><code> #Predicting
- predict_geotags &lt;-predict(fit, data_test, type = &#39;class&#39;)
- table_mat &lt;- table(data_test$Location, predict_geotags)
-&gt; table_mat
-            predict_geotags
-             NON-TAGGED TAGGED
-  NON-TAGGED         90    248
-  TAGGED              2   1043
- #performance
- accuracy_Test &lt;- sum(diag(table_mat)) / sum(table_mat)
- print(paste(&#39;Accuracy for test is&#39;, accuracy_Test))
-[1] &quot;Accuracy for test is 0.819233550253073&quot;</code></pre>
 </div>
 <div id="confusion-matrix" class="section level4">
 <h4>Confusion matrix</h4>
