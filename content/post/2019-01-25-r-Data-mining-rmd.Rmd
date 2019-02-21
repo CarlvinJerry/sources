@@ -29,6 +29,7 @@ knitr::opts_chunk$set(collapse = TRUE)
 
 <br>
 
+
 #PartI{#PartI}
 ## Getting started with Text mining using Twitter and R
 
@@ -105,7 +106,7 @@ Now we can move on to the next step where we set up __R__ to query data from Twi
 
 #PartII{#PartII}
 ## Setting up R to fetch twitter data
-With our twitter app set up [in part I above](#PartI) and we are able to get the authentication keys for the API, we can easily fetch data from twitter in R. The following steps will help us do this:
+With our twitter app set up [in part I above](#PartI) and we are able to get the authentication keys for the API, we can now easily fetch data from twitter in R. The following steps will help us do this:
 
 #### Prerequisites:
 - **Twitter API Keys:** At this point we already have our twitter app with the required API keys.
@@ -172,7 +173,7 @@ save(UKenyatta_Tweets, file="UKenyatta_Tweets.RData")
 # load("UKenyatta_Tweets.RData")
 ```
 
-You can now manipulate your data and see what you find out. Remember, **In data we trust!** 
+You can now manipulate your data and see what you find out.
 
 <center>
 ![Happy crunching!!](https://media.giphy.com/media/ZtMkorgeyRu5q/giphy.gif)
@@ -180,11 +181,12 @@ You can now manipulate your data and see what you find out. Remember, **In data 
 
 <br>
 
-***
 
-*“In God we trust. All others must bring data.” – W. Edwards Deming*
 
-***
+<center>
+
+![](https://fontmeme.com/permalink/190129/8b378e9ce35b7a28dd150c4f1d656807.png)
+</center>
 
 
 
