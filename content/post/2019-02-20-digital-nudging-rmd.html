@@ -46,7 +46,7 @@ Figure 1: The challenge
 <h4>Tools used:</h4>
 <p>Our twitter data was fetched using <strong>R</strong>, I have done a post on setting up a twitter API to fetch twitter data <a href="https://beyondrawdata.rbind.io/2019/01/25/data-mining-in-r/">here</a>. <strong>R</strong> has several packages (such as <strong>“tweeteR”</strong> and <strong>“rtweet”</strong>) that one can use to stream data from twitter. Our data cleaning and pre-processing was mainly done in <strong>Python</strong>.</p>
 <blockquote>
-<p><strong>Note:</strong> To keep this post concise, code for the workings has been minimized. <a href="https://github.com/CarlvinJerry/sources/blob/master/content/post/2019-02-20-digital-nudging-rmd.Rmd">The source code for this post can be found herer,</a> for anyone interested in trying out the same process. The code is well commented for easier understanding as well.</p>
+<p><strong>Note:</strong> To keep this post concise, code for the workings has been minimized. <a href="https://github.com/CarlvinJerry/sources/blob/master/content/post/2019-02-20-digital-nudging-rmd.Rmd">The source code for this post can be found here,</a> for anyone interested in trying out the same process. The code is well commented for easier understanding as well.</p>
 </blockquote>
 </div>
 <div id="fetching-data" class="section level4">
@@ -94,6 +94,7 @@ Figure 1: The challenge
 [82] &quot;verified&quot;                &quot;profile_url&quot;             &quot;profile_expanded_url&quot;   
 [85] &quot;account_lang&quot;            &quot;profile_banner_url&quot;      &quot;profile_background_url&quot; 
 [88] &quot;profile_image_url&quot;      </code></pre>
+<p><br></p>
 </div>
 <div id="data-pre-processing." class="section level4">
 <h4>2.Data pre-processing.</h4>
@@ -108,6 +109,7 @@ Figure 1: The challenge
 <li><strong>Source</strong> - Source of the tweet i.e “Android”, “web client” e.t.c</li>
 </ul>
 <p>Code for the data cleanup and variables setting that was done in Python can be found <a href="https://github.com/Ogutu-Brian/DataCleanup/blob/develop/analysis.py">here</a>.</p>
+<p><br></p>
 </div>
 <div id="re-importing-data-in-r-and-setting-up-for-the-models" class="section level4">
 <h4>2.1 Re-importing Data in R and setting up for the Models</h4>
@@ -190,8 +192,8 @@ Figure 1: The challenge
 </tr>
 </tbody>
 </table>
-<p><br></p>
 <p>From the table above, we can observe a new column “Characters”. This was an additional variable derived by counting the number of characters in the tweet text.</p>
+<p><br></p>
 </div>
 <div id="model-specifications" class="section level4">
 <h4>3.Model Specifications</h4>
@@ -200,6 +202,7 @@ Figure 1: The challenge
 <div id="creating-train-test-sets." class="section level4">
 <h4>Creating Train &amp; Test Sets.</h4>
 <p>For the training and test data sets, we randomly split our data set into two sates. Usually, the best practice is to train the model with with a larger proportion of the data set. We therefore took <strong>80%</strong> for training and <strong>20%</strong> for test purposes.</p>
+<p><br></p>
 </div>
 <div id="model-training." class="section level4">
 <h4>Model Training.</h4>
@@ -220,6 +223,7 @@ For our case, we only focus on what we found:</p>
 <li><p>Node 3 checks if the number of characters in a tweet is <strong>less than 134</strong>. If yes, head to depth 3, where we can see that <strong>20 percent</strong> of users had less than 134 characters with a <strong>50 percent probability</strong> of geotagging their tweets.</p></li>
 <li><p>Finally, looking at depth 4 which originates from the node that checks is number of characters is <strong>equal to or more than 122</strong>, we can see that <strong>12 percent</strong> of users had tweets with character equal to or more than 124, with <strong>88 percent probability</strong> of geotagging their tweets.</p></li>
 </ol>
+<p><br></p>
 </div>
 <div id="model-testing-and-performance-accuracy." class="section level4">
 <h4>3.1 Model Testing and performance accuracy.</h4>
@@ -250,12 +254,13 @@ Figure 3: The formula
 </figure>
 </center>
 <p>For a better accuracy level, the model’s hyper-parameters can be tweaked to improve performance. Another option is implementing a random forest test.</p>
+<p><br></p>
 </div>
 <div id="conclusion-and-recommendation" class="section level4">
 <h4>4. Conclusion and Recommendation</h4>
 <p>With our decision tree model, we were able to attain a high level of accuracy for a model that test whether users with <strong>tweets containing characters equal to or above 122</strong> are likely to geotag their tweets. Our <strong>nudge</strong> in this case is the number of characters in a tweet and precisely, <strong>124 or more</strong>. Our recommendation therefore would be to encourage users to tweet longer or engage them in trending topics that require one to write more, for example a TT like # MyLifeHistoryInANutshell…-in the hope that a user will eventually geotag their tweet.</p>
 <blockquote>
-<p>come to think of it, did twitter really increase the number of characters just for tweeps to tweet more and as they said, to get more people to join twitter? I have a theory, it was a NUDGE!</p>
+<p>Come to think of it, did twitter really increase the number of characters just for tweeps to tweet more and as they said, to get more people to join twitter? I have a theory, it was a NUDGE!</p>
 </blockquote>
 <p><br></p>
 </div>

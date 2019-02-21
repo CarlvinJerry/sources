@@ -45,7 +45,7 @@ This photo a team mate took at the hackathon contains a problem statement for th
 #### Tools used:
 Our twitter data was fetched using **R**, I have done a post on setting up a twitter API to fetch twitter data [here](https://beyondrawdata.rbind.io/2019/01/25/data-mining-in-r/). **R** has several packages (such as **"tweeteR"** and **"rtweet"**) that one can use to stream data from twitter. Our data cleaning and pre-processing was mainly done in **Python**.
 
->**Note:** To keep this post concise, code for the workings has been minimized. [The source code for this post can be found herer,](https://github.com/CarlvinJerry/sources/blob/master/content/post/2019-02-20-digital-nudging-rmd.Rmd) for anyone interested in trying out the same process. The code is well commented for easier understanding as well.
+>**Note:** To keep this post concise, code for the workings has been minimized. [The source code for this post can be found here,](https://github.com/CarlvinJerry/sources/blob/master/content/post/2019-02-20-digital-nudging-rmd.Rmd) for anyone interested in trying out the same process. The code is well commented for easier understanding as well.
  
 #### 1.Fetching Data 
 The team agreed on a few terms to query data on from twitter. For an unbiased range of topics, we settled on fetching tweets under trending topics and a few more from random words. We had tweets from or containing the following:     
@@ -155,6 +155,8 @@ A total of **7000 tweets** were captured. The data frame had a total of 88 colum
 [88] "profile_image_url"      
 ```
  
+ <br>
+ 
 #### 2.Data pre-processing.
 
 This stage involved cleaning up our data by removing the unwanted columns/variables. We decided to do with a select few variables we thought would be most appropriate for our case study. We chose the following **seven variables:**
@@ -193,6 +195,7 @@ getwd() #--For example, mine is [1] "J:/Personalprojects/SafComHackathon/Tweeter
   
 Code for the data cleanup and variables setting that was done in Python can be found [here](https://github.com/Ogutu-Brian/DataCleanup/blob/develop/analysis.py).  
 
+<br>
 
 #### 2.1 Re-importing Data in R and setting up for the Models
 
@@ -281,9 +284,11 @@ head(clean_data)
 | YES      | NO        | TAGGED     | 500<      | YES             | 188      |
 | NO       | NO        | NON-TAGGED | 500<      | NO              | 190      |
 
-<br>
+
 
 From the table above, we can observe a new column "Characters". This was an additional variable derived by counting the number of characters in the tweet text.  
+
+<br>
 
 #### 3.Model Specifications
 
@@ -315,6 +320,8 @@ dim(data_train) #Checkdimensions for train data
 dim(data_test) #Checkdimensions for test data
 
 ```
+
+<br>
 
 #### Model Training.
 We trained our decision tree model to predict a **class** "location". Whether a location is **geotagged** or **not geotagged** based on whether the user is verified, protected, has over 500 followers, is retweeted by another verified user and the number of characters in their tweet. Bellow is the visual output of the trained model.
@@ -354,6 +361,8 @@ For our case, we only focus on what we found:
  3. Node 3 checks if the number of characters in a tweet is __less than 134__. If yes, head to depth 3, where we can see that __20 percent__ of users had less than 134 characters with a __50 percent probability__ of geotagging their tweets.
  
  4. Finally, looking at depth 4 which originates from the node that checks is number of characters is  __equal to or more than 122__, we can see that __12 percent__ of users had tweets with character equal to or more than 124, with __88 percent probability__ of geotagging their tweets.  
+
+<br>
 
 #### 3.1 Model Testing and performance accuracy.
 With our model trained and outputs observed, we were able to run a test with our test subset. Here is our confusion matrix.   
@@ -406,10 +415,12 @@ For the tagged tweets, we had a __false negative of 2 predictions__ against a __
 
 For a better accuracy level, the model's hyper-parameters can be tweaked to improve performance. Another option is implementing a random forest test.  
 
+<br>
+
 #### 4. Conclusion and Recommendation
 With our decision tree model, we were able to attain a high level of accuracy for a model that test whether users with __tweets containing characters equal to or above 122__ are likely to geotag their tweets. Our __nudge__ in this case is the number of characters in a tweet and precisely, __124 or more__. Our recommendation therefore would be to encourage users to tweet longer or engage them in trending topics that require one to write more, for example a TT like # MyLifeHistoryInANutshell...-in the hope that a user will eventually geotag their tweet. 
 
-> come to think of it, did twitter really increase the number of characters just for tweeps to tweet more and as they said, to get more people to join twitter? I have a theory, it was a NUDGE!  
+> Come to think of it, did twitter really increase the number of characters just for tweeps to tweet more and as they said, to get more people to join twitter? I have a theory, it was a NUDGE!  
 
 
 <br>
