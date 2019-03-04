@@ -1,6 +1,10 @@
 ---
 title: "DIGITAL NUDGING"
-
+description: "Influencing online User decisions on Twitter through nudge units"
+thumbnail: "https://carlvinjerry.github.io/post/MyImages/hero-main.jpg" # Optional, thumbnail
+lead: "Influencing online User decisions on Twitter through nudge units"
+disable_comments: false # Optional, disable Disqus comments if true
+toc: false # Optional, enable Table of Contents for specific post
 author: "Carlvin M"
 
 date: '2019-02-17'
@@ -21,9 +25,7 @@ categories:
 - Machine Learning
 ---
 
-
-## Influencing online User decisions on Twitter through nudge units  
-### Introduction  
+### Introduction    
 Here is a fun fact; An average human being (probably an adult) makes close to 30,000 conscious decisions every day. This isn't entirely true though, in fact, I just made that number up. I could be right because if you think about it, how many decisions would you say you make on a day to day basis? Depending on who you are the above obviously varies widely and you know best. We all make __**n**__ decisions every day- what to do, eat, buy or hit. The real question however is, do we always choose well? Are there any other factors at hand that influence our decision making process? Are all these factors, if any, always straight forward choices or do we sometimes get __"nudged"__ into these choices we make?    
 
 **Nudge theory** basically states that; by understanding how people think and what drives their decisions, we can use those factors to steer them into making decisions differently, through positive reinforcement. Research has shown that, by presenting choices differently rather than in a legislative manner, people can be influenced into making specific desired choices. This theory is widely used in behavioral economics by presenting subtle **nudge units** intended to influence people's thoughts about financial products. The theory was however initially more of a moral aspect meant to help people make better decisions in life and not as a tool for commercial gain. Over years of practice, different applications of the theory emerged.   
@@ -34,12 +36,15 @@ Now that we have a basic understanding of what nudge theory is about, we can exp
 This photo a team mate took at the hackathon contains a problem statement for the challenge:
 
 
+
 </center>
+
 <figure>
-  <img  = src = "https://carlvinjerry.github.io/post/MyImages/theChallenge.jpg", width = "500", height = "433">
-  <figcaption>Figure 1: The challenge</figcaption>
+<img class="pure-u-1-2" src="https://carlvinjerry.github.io/post/MyImages/theChallenge.jpg" height="100%" width="Auto"> 
+<figcaption>Figure 1: The challenge</figcaption>
 </figure>
-</center>  
+
+</center>
 
 
 #### Tools used:
@@ -162,7 +167,7 @@ A total of **7000 tweets** were captured. The data frame had a total of 88 colum
 This stage involved cleaning up our data by removing the unwanted columns/variables. We decided to do with a select few variables we thought would be most appropriate for our case study. We chose the following **seven variables:**
   
   * **Text** - This column contained the actual tweets text.
-  * **Verified** - whether or not the user is a verified on twitter.
+  * **Verified** - whether or not the user is verified on twitter.
   * **Protected** - Whether a user is or isn't protected (Locked accounts).
   * **Location** - Based on our challenge stated in the **figure above**, this variable was our most important variable. Rows with **NULL** values for location simply meant that the specific user **DID NOT GEOTAG** their tweet.
   * **Followers Count** - Number of followers  the user had.
@@ -341,14 +346,14 @@ fit <- rpart(Location ~ ., data = data_train, method = 'class')
 
 rpart.plot(fit)
 ```
- 
-<center>
+
+</center>
 
 <figure>
-  <img  = src = "https://carlvinjerry.github.io/post/MyImages/tagged.png", width = "503", height = "433">
-  <figcaption>Figure 2: The Tree</figcaption>
+<img class="pure-u-1-2 pure-u-md-1-3" src="https://carlvinjerry.github.io/post/MyImages/tagged.png"  height="100%" width="Auto"> 
+<figcaption>Figure 2: The Tree</figcaption>
 </figure>
-  
+
 </center>
 
 When interpreting decision trees, you start at the root node. The root node is the one on top of the decision tree. Since what we want is those nodes with geotagged locations, it is safe to ignore the non-tagged nodes. Note that our highest entropy level was observed on one variable only, the number of characters in the tweet text. This might not always be the case with decision trees though, it is possible to have more than one factor. In such situations, it is best to run several decision trees to build a **random forest** and make a decision based on the most prevalent variables.  
@@ -443,6 +448,7 @@ With our decision tree model, we were able to attain a high level of accuracy fo
 
 <center>
 
+
  
- 
+<br>
 

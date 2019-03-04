@@ -1,60 +1,71 @@
 baseurl = "https://beyondrawdata.rbind.io/"
 languageCode = "en-us"
 title = "Beyond Raw Data"
-theme = "blackburn"
-publishDir = "J://Personalprojects//Blogsite//CarlvinJerry.github.io"
-author = "Carlvin M "
-copyright = "&copy; 2019 Carlvin M."
-canonifyurls = true
-paginate = 10
+paginate = "10" # Number of posts per page
 ignoreFiles = ["\\.Rmd$", "\\.Rmarkdown$", "_files$", "_cache$"]
-[permalinks]
-  post = "/:year/:month/:day/:slug/"
-  
-[indexes]
-  tag = "tags"
-  topic = "topics"
+theme = "Mainroad"
+disqusShortname = "" # Enable comments by entering your Disqus shortname
+googleAnalytics = "" # Enable Google Analytics by entering your tracking id
+publishDir = "J://Personalprojects//Blogsite//CarlvinJerry.github.io"
 
-[params]
-  # Shown in the home page
-  subtitle = "Fitting a thousand stories,in a nutshell..."
-  #brand =<img src="/img/brdlogo.png">
-  googleAnalytics = "Your Google Analytics tracking ID"
-  #talkyardServerUrl = "https://comments-for-carlvinjerry-github-io.talkyard.net/"
-  # CSS name for highlight.js
-  highlightjs = "androidstudio"
-  dateFormat = "02 Jan 2006"
+#[Author] # Used in authorbox
+ #name = "Carlvin M"
+   #pre = "<i class='fa fa-user fa-fw'></i>"
+    #weight = 5
+    #identifier = "about"
+   # url = "/about/"
+  #name = "Carlvin M"
+  #bio = "Carlvin is a young data science enthusiast who loves building and testing all things data analytics and visualization. Here to learn, here to grow! Have questions or suggestions? Feel free to open an issue on GitHub or ask me on Twitter.Thanks for reading!"
+  avatar = "img/avatar.png"
 
-[menu]
-  # Shown in the side menu.
-  [[menu.main]]
-    name = "Home"
-    pre = "<i class='fa fa-home fa-fw'></i>"
-    weight = 1
-    identifier = "home"
-    url = "/"
-	
-  [[menu.main]]
-    name = "Posts"
-    pre = "<i class='fa fa-list fa-fw'></i>"
-    weight = 2
-    identifier = "post"
-    url = "/post/"
-	
-	
-  [[menu.main]]
+ [[menu.main]]
     name = "About"
     pre = "<i class='fa fa-user fa-fw'></i>"
     weight = 5
     identifier = "about"
     url = "/about/"
-  [[menu.main]]
+	avatar = "img/avatar.png"
+ 
+ [[menu.main]]
     name = "Contact"
     pre = "<i class='fa fa-phone fa-fw'></i>"
     weight = 6
     url = "/contact/"
 
-[social]
+
+[Params]
+  subtitle = "Fitting a thousand stories,in a nutshell..."
+  description = "Carlvin's personal blog about everything Data Science" # Site description. Used in meta description
+  copyright = "Carlvin M" # copyright holder, otherwise will use site title
+  opengraph = true # Enable OpenGraph if true
+  twitter_cards = true # Enable Twitter Cards if true
+  readmore = true # Show "Read more" button in list if true
+  authorbox = false # Show authorbox at bottom of pages if true
+  toc = false # Enable Table of Contents
+  post_navigation = true # Show post navigation at bottom of pages if true
+  # post_meta = ["date", "categories", "translations"] # Order of post meta information. Use ["none"] to turn off completely.
+  postSections = ["post"] # the section pages to show on home page and the "Recent articles" widget
+  #postSections = ["blog", "news"] # alternative that shows more than one section's pages
+  #dateformat = "2006-01-02" # change the format of dates
+  #mathjax = true # Enable MathJax
+  #mathjaxPath = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js" # Specify MathJax path
+  #mathjaxConfig = "TeX-AMS-MML_HTMLorMML" # Specify MathJax config
+  customCSS = ["css/custom.css"] # Include custom CSS files
+
+[Params.sidebar]
+  home = "right" # Configure layout for home page
+  list = "left"  # Configure layout for list pages
+  single = false # Configure layout for single pages
+  # Enable widgets in given order
+  widgets = ["search", "recent", "categories", "taglist", "social", "languages"]
+
+[Params.widgets]
+  recent_num = 5 # Set the number of articles in the "Recent articles" widget
+  tags_counter = true # Enable counter for each tag in "Tags" widget (disabled by default)
+ 
+
+[Params.widgets.social]
+  # Enable parts of social widget
   # Link your social networking accounts to the side menu
   # by entering your username or ID.
 
@@ -63,35 +74,10 @@ ignoreFiles = ["\\.Rmd$", "\\.Rmarkdown$", "_files$", "_cache$"]
   #gnusocial = "*" # Specify href (e.g. https://quitter.se/yourusername)
   #facebook = "*"
   googleplus = "carlvinjerry@gmail.com"
-  #weibo = "*"
-  #umblr = "*"
-
-  # SNS photo/video sharing
-  #instagram = "i_Carlvin"
-  #flickr = "https://www.linkedin.com/in/carlvinmwange/"
-  #photo500px = "*"
-  #pinterest = "*"
-  #youtube = "*"
-  #vimeo = "*"
-  #vine = "*"
-  #slideshare = "*"
-
+  
   # SNS career oriented
   linkedin = "*"
-  #xing = "*"
-
-  # SNS news
-  #reddit = "*"
-  #hackernews = "*"
-
+  
   # Techie
   github = "CarlvinJerry"
-  #gitlab = "*"
-  #bitbucket = "*"
-  #stackoverflow = "*"
-  #serverfault = "*"
-
-
-#talkyardServerUrl = "https://comments-for-carlvinjerry-github-io.talkyard.net/"
-
   
