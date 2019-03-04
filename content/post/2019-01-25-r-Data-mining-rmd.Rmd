@@ -1,6 +1,6 @@
 ---
 title: "DATA MINING IN R"
-
+lead: "Getting started with Text mining using Twitter and R"
 author: "Carlvin Jerry"
 
 date: '2019-01-25'
@@ -27,15 +27,9 @@ categories:
 knitr::opts_chunk$set(collapse = TRUE)
 ```
 
-<br>
-
-
 #PartI{#PartI}
-## Getting started with Text mining using Twitter and R
+>This first section assumes you have no knowledge in building a twitter app to be used for fetching data. You can skip directly to [the second section here](#PartII) if you are able to build your own twitter app and get the required authentication keys.
 
-This first section assumes you have no knowledge in building a twitter app to be used for fetching data. You can skip directly to [the second section here](#PartII) if you are able to build your own twitter app and get the required authentication keys.
-
-<br>
 
 ### Introduction:
 Social media usage has grown rapidly over the past few decades. Most social networks we can think of now are so well established, making them a platform where people can not only talk to one another but also be able to come forward with different views and interests they would like to express. With an almost constant rate of increasing users each day, social networks such as Facebook and Twitter have become great sources of data which can be used in the broad field of Data Science:Talk of (those pretty annoying) targeted ads for example...
