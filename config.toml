@@ -1,11 +1,12 @@
 baseurl = "https://beyondrawdata.rbind.io/"
 languageCode = "en-us"
-title = "Beyond Raw Data"
+title = "B̺eyond͆ R̺aw͆ D̺ata͆"#B͆E͆Y͆O͆N͆D R͆A͆W͆ D͆A͆T͆A͆
 paginate = "10" # Number of posts per page
 ignoreFiles = ["\\.Rmd$", "\\.Rmarkdown$", "_files$", "_cache$"]
 theme = "Mainroad"
-disqusShortname = "" # Enable comments by entering your Disqus shortname
-googleAnalytics = "" # Enable Google Analytics by entering your tracking id
+disqusShortname = "beyond-raw-data-blog" # Enable comments by entering your Disqus shortname
+googleAnalytics = "UA-137362362-1" # Enable Google Analytics by entering your tracking id
+#ignoreFiles = ["\\.Rmd$", "\\.Rmarkdown$", "_files$", "_cache$"]
 publishDir = "J://Personalprojects//Blogsite//CarlvinJerry.github.io"
 
 #[Author] # Used in authorbox
@@ -18,6 +19,19 @@ publishDir = "J://Personalprojects//Blogsite//CarlvinJerry.github.io"
   #bio = "Carlvin is a young data science enthusiast who loves building and testing all things data analytics and visualization. Here to learn, here to grow! Have questions or suggestions? Feel free to open an issue on GitHub or ask me on Twitter.Thanks for reading!"
   avatar = "img/avatar.png"
 
+[menu]
+ [[menu.main]]
+    name = "Home"
+    identifier = "home"
+    url = ""
+    weight = 1
+	
+ [[menu.main]]
+    name = "Posts"
+    identifier = "posts"
+    url = "/post/"
+    weight = 2
+	
  [[menu.main]]
     name = "About"
     pre = "<i class='fa fa-user fa-fw'></i>"
@@ -31,13 +45,27 @@ publishDir = "J://Personalprojects//Blogsite//CarlvinJerry.github.io"
     pre = "<i class='fa fa-phone fa-fw'></i>"
     weight = 6
     url = "/contact/"
+	
+ [[menu.main]]
+    name = "RSS Feed"
+    identifier = "RSS"
+    url = "/post/index.xml"
+    weight = 101
+
+[[menu.main]]
+    name = "R Bloggers"
+    identifier = "R"
+    url = "https://www.r-bloggers.com/"
+    weight = 110
+
 
 
 [Params]
   subtitle = "Fitting a thousand stories,in a nutshell..."
   description = "Carlvin's personal blog about everything Data Science" # Site description. Used in meta description
   copyright = "Carlvin M" # copyright holder, otherwise will use site title
-  opengraph = true # Enable OpenGraph if true
+  opengraph = true # Enable OpenGraph if true 
+  #logoPath = "https://github.com/rbind/data-blog/blob/master/logos/datascienceblog_logo_wide_alt.png"
   twitter_cards = true # Enable Twitter Cards if true
   readmore = true # Show "Read more" button in list if true
   authorbox = false # Show authorbox at bottom of pages if true
@@ -80,4 +108,5 @@ publishDir = "J://Personalprojects//Blogsite//CarlvinJerry.github.io"
   
   # Techie
   github = "CarlvinJerry"
+ 
   
