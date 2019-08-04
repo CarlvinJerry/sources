@@ -1,0 +1,55 @@
+---
+title: EXPLORATORY DATA ANALYSIS
+description: "Influencing online User decisions on Twitter through nudge units"
+thumbnail: "https://carlvinjerry.github.io/post/MyImages/Collage 2019-08-04 02_58_03.jpg"
+disable_comments: false # Optional, disable Disqus comments if true
+toc: false # Optional, enable Table of Contents for specific post
+author: "Carvin M"
+date: '2019-08-04'
+
+output: 
+  html_document:
+    number_sections: FALSE
+    code_folding: hide
+    
+tags:
+- Data Visualization
+- R
+
+categories:
+- Data Analytics
+- R
+---
+
+>“The goal is to turn data into information and information into insight.” – Carly Fiorina, former chief executive officer, Hewlett Packard.
+
+If you are familiar with data analsyis then I'm certain that you fully relate to the above statement. After all, it would be pointless to play around with lots of data just ***for the love of it***.
+
+Data is gold, and the more you have the better off you are. However, raw unprocessed data is of no use unless you manipulate and gain insights from it. Before embarking on statistical modelling and visualization of your data, it is very important to first have an understanding of the data itself. Exploratory Data Analysis (***EDA**) aids in  visualisation, transformation, and generally cleaning or remodelling data before diving deep into statistics and predictive modelling.
+
+There are not set rules to be followed when performing EDA. As a data reparation phase, one is allowed to decide what suits them best in order to gain an understanding of their data. However, there are two most important questions one should seek to answer while studying their data: 
+
+* Is there variation within my variables?
+* Is there any correlation between my variables?
+
+That being said, EDA involves the following checks among others:
+
+* Descriptive Statistics - Give a summarized understanding of the data, usually as measires of central tendency and variability.
+  + Mean - Arithmetic average
+  + Median - middle value
+  + Mode - most frequent value
+  + Standard Deviation - variation from the mean
+  + Kurtosis -peakedness of the ata distribution
+  + Skewness - symmetry of the data distribution
+  
+* Groupings of data.
+* Missing values
+* ANOVA: Analysis of variance
+* Graphical visualization, not limited to:
+  + Histogram -frequency bar plots
+  + Density estomation - an setimation if the frequency distribution based on sample data
+  + Box plots - A visual representation of median, quantiles, symmetry and ourtliers
+  + Scatter plots - a graphical display of variables plotted on the x and y axes.
+
+  
+ In this post, we will perform EDA on a sample dataset containing responses on mobile banking survey in Kenya. If you would like to follow along with the same data, you can download it [here](https://www.google.com)
