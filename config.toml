@@ -103,7 +103,7 @@ publishDir = "J://Personalprojects//Blogsite//CarlvinJerry.github.io"
   # by entering your username or ID.
 
   # SNS microblogging
-  twitter = "" #"@Ctrl_Shft_Del"
+  #twitter = ""#"@Ctrl_Shft_Del"
   #gnusocial = "*" # Specify href (e.g. https://quitter.se/yourusername)
   #facebook = "*"
   googleplus = "carlvinjerry@gmail.com"

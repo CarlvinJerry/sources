@@ -24,11 +24,8 @@ categories:
 
 
 
-<div id="PartI" class="section level1">
-<h1>PartI</h1>
-<blockquote>
-<p>This first section assumes you have no knowledge in building a twitter app to be used for fetching data. You can skip directly to <a href="#PartII">the second section here</a> if you are able to build your own twitter app and get the required authentication keys.</p>
-</blockquote>
+<p>#PartI{#PartI}
+&gt;This first section assumes you have no knowledge in building a twitter app to be used for fetching data. You can skip directly to <a href="#PartII">the second section here</a> if you are able to build your own twitter app and get the required authentication keys.</p>
 <div id="introduction" class="section level3">
 <h3>Introduction:</h3>
 <p>Social media usage has grown rapidly over the past few decades. Most social networks we can think of now are so well established, making them a platform where people can not only talk to one another but also be able to come forward with different views and interests they would like to express. With an almost constant rate of increasing users each day, social networks such as Facebook and Twitter have become great sources of data which can be used in the broad field of Data Science:Talk of (those pretty annoying) targeted ads for example…</p>
@@ -41,23 +38,29 @@ categories:
 </div>
 <div id="creating-a-twitter-app" class="section level3">
 <h3>Creating a Twitter app</h3>
-<p>To create a twitter app we can use for fetching metadata, we first need to have a Twitter account. We then need to go to the <strong>twitter dev site</strong> <a href="https://developer.twitter.com/" class="uri">https://developer.twitter.com/</a> and log in with our user account. On the top right corner should be a drop down menu next to your username, go to APPS. At this point if you are doing this for the first time your Apps section should be blank. Click on “Create an app” to… create an app.</p>
+<p>To create a twitter app we can use for fetching metadata, we first need to have a Twitter account. We then need to go to the <strong>twitter dev site</strong> <a href="https://developer.twitter.com/" class="uri">https://developer.twitter.com/</a> and log in with our user account.
+On the top right corner should be a drop down menu next to your username, go to APPS. At this point if you are doing this for the first time your Apps section should be blank. Click on “Create an app” to… create an app.</p>
 <center>
 <img src="https://carlvinjerry.github.io/post/MyImages/apps.PNG" alt="Figure 1: App login" />
 </center>
 <p><br></p>
 <p>We then have to fill in the form below appropriately. Here is a breakdown of what’s required:</p>
 <ul>
-<li><strong>Name:</strong> Give your app a unique name of your choice, e.g <strong>UniqueName</strong></li>
-<li><strong>Description:</strong> This can always be changed later, use this to provide a brief note on what your app is all about to be able to distinguish it from other apps you might create in future.</li>
-<li><strong>Website:</strong> This should be your application’s home page web site. It is however not applicable for most personal apps. Anything goes here e.g <a href="https://carlvinjerry.github.io" class="uri">https://carlvinjerry.github.io</a></li>
-<li><strong>Callback URL:</strong> I would ignore the Callback URL field. If you are allowing users to log into your app to authenticate themselves, you’d enter the URL where they would be returned after they’ve given permission to Twitter to use your app.</li>
+<li><strong>Name:</strong>
+Give your app a unique name of your choice, e.g <strong>UniqueName</strong></li>
+<li><strong>Description:</strong>
+This can always be changed later, use this to provide a brief note on what your app is all about to be able to distinguish it from other apps you might create in future.</li>
+<li><strong>Website:</strong>
+This should be your application’s home page web site. It is however not applicable for most personal apps. Anything goes here e.g <a href="https://carlvinjerry.github.io" class="uri">https://carlvinjerry.github.io</a></li>
+<li><strong>Callback URL:</strong>
+I would ignore the Callback URL field. If you are allowing users to log into your app to authenticate themselves, you’d enter the URL where they would be returned after they’ve given permission to Twitter to use your app.</li>
 </ul>
 <center>
 <img src="https://carlvinjerry.github.io/post/MyImages/apps2.PNG" alt="Figure 2: Create an app" />
 </center>
 <p><br></p>
-<p>The remaining fields should be quite straight forward but must be filled. Click “Create” once done and there you have your first twitter app. On your app is a menu with <strong>Keys and tokens</strong>. These are the most important components since we will need them to access data from the APIs.Generate both consumer and access tokens (if not readily available) and take note of them. <strong>NB:</strong> <strong>These keys are meant for your eyes only!</strong></p>
+<p>The remaining fields should be quite straight forward but must be filled. Click “Create” once done and there you have your first twitter app.
+On your app is a menu with <strong>Keys and tokens</strong>. These are the most important components since we will need them to access data from the APIs.Generate both consumer and access tokens (if not readily available) and take note of them. <strong>NB:</strong> <strong>These keys are meant for your eyes only!</strong></p>
 <center>
 <img src="https://CarlvinJerry.github.io/post/MyImages/keys.PNG" alt="Figure 3: API Keys" />
 </center>
@@ -72,20 +75,18 @@ categories:
 <hr />
 <hr />
 <p><br></p>
-</div>
-</div>
-<div id="PartII" class="section level1">
-<h1>PartII</h1>
-<div id="setting-up-r-to-fetch-twitter-data" class="section level2">
-<h2>Setting up R to fetch twitter data</h2>
-<p>With our twitter app set up <a href="#PartI">in part I above</a> and we are able to get the authentication keys for the API, we can now easily fetch data from twitter in R. The following steps will help us do this:</p>
+<p>#PartII{#PartII}
+## Setting up R to fetch twitter data
+With our twitter app set up <a href="#PartI">in part I above</a> and we are able to get the authentication keys for the API, we can now easily fetch data from twitter in R. The following steps will help us do this:</p>
 <div id="prerequisites" class="section level4">
 <h4>Prerequisites:</h4>
 <ul>
 <li><strong>Twitter API Keys:</strong> At this point we already have our twitter app with the required API keys.</li>
-<li><strong>R and an IDE of choice:</strong> We also need to have R installed, advisably the latest version. Microsoft’s <a href="https://mran.microsoft.com/open"><strong>enhanced R distribution</strong></a> is recommended over the <a href="https://cran.r-project.org/bin/windows/base/"><strong>base R</strong></a> but for this specific task either can do just fine. I would recommend <a href="https://www.rstudio.com/products/rstudio/download/"><strong>R STUDIO</strong></a> for an <strong>IDE</strong>. One obvious advantage of all these is that they’re open-source tools.</li>
+<li><strong>R and an IDE of choice:</strong> We also need to have R installed, advisably the latest version. Microsoft’s <a href="https://mran.microsoft.com/open"><strong>enhanced R distribution</strong></a> is recommended over the
+<a href="https://cran.r-project.org/bin/windows/base/"><strong>base R</strong></a> but for this specific task either can do just fine. I would recommend <a href="https://www.rstudio.com/products/rstudio/download/"><strong>R STUDIO</strong></a> for an <strong>IDE</strong>. One obvious advantage of all these is that they’re open-source tools.</li>
 </ul>
 <p><br></p>
+</div>
 </div>
 <div id="install-and-load-the-required-packages-in-r" class="section level3">
 <h3>1.Install and Load the required packages in R</h3>
@@ -141,6 +142,4 @@ save(UKenyatta_Tweets, file=&quot;UKenyatta_Tweets.RData&quot;)
 <img src="https://fontmeme.com/permalink/190129/8b378e9ce35b7a28dd150c4f1d656807.png" />
 </center>
 <p><br></p>
-</div>
-</div>
 </div>
