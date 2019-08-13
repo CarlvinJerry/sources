@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en-us">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>DATA MINING IN R - Beyond Raw Data</title>
+	<script>(function(d,e){d[e]=d[e].replace("no-js","js");})(document.documentElement,"className");</script>
+	<meta name="description" content="">
+	<meta property="og:title" content="DATA MINING IN R" />
+<meta property="og:description" content="#PartI{#PartI}&gt;This first section assumes you have no knowledge in building a twitter app to be used for fetching data. You can skip directly to the second section here if you are able to build your own twitter app and get the required authentication keys.
+Introduction:Social media usage has grown rapidly over the past few decades. Most social networks we can think of now are so well established, making them a platform where people can not only talk to one another but also be able to come forward with different views and interests they would like to express." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/post/2019-01-25-r-data-mining-rmd/" />
+<meta property="article:published_time" content="2019-01-25T00:00:00+00:00" />
+<meta property="article:modified_time" content="2019-01-25T00:00:00+00:00" />
+
+	<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="DATA MINING IN R"/>
+<meta name="twitter:description" content="#PartI{#PartI}&gt;This first section assumes you have no knowledge in building a twitter app to be used for fetching data. You can skip directly to the second section here if you are able to build your own twitter app and get the required authentication keys.
+Introduction:Social media usage has grown rapidly over the past few decades. Most social networks we can think of now are so well established, making them a platform where people can not only talk to one another but also be able to come forward with different views and interests they would like to express."/>
+
+	<link rel="dns-prefetch" href="//fonts.googleapis.com">
+	<link rel="dns-prefetch" href="//fonts.gstatic.com">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700">
+	<link rel="stylesheet" href="/css/style.css">
+	
+	<link rel="shortcut icon" href="/favicon.ico">
+		
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-137362362-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+</head>
+<body class="body">
+	<div class="container container--outer">
+		<header class="header">
+	<div class="container">
+		<div class="logo">
+			<a class="logo__link" href="/" title="Beyond Raw Data" rel="home">
+				<div class="logo__title">Beyond Raw Data</div>
+				<div class="logo__tagline">Fitting a thousand data stories in a nutshell...</div>
+			</a>
+		</div>
+		
+<nav class="menu">
+	<button class="menu__btn" aria-haspopup="true" aria-expanded="false" tabindex="0">
+		<span class="menu__btn-title" tabindex="-1">Menu</span>
+	</button>
+	<ul class="menu__list">
+		<li class="menu__item">
+			<a class="menu__link" href="">Home</a>
+		</li>
+		<li class="menu__item">
+			<a class="menu__link" href="/post/">Posts</a>
+		</li>
+		<li class="menu__item">
+			<a class="menu__link" href="/contact/">Contact</a>
+		</li>
+		<li class="menu__item">
+			<a class="menu__link" href="/post/index.xml">RSS Feed</a>
+		</li>
+		<li class="menu__item">
+			<a class="menu__link" href="https://www.r-bloggers.com/">R Bloggers</a>
+		</li>
+		<li class="menu__item">
+			<a class="menu__link" href="/about/">About </a>
+		</li>
+	</ul>
+</nav>
+
+	</div>
+</header>
+		<div class="wrapper flex">
+			<div class="primary">
+			
+<main class="main" role="main">
+	<article class="post">
+		<header class="post__header">
+			<h1 class="post__title">DATA MINING IN R</h1>
+			<p class="post__lead">Getting started with Text mining using Twitter and R</p>
+			<div class="post__meta meta">
+<div class="meta__item-datetime meta__item">
+	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0C7 0 1 6 1 14s6 14 14 14 14-6 14-14S23 0 15 0zm0 25C9 25 4 20 4 14S9 3 15 3s11 5 11 11-5 11-11 11zm1-18h-2v8.4l6.8 4.4L22 18l-6-3.8V7z"/></svg>
+	<time class="meta__text" datetime="2019-01-25T00:00:00">January 25, 2019</time>
+</div>
+
+<div class="meta__item-categories meta__item">
+	<svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2l1 2h8v11h-16v-13z"/></svg>
+	<span class="meta__text"><a class="meta__link" href="/categories/data-mining" rel="category">Data Mining</a>, <a class="meta__link" href="/categories/r" rel="category">R</a></span>
+</div>
+</div>
+		</header><div class="content post__content clearfix">
+			
+
+
+<p>#PartI{#PartI}
+&gt;This first section assumes you have no knowledge in building a twitter app to be used for fetching data. You can skip directly to <a href="#PartII">the second section here</a> if you are able to build your own twitter app and get the required authentication keys.</p>
+<div id="introduction" class="section level3">
+<h3>Introduction:</h3>
+<p>Social media usage has grown rapidly over the past few decades. Most social networks we can think of now are so well established, making them a platform where people can not only talk to one another but also be able to come forward with different views and interests they would like to express. With an almost constant rate of increasing users each day, social networks such as Facebook and Twitter have become great sources of data which can be used in the broad field of Data Science:Talk of (those pretty annoying) targeted ads for example…</p>
+<center>
+<img src="https://media.giphy.com/media/3o6Mbmg6AchRmB4ylO/giphy.gif" alt="Gif: They just keep coming!!" />
+<center>
+<p><br></p>
+<p>With the help of APIs, we are easily able to get data from such platforms to be used for further analysis. In this article we will go through the first step of text mining in R using data fetched from Twitter. The main advantage of these APIs is that the data we will fetch comes in a well-structured format which makes our work easier when crunching. In this case we will use the readily available Twitter API and create our own Twitter app that will then help in fetching the data. The following steps will accomplish the task…</p>
+<p><br></p>
+</div>
+<div id="creating-a-twitter-app" class="section level3">
+<h3>Creating a Twitter app</h3>
+<p>To create a twitter app we can use for fetching metadata, we first need to have a Twitter account. We then need to go to the <strong>twitter dev site</strong> <a href="https://developer.twitter.com/" class="uri">https://developer.twitter.com/</a> and log in with our user account.
+On the top right corner should be a drop down menu next to your username, go to APPS. At this point if you are doing this for the first time your Apps section should be blank. Click on “Create an app” to… create an app.</p>
+<center>
+<img src="https://carlvinjerry.github.io/post/MyImages/apps.PNG" alt="Figure 1: App login" />
+</center>
+<p><br></p>
+<p>We then have to fill in the form below appropriately. Here is a breakdown of what’s required:</p>
+<ul>
+<li><strong>Name:</strong>
+Give your app a unique name of your choice, e.g <strong>UniqueName</strong></li>
+<li><strong>Description:</strong>
+This can always be changed later, use this to provide a brief note on what your app is all about to be able to distinguish it from other apps you might create in future.</li>
+<li><strong>Website:</strong>
+This should be your application’s home page web site. It is however not applicable for most personal apps. Anything goes here e.g <a href="https://carlvinjerry.github.io" class="uri">https://carlvinjerry.github.io</a></li>
+<li><strong>Callback URL:</strong>
+I would ignore the Callback URL field. If you are allowing users to log into your app to authenticate themselves, you’d enter the URL where they would be returned after they’ve given permission to Twitter to use your app.</li>
+</ul>
+<center>
+<img src="https://carlvinjerry.github.io/post/MyImages/apps2.PNG" alt="Figure 2: Create an app" />
+</center>
+<p><br></p>
+<p>The remaining fields should be quite straight forward but must be filled. Click “Create” once done and there you have your first twitter app.
+On your app is a menu with <strong>Keys and tokens</strong>. These are the most important components since we will need them to access data from the APIs.Generate both consumer and access tokens (if not readily available) and take note of them. <strong>NB:</strong> <strong>These keys are meant for your eyes only!</strong></p>
+<center>
+<img src="https://CarlvinJerry.github.io/post/MyImages/keys.PNG" alt="Figure 3: API Keys" />
+</center>
+<p><br></p>
+<p>The final bit of setting up our twitter app is granting access permissions. We will mostly do fine with the <strong>read-only</strong> if all we need is to fetch data but it can always be changed later.</p>
+<center>
+<img src="https://carlvinjerry.github.io/post/MyImages/permisions.PNG" alt="Figure 4: Permissions" />
+</center>
+<p><br><br></p>
+<p>Now we can move on to the next step where we set up <strong>R</strong> to query data from Twitter.</p>
+<p><br></p>
+<hr />
+<hr />
+<p><br></p>
+<p>#PartII{#PartII}
+## Setting up R to fetch twitter data
+With our twitter app set up <a href="#PartI">in part I above</a> and we are able to get the authentication keys for the API, we can now easily fetch data from twitter in R. The following steps will help us do this:</p>
+<div id="prerequisites" class="section level4">
+<h4>Prerequisites:</h4>
+<ul>
+<li><strong>Twitter API Keys:</strong> At this point we already have our twitter app with the required API keys.</li>
+<li><strong>R and an IDE of choice:</strong> We also need to have R installed, advisably the latest version. Microsoft’s <a href="https://mran.microsoft.com/open"><strong>enhanced R distribution</strong></a> is recommended over the
+<a href="https://cran.r-project.org/bin/windows/base/"><strong>base R</strong></a> but for this specific task either can do just fine. I would recommend <a href="https://www.rstudio.com/products/rstudio/download/"><strong>R STUDIO</strong></a> for an <strong>IDE</strong>. One obvious advantage of all these is that they’re open-source tools.</li>
+</ul>
+<p><br></p>
+</div>
+</div>
+<div id="install-and-load-the-required-packages-in-r" class="section level3">
+<h3>1.Install and Load the required packages in R</h3>
+<p>R has a standard set of packages, each with different tasks. You can find some packages for download<br />
+<a href="https://cran.cnr.berkeley.edu/"><strong>here</strong></a>. The code chunk below installs and loads the specific packages we need for this task. Take note of comments at each line of code, initiated by an octothorp.</p>
+<pre class="r"><code>#Install packages
+install.packages(&quot;twitteR&quot;)#------Extracts data from twitter
+install.packages(&quot;httr&quot;)#--------Tools for Working with URLs and HTTP</code></pre>
+<pre class="r"><code>#We can now load the two packages 
+library(&quot;twitteR&quot;)
+require(&quot;httr&quot;)#-------------Both require() and library() can be used to call an installed package</code></pre>
+<p><br></p>
+<p><strong>NB:</strong> Windows users might need to download a certification file and store it in the working directory. This certificate file initiates a handshake between R and the Twitter API.</p>
+<pre class="r"><code># Download &quot;cacert.pem&quot; file
+download.file(url=&quot;https://curl.haxx.se/ca/cacert.pem&quot;,destfile=&quot;cacert.pem&quot;)</code></pre>
+<p><br><br></p>
+</div>
+<div id="create-and-store-objects-containing-the-twitter-authenticated-credentials" class="section level3">
+<h3>2.Create and store objects containing the twitter authenticated credentials</h3>
+<p>This is where we invoke the twitter API using the credentials from our app and query the data we need.</p>
+<pre class="r"><code># Authentication keys
+consumer_key &lt;- &#39;hjksdha08097afnjhaa90uaf&#39;
+consumer_secret &lt;- &#39;hjksdha08097afnjhaa90uaf&#39;
+access_token &lt;- &#39;hjksdha08097afnjhaa90uaf&#39;
+access_secret &lt;- &#39;hjksdha08097afnjhaa90uaf&#39;
+
+#The above tokens are what we made the twitter app for.
+</code></pre>
+<p><br><br></p>
+</div>
+<div id="query-data-from-twitter" class="section level3">
+<h3>3.Query data from twitter</h3>
+<p>We can now go ahead and fetch our data. Due to limitations on the twitter standard apps, it is advisable to store your data in R locally. This will reduce the number of times you have to make requests to twitter to fetch data. You will therefore do much more with your app that way regardless of the limitations- Or you can as well buy the premium app. In my example below, I am fetching data for a user on twitter called <span class="citation">@UKenyatta</span>.</p>
+<pre class="r"><code>#Connect to Twitter 
+setup_twitter_oauth(consumer_key, consumer_secret, access_token, access_secret)
+tweets &lt;- userTimeline(&quot;UKenyatta&quot;, n=3200) #Standard twitter apps are limited to 3200 tweets per                                                  #download session. This could come out less depending on
+                                            #the app
+
+#create a data frame of the tweets
+UKenyatta_Tweets &lt;- tbl_df(map_df(tweets, as.data.frame))
+
+# Save tweets for later (and note when saved):
+save(UKenyatta_Tweets, file=&quot;UKenyatta_Tweets.RData&quot;)
+
+# You can then access them later at will...
+# load(&quot;UKenyatta_Tweets.RData&quot;)</code></pre>
+<p>You can now manipulate your data and see what you find out.</p>
+<center>
+<img src="https://media.giphy.com/media/ZtMkorgeyRu5q/giphy.gif" alt="Happy crunching!!" />
+</center>
+<p><br></p>
+<center>
+<img src="https://fontmeme.com/permalink/190129/8b378e9ce35b7a28dd150c4f1d656807.png" />
+</center>
+<p><br></p>
+</div>
+
+		</div>
+		<footer class="post__footer">
+			
+<div class="post__tags tags clearfix">
+	<svg class="tags__badge icon icon-tag" width="16" height="16" viewBox="0 0 32 32"><path d="M32 19c0 1-1 2-1 2L21 31s-1 1-2 1-2-1-2-1L2 16c-1-1-1.4-2-1.4-2S0 12.5 0 11V3C0 1.5.8.8.8.8S1.5 0 3 0h8c1.5 0 3 .6 3 .6S15 1 16 2l15 15s1 1 1 2zM7 10a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/></svg>
+	<ul class="tags__list">
+		<li class="tags__item"><a class="tags__link btn" href="/tags/twitter/" rel="tag">Twitter</a></li>
+		<li class="tags__item"><a class="tags__link btn" href="/tags/data-mining/" rel="tag">Data Mining</a></li>
+		<li class="tags__item"><a class="tags__link btn" href="/tags/r/" rel="tag">R</a></li>
+		<li class="tags__item"><a class="tags__link btn" href="/tags/data-visualization/" rel="tag">Data Visualization</a></li>
+		<li class="tags__item"><a class="tags__link btn" href="/tags/sentiment-analysis/" rel="tag">Sentiment Analysis</a></li>
+	</ul>
+</div>
+		</footer>
+	</article>
+</main>
+
+
+<nav class="post-nav flex">
+	<div class="post-nav__item post-nav__item--next">
+		<a class="post-nav__link" href="/post/2019-02-20-digital-nudging-rmd/" rel="next"><span class="post-nav__caption">Next&thinsp;»</span><p class="post-nav__post-title">DIGITAL NUDGING</p></a>
+	</div>
+</nav>
+
+<section class="comments">
+	<div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "beyond-raw-data-blog" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</section>
+
+
+			</div>
+			<aside class="sidebar"><div class="widget-search widget">
+	<form class="widget-search__form" role="search" method="get" action="https://google.com/search">
+		<label>
+			<input class="widget-search__field" type="search" placeholder="SEARCH..." value="" name="q" aria-label="SEARCH...">
+		</label>
+		<input class="widget-search__submit" type="submit" value="Search">
+		<input type="hidden" name="sitesearch" value="/" />
+	</form>
+</div>
+<div class="widget-recent widget">
+	<h4 class="widget__title">Recent Posts</h4>
+	<div class="widget__content">
+		<ul class="widget__list">
+			<li class="widget__item"><a class="widget__link" href="/post/2019-08-04-exploratory-data-analysis/">EXPLORATORY DATA ANALYSIS</a></li>
+			<li class="widget__item"><a class="widget__link" href="/post/2019-02-20-digital-nudging-rmd/">DIGITAL NUDGING</a></li>
+			<li class="widget__item"><a class="widget__link" href="/post/2019-01-25-r-data-mining-rmd/">DATA MINING IN R</a></li>
+		</ul>
+	</div>
+</div>
+<div class="widget-categories widget">
+	<h4 class="widget__title">Categories</h4>
+	<div class="widget__content">
+		<ul class="widget__list">
+			<li class="widget__item"><a class="widget__link" href="/categories/data-analytics">Data analytics</a></li>
+			<li class="widget__item"><a class="widget__link" href="/categories/data-mining">Data mining</a></li>
+			<li class="widget__item"><a class="widget__link" href="/categories/machine-learning">Machine learning</a></li>
+			<li class="widget__item"><a class="widget__link" href="/categories/r">R</a></li>
+		</ul>
+	</div>
+</div>
+<div class="widget-taglist widget">
+	<h4 class="widget__title">Tags</h4>
+	<div class="widget__content">
+		<a class="widget-taglist__link widget__link btn" href="/tags/data-mining" title="Data mining">Data mining</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/data-visualization" title="Data visualization">Data visualization</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/decision-trees" title="Decision trees">Decision trees</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/r" title="R">R</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/regression" title="Regression">Regression</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/rpython" title="Rpython">Rpython</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/sentiment-analysis" title="Sentiment analysis">Sentiment analysis</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/twitter" title="Twitter">Twitter</a>
+	</div>
+</div>
+<div class="widget-social widget">
+	<h4 class="widget-social__title widget__title">Social</h4>
+	<div class="widget-social__content widget__content">
+		<div class="widget-social__item widget__item">
+			<a class="widget-social__link widget__link btn" title="LinkedIn" rel="noopener noreferrer" href="https://linkedin.com/in/carlvinmwange" target="_blank">
+				<svg class="widget-social__link-icon icon icon-linkedin" width="24" height="24" viewBox="0 0 352 352"><path d="M0,40v272c0,21.9,18.1,40,40,40h272c21.9,0,40-18.1,40-40V40c0-21.9-18.1-40-40-40H40C18.1,0,0,18.1,0,40z M312,32 c4.6,0,8,3.4,8,8v272c0,4.6-3.4,8-8,8H40c-4.6,0-8-3.4-8-8V40c0-4.6,3.4-8,8-8H312z M59.5,87c0,15.2,12.3,27.5,27.5,27.5 c15.2,0,27.5-12.3,27.5-27.5c0-15.2-12.3-27.5-27.5-27.5C71.8,59.5,59.5,71.8,59.5,87z M187,157h-1v-21h-45v152h47v-75 c0-19.8,3.9-39,28.5-39c24.2,0,24.5,22.4,24.5,40v74h47v-83.5c0-40.9-8.7-72-56.5-72C208.5,132.5,193.3,145.1,187,157z M64,288h47.5 V136H64V288z"/></svg>
+				<span>LinkedIn</span>
+			</a>
+		</div>
+		<div class="widget-social__item widget__item">
+			<a class="widget-social__link widget__link btn" title="GitHub" rel="noopener noreferrer" href="https://github.com/CarlvinJerry" target="_blank">
+				<svg class="widget-social__link-icon icon icon-github" width="24" height="24" viewBox="0 0 384 374"><path d="m192 0c-106.1 0-192 85.8-192 191.7 0 84.7 55 156.6 131.3 181.9 9.6 1.8 13.1-4.2 13.1-9.2 0-4.6-.2-16.6-.3-32.6-53.4 11.6-64.7-25.7-64.7-25.7-8.7-22.1-21.3-28-21.3-28-17.4-11.9 1.3-11.6 1.3-11.6 19.3 1.4 29.4 19.8 29.4 19.8 17.1 29.3 44.9 20.8 55.9 15.9 1.7-12.4 6.7-20.8 12.2-25.6-42.6-4.8-87.5-21.3-87.5-94.8 0-20.9 7.5-38 19.8-51.4-2-4.9-8.6-24.3 1.9-50.7 0 0 16.1-5.2 52.8 19.7 15.3-4.2 31.7-6.4 48.1-6.5 16.3.1 32.7 2.2 48.1 6.5 36.7-24.8 52.8-19.7 52.8-19.7 10.5 26.4 3.9 45.9 1.9 50.7 12.3 13.4 19.7 30.5 19.7 51.4 0 73.7-44.9 89.9-87.7 94.6 6.9 5.9 13 17.6 13 35.5 0 25.6-.2 46.3-.2 52.6 0 5.1 3.5 11.1 13.2 9.2 76.2-25.5 131.2-97.3 131.2-182 0-105.9-86-191.7-192-191.7z"/></svg>
+				<span>GitHub</span>
+			</a>
+		</div>
+	</div>
+</div>
+</aside>
+		</div>
+		<footer class="footer">
+	<div class="container footer__container flex">
+		
+		<div class="footer__copyright">
+			&copy; 2019 Carlvin M.
+			<span class="footer__copyright-credits">Generated with <a href="https://gohugo.io/" rel="nofollow noopener" target="_blank">Hugo</a> and <a href="https://github.com/Vimux/Mainroad/" rel="nofollow noopener" target="_blank">Mainroad</a> theme.</span>
+		</div>
+	</div>
+</footer>
+	</div>
+<script async defer src="/js/menu.js"></script></body>
+</html>

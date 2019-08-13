@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en-us">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>EXPLORATORY DATA ANALYSIS - Beyond Raw Data</title>
+	<script>(function(d,e){d[e]=d[e].replace("no-js","js");})(document.documentElement,"className");</script>
+	<meta name="description" content="Basics for data preparation">
+	<meta property="og:title" content="EXPLORATORY DATA ANALYSIS" />
+<meta property="og:description" content="Basics for data preparation" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/post/2019-08-04-exploratory-data-analysis/" />
+<meta property="article:published_time" content="2019-08-04T00:00:00+00:00" />
+<meta property="article:modified_time" content="2019-08-04T00:00:00+00:00" />
+
+	<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="EXPLORATORY DATA ANALYSIS"/>
+<meta name="twitter:description" content="Basics for data preparation"/>
+
+	<link rel="dns-prefetch" href="//fonts.googleapis.com">
+	<link rel="dns-prefetch" href="//fonts.gstatic.com">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700">
+	<link rel="stylesheet" href="/css/style.css">
+	
+	<link rel="shortcut icon" href="/favicon.ico">
+		
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-137362362-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+</head>
+<body class="body">
+	<div class="container container--outer">
+		<header class="header">
+	<div class="container">
+		<div class="logo">
+			<a class="logo__link" href="/" title="Beyond Raw Data" rel="home">
+				<div class="logo__title">Beyond Raw Data</div>
+				<div class="logo__tagline">Fitting a thousand data stories in a nutshell...</div>
+			</a>
+		</div>
+		
+<nav class="menu">
+	<button class="menu__btn" aria-haspopup="true" aria-expanded="false" tabindex="0">
+		<span class="menu__btn-title" tabindex="-1">Menu</span>
+	</button>
+	<ul class="menu__list">
+		<li class="menu__item">
+			<a class="menu__link" href="">Home</a>
+		</li>
+		<li class="menu__item">
+			<a class="menu__link" href="/post/">Posts</a>
+		</li>
+		<li class="menu__item">
+			<a class="menu__link" href="/contact/">Contact</a>
+		</li>
+		<li class="menu__item">
+			<a class="menu__link" href="/post/index.xml">RSS Feed</a>
+		</li>
+		<li class="menu__item">
+			<a class="menu__link" href="https://www.r-bloggers.com/">R Bloggers</a>
+		</li>
+		<li class="menu__item">
+			<a class="menu__link" href="/about/">About </a>
+		</li>
+	</ul>
+</nav>
+
+	</div>
+</header>
+		<div class="wrapper flex">
+			<div class="primary">
+			
+<main class="main" role="main">
+	<article class="post">
+		<header class="post__header">
+			<h1 class="post__title">EXPLORATORY DATA ANALYSIS</h1>
+			<p class="post__lead">An introduction to data manipulation and analysis in R</p>
+			<div class="post__meta meta">
+<div class="meta__item-datetime meta__item">
+	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0C7 0 1 6 1 14s6 14 14 14 14-6 14-14S23 0 15 0zm0 25C9 25 4 20 4 14S9 3 15 3s11 5 11 11-5 11-11 11zm1-18h-2v8.4l6.8 4.4L22 18l-6-3.8V7z"/></svg>
+	<time class="meta__text" datetime="2019-08-04T00:00:00">August 04, 2019</time>
+</div>
+
+<div class="meta__item-categories meta__item">
+	<svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2l1 2h8v11h-16v-13z"/></svg>
+	<span class="meta__text"><a class="meta__link" href="/categories/data-analytics" rel="category">Data Analytics</a>, <a class="meta__link" href="/categories/r" rel="category">R</a></span>
+</div>
+</div>
+		</header>
+		<figure class="post__thumbnail">
+			<img src="https://carlvinjerry.github.io/post/MyImages/Collage%202019-08-04%2002_58_03.jpg" alt="EXPLORATORY DATA ANALYSIS">
+		</figure><div class="content post__content clearfix">
+			
+
+
+<blockquote>
+<p>“The goal is to turn data into information and information into insight.” – Carly Fiorina, former chief executive officer, Hewlett Packard.</p>
+</blockquote>
+<div id="introduction" class="section level3">
+<h3>INTRODUCTION</h3>
+<p>If you are familiar with data analysis then I’m certain that you fully relate to the above statement. After all, it would be pointless to play around with lots of data just for the love of it.</p>
+<p>Data is gold, and the more you have the better off you are. However, raw unprocessed data is of no use unless you manipulate and gain insights from it. Before embarking on statistical modelling and visualization of your data, it is very important to first have an understanding of the data itself. Exploratory Data Analysis (<strong>EDA</strong>) aids in visualization, transformation, and generally cleaning or remodeling data before diving deep into statistics and predictive modelling.</p>
+<p>There are not set rules to be followed when performing EDA. As a data reparation phase, one is allowed to decide what suits them best in order to gain an understanding of their data. However, there are two most important questions one should seek to answer while studying their data:</p>
+<ul>
+<li>Is there variation within my variables?</li>
+<li>Is there any correlation between my variables?</li>
+</ul>
+<p>That being said, EDA involves the following checks among others:</p>
+<ul>
+<li><strong>Descriptive Statistics</strong> - Give a summarized understanding of the data, usually as measures of central tendency and variability.
+<ul>
+<li><strong>Mean</strong> - Arithmetic average</li>
+<li><strong>Median</strong> - middle value</li>
+<li><strong>Mode</strong> - most frequent value</li>
+<li><strong>Standard Deviation</strong> - variation from the mean</li>
+<li><strong>Kurtosis</strong> -peakedness of the data distribution</li>
+<li><strong>Skewness</strong> - symmetry of the data distribution</li>
+</ul></li>
+<li><strong>Groupings of data</strong></li>
+<li><strong>Missing values</strong></li>
+<li><strong>ANOVA:</strong> Analysis of variance</li>
+<li><strong>Graphical visualization</strong>, not restricted to:
+<ul>
+<li><strong>Histogram</strong> -frequency bar plots</li>
+<li><strong>Density estimation</strong> - an estimation if the frequency distribution based on sample data</li>
+<li><strong>Box plots</strong> - A visual representation of median, quantiles, symmetry and ourtliers</li>
+<li><strong>Scatter plots</strong> - a graphical display of variables plotted on the x and y axes.</li>
+</ul></li>
+</ul>
+<p>In this post, we will perform EDA on a sample data set containing responses on mobile banking survey in Kenya. If you would like to follow along with the same data, you can download it <a href="https://github.com/CarlvinJerry/sources/blob/master/data/Mobile%20Banking%20in%20Kenya.csv">here</a>.</p>
+</div>
+<div id="data-importation" class="section level2">
+<h2>Data Importation</h2>
+<p>The code chunk below imports our data set into R.</p>
+<pre class="r"><code>#Loading Data into R  toc_depth: 2
+mobileBanking.Df &lt;- read.csv(&quot;J:\\Personalprojects\\Blogsite\\sources\\data\\Mobile Banking in Kenya.csv&quot;, header = TRUE, stringsAsFactors = FALSE )
+mobileBanking.Df &lt;- mobileBanking.Df[,-1] #Remove the number column which is Irrelevant</code></pre>
+<div id="data-inspection" class="section level3">
+<h3>1.0.0 Data Inspection</h3>
+<p>Once our sample data set loaded, we can check for features present in it. We first need to load all the libraries needed for data analysis and manipulation.</p>
+<pre class="r"><code> #Load required packages or install if not present.----
+load.libraries &lt;- c(&#39;data.table&#39;,&#39;tidyverse&#39;,&#39;gridExtra&#39;, &#39;corrplot&#39;, &#39;GGally&#39;, &#39;ggplot2&#39;, &#39;e1071&#39;, &#39;dplyr&#39;)
+install.lib &lt;- load.libraries[!load.libraries %in% installed.packages()]
+
+for(libs in install.lib) install.packages(libs, dependences = TRUE)
+
+#Load libraries and flag TRUE
+sapply(load.libraries, require, character = TRUE)</code></pre>
+<p>The function above takes in a list of required libraries, checks if they are already installed and installs them if not. It then loads all the packages one at a go.</p>
+</center>
+<figure>
+<img class="pure-u-1-2" src="https://carlvinjerry.github.io/post/MyImages/packages.png" height="100%" width="Auto">
+<figcaption>
+Figure 1: Loaded packages
+</figcaption>
+</figure>
+</center>
+<div id="observing-the-data-structure" class="section level4">
+<h4>1.1.0 Observing the data structure</h4>
+<pre class="r"><code>dim(mobileBanking.Df)
+## [1] 43 11</code></pre>
+<p>The data set has 43 rows with 11 Variables. We therefore explore the data types present in each variable column.</p>
+<pre class="r"><code>#Check Categorical VS Numeric Characters----
+cat_vars &lt;- names(mobileBanking.Df)[which(sapply(mobileBanking.Df, is.character))]
+cat_vars
+##  [1] &quot;Gender&quot;                       &quot;Age.Range&quot;                   
+##  [3] &quot;Have.Bak.Account&quot;             &quot;Bank.account.connected.to.MB&quot;
+##  [5] &quot;MB.used.for&quot;                  &quot;Importance&quot;                  
+##  [7] &quot;Benefit&quot;                      &quot;Bank.Visit&quot;                  
+##  [9] &quot;MB.Safety&quot;                    &quot;Influence&quot;                   
+## [11] &quot;Satisfaction&quot;
+
+numeric_vars &lt;- names(mobileBanking.Df)[which(sapply(mobileBanking.Df, is.numeric))]
+numeric_vars
+## character(0)</code></pre>
+<p>To identify the data types, we can check for numeric and categorical variables present in the data. In our case, all the variables in our data set are categorical variables. We will therefore explore the data from a categorical approach rather than numeric. There exists different visualization methods for different data types. Now that we have established the general structure of the data, we can check if there are any missing values within the variables.</p>
+<pre class="r"><code>#Checking data for any missing values
+colSums(sapply(mobileBanking.Df, is.na))
+##                       Gender                    Age.Range 
+##                            0                            0 
+##             Have.Bak.Account Bank.account.connected.to.MB 
+##                            0                            0 
+##                  MB.used.for                   Importance 
+##                            0                            0 
+##                      Benefit                   Bank.Visit 
+##                            0                            0 
+##                    MB.Safety                    Influence 
+##                            0                            0 
+##                 Satisfaction 
+##                            0</code></pre>
+<p>We have no NULL values in our data. We can therefore proceed to analysis without worrying about missing values. In a case whereby there exists null values, one can choose whether to replace the nulls with the most appropriate values or remove the rows with nulls from the data. This is important for later stages of analysis that include data modelling, like Machine Learning.</p>
+<p><br>
+<br></p>
+</div>
+<div id="data-summary" class="section level4">
+<h4>1.1.1 Data Summary</h4>
+<pre class="r"><code>#Data Summary----
+summary(mobileBanking.Df)
+##     Gender           Age.Range         Have.Bak.Account  
+##  Length:43          Length:43          Length:43         
+##  Class :character   Class :character   Class :character  
+##  Mode  :character   Mode  :character   Mode  :character  
+##  Bank.account.connected.to.MB MB.used.for         Importance       
+##  Length:43                    Length:43          Length:43         
+##  Class :character             Class :character   Class :character  
+##  Mode  :character             Mode  :character   Mode  :character  
+##    Benefit           Bank.Visit         MB.Safety        
+##  Length:43          Length:43          Length:43         
+##  Class :character   Class :character   Class :character  
+##  Mode  :character   Mode  :character   Mode  :character  
+##   Influence         Satisfaction      
+##  Length:43          Length:43         
+##  Class :character   Class :character  
+##  Mode  :character   Mode  :character</code></pre>
+<p><br></p>
+<p>The <strong><em>Summary()</em></strong> function comes in handy at summarizing data. I our case, there is no statistical measures since all our variables are categorical. Important to note that the function also specifies the specific data types. There are more than enough ways to inspect data structures in R.</p>
+<p><br>
+<br></p>
+</div>
+</div>
+<div id="getting-insights-from-the-data" class="section level3">
+<h3>2.0.0 Getting Insights from the data</h3>
+<div id="descriptive-statistics-for-categorical-data" class="section level4">
+<h4>2.1.0 Descriptive Statistics For Categorical Data</h4>
+<p>The main goal of descriptive statistics is to inform data analysts on the main features of either numerical or categorical data, using sample summaries represented as either tables, individual numbers or charts and graphs. Since we only have categorical data, I will illustrate the most used forms of descriptive statistics for the same. However, like I mentioned earlier, there are more than enough ways to analyze data in R.</p>
+<p><br></p>
+<div id="frequencies" class="section level5">
+<h5>2.1.1 Frequencies</h5>
+<p><strong>Frequencies</strong> illustrate the number of occurrences or observations of a particular category in data. We use <a href="https://en.wikipedia.org/wiki/Contingency_table">contigency tables</a> to present this information. In R this can be achieved using the <strong><em>table()</em></strong> function.</p>
+<p>From out data, the total distribution of respondents based on gender looks like this;</p>
+<pre class="r"><code>#Gender frequencies
+#library(kableExtra)
+table(mobileBanking.Df$Gender)
+## 
+## Female   Male 
+##     20     23</code></pre>
+<p>We can illustrate multiple attributes using cross classification tables such as;</p>
+<pre class="r"><code>#library(kableExtra)
+# Cross classification counts for gender by Mobile banking safety opinion
+table(mobileBanking.Df$Gender, mobileBanking.Df$MB.Safety)
+##         
+##          NotAtAll Somewhat Very
+##   Female        3       11    6
+##   Male          0       19    4</code></pre>
+<p>Multidimensional tables with three or more categories can also be achieved using the <strong><em>ftable()</em></strong> . As an example, let’s check out the number of respondents based on gender, mobile banking safety opinion and how often they visit the bank.</p>
+<pre class="r"><code>#Counts by gender, opinion and bank visits
+table_ &lt;- table(mobileBanking.Df$Gender, mobileBanking.Df$MB.Safety, mobileBanking.Df$Bank.Visit)
+ftable(table_)
+##                  FewTimesAyear OnceMonth
+##                                         
+## Female NotAtAll              3         0
+##        Somewhat             11         0
+##        Very                  5         1
+## Male   NotAtAll              0         0
+##        Somewhat             15         4
+##        Very                  4         0</code></pre>
+<p><br></p>
+</div>
+<div id="proportions" class="section level5">
+<h5>2.1.1 Proportions</h5>
+<p>Proportions are basically contingency tables represented as percentages. From our previous tables, we can do proportions for the same by applying <strong><em>prop.table()</em></strong> to output produced by the *<strong>table()</strong> function. Proportions for the above will then be;</p>
+<pre class="r"><code>#library(kableExtra)
+#Gender frequencies proportions
+prop.table(table(mobileBanking.Df$Gender))
+## 
+##    Female      Male 
+## 0.4651163 0.5348837
+
+#Percentage idistribution for Gender by mobile banking safety
+prop.table(table(mobileBanking.Df$Gender, mobileBanking.Df$MB.Safety))
+##         
+##            NotAtAll   Somewhat       Very
+##   Female 0.06976744 0.25581395 0.13953488
+##   Male   0.00000000 0.44186047 0.09302326
+
+#Percentage by gender, opinion and bank visits, rounding off to 2 decimal places
+table_ &lt;- table(mobileBanking.Df$Gender, mobileBanking.Df$MB.Safety, mobileBanking.Df$Bank.Visit)
+ftable(round(prop.table(table_),2))
+##                  FewTimesAyear OnceMonth
+##                                         
+## Female NotAtAll           0.07      0.00
+##        Somewhat           0.26      0.00
+##        Very               0.12      0.02
+## Male   NotAtAll           0.00      0.00
+##        Somewhat           0.35      0.09
+##        Very               0.09      0.00</code></pre>
+<p><br></p>
+</div>
+<div id="marginals" class="section level5">
+<h5>2.1.2 Marginals</h5>
+<p>Marginals measure counts across columns or rows in a contingency table. <strong><em>Margin.table()</em></strong> gives us the frequencies while <strong><em>prop.table()</em></strong> gives us the percentages. Using our previous examples on frequencies;</p>
+<pre class="r"><code># FREQUENCY MARGINALS
+# row marginals - totals for each gender across mobile banking opinion
+margin.table(table(mobileBanking.Df$Gender, mobileBanking.Df$MB.Safety), 1)
+## 
+## Female   Male 
+##     20     23
+
+# colum marginals -  totals for each gender across mobile banking opinion
+margin.table(table(mobileBanking.Df$Gender, mobileBanking.Df$MB.Safety), 2)
+## 
+## NotAtAll Somewhat     Very 
+##        3       30       10
+
+# PERCENTAGE MARGINALS
+# row marginals - row percentages across gender
+prop.table(table(mobileBanking.Df$Gender, mobileBanking.Df$MB.Safety), margin = 1)
+##         
+##          NotAtAll Somewhat     Very
+##   Female 0.150000 0.550000 0.300000
+##   Male   0.000000 0.826087 0.173913
+
+# colum marginals - column percentages acrossmobile banking opinion
+prop.table(table(mobileBanking.Df$Gender, mobileBanking.Df$MB.Safety), margin = 2)
+##         
+##           NotAtAll  Somewhat      Very
+##   Female 1.0000000 0.3666667 0.6000000
+##   Male   0.0000000 0.6333333 0.4000000</code></pre>
+</div>
+</div>
+<div id="visualizing-distributions" class="section level4">
+<h4>2.2.0 Visualizing Distributions</h4>
+<p>The code chunk bellow is a function that takes in our data set and plots all the present variables in it. Since we have categorical variable only, we will use <strong>bar plots</strong> for visualization. They are the most appropriate for categorical data.</p>
+<pre class="r"><code>#Loading Data into R  toc_depth: 2
+mobileBanking.Df &lt;- read.csv(&quot;J:\\Personalprojects\\Blogsite\\sources\\data\\Mobile Banking in Kenya.csv&quot;, header = TRUE, stringsAsFactors = FALSE )
+mobileBanking.Df &lt;- mobileBanking.Df[,-1] #Remove the number column which is Irrelevant
+
+#Check Categorical VS Numeric Characters----
+cat_vars &lt;- names(mobileBanking.Df)[which(sapply(mobileBanking.Df, is.character))]
+numeric_vars &lt;- names(mobileBanking.Df)[which(sapply(mobileBanking.Df, is.numeric))]
+
+
+####Convert character to factors----
+library(data.table)
+setDT(mobileBanking.Df)[,(cat_vars) := lapply(.SD, as.factor), .SDcols = cat_vars]
+
+mobileBanking.Df_cat &lt;- mobileBanking.Df[,.SD, .SDcols = cat_vars]
+    ##mobileBanking.Df_cont &lt;- mobileBanking.Df[,.SD,.SDcols = numeric_vars]
+
+#Functions for Plots---
+library(ggplot2)
+library(gridExtra)
+plotHist &lt;- function(data_in, i) {
+  data &lt;- data.frame(x=data_in[[i]])
+  p &lt;- ggplot(data=data, aes(x=factor(x))) + stat_count() + xlab(colnames(data_in)[i]) + theme_light() + 
+    theme(axis.text.x = element_text(angle = 90, hjust =1))
+  return (p)
+}
+
+doPlots &lt;- function(data_in, fun, ii, ncol=3) {
+  pp &lt;- list()
+  for (i in ii) {
+    p &lt;- fun(data_in=data_in, i=i)
+    pp &lt;- c(pp, list(p))
+  }
+  do.call(&quot;grid.arrange&quot;, c(pp, ncol=ncol))
+}
+
+plotDen &lt;- function(data_in, i){
+  data &lt;- data.frame(x=data_in[[i]], SalePrice = data_in$SalePrice)
+  p &lt;- ggplot(data= data) + geom_line(aes(x = x), stat = &#39;density&#39;, size = 1,alpha = 1.0) +
+    xlab(paste0((colnames(data_in)[i]), &#39;\n&#39;, &#39;Skewness: &#39;,round(skewness(data_in[[i]], na.rm = TRUE), 2))) + theme_light() 
+  return(p)
+  
+}</code></pre>
+<p><br></p>
+</div>
+<div id="variable-distributions" class="section level4">
+<h4>Variable Distributions</h4>
+<pre class="r"><code>#Plotting categorical values----
+#Bar plots
+doPlots(mobileBanking.Df_cat, fun = plotHist, ii = 1:4, ncol = 2)</code></pre>
+<p><img src="/post/2019-08-04-exploratory-data-analysis_files/figure-html/barplots1-1.png" width="672" /></p>
+<p><br></p>
+</div>
+</div>
+<div id="gender" class="section level3">
+<h3>Gender</h3>
+<p>It can be seen that a larger number of respondents were male, this is however by a small margin. If we had a larger data set we could have more female respondents.</p>
+<p><br></p>
+<div id="age-range" class="section level4">
+<h4>Age Range</h4>
+<p>A majority of respondents were younger guys between age <strong>21-30</strong>, followed by the <strong>31-40</strong> age bracket. The least respondents were those above age <strong>41</strong>. This could be probably because the older people chose not to participate in the survey as opposed to the younger ones, or that they somehow never got to opportunity to do so. A good example is the medium by which the survey was conducted, which the older people didn’t have.</p>
+<p><br></p>
+<div id="have-bank-account-linked-to-mobile-banking" class="section level5">
+<h5>Have Bank Account &amp; Linked To Mobile Banking</h5>
+<p>All the respondents had bank accounts. A very small number had their business bank accounts linked to mobile banking. Majority had linked their current accounts probably due to the convenience that comes with mobile banking like frequent or timeless withdrawals.</p>
+<p><br>
+<br></p>
+<p><img src="/post/2019-08-04-exploratory-data-analysis_files/figure-html/barplots2-1.png" width="672" /></p>
+<p><br></p>
+<div id="uses-of-mobile-banking-importance-and-benefits" class="section level6">
+<h6>Uses Of Mobile Banking, Importance And Benefits</h6>
+<p>Most respondents use mobile banking services for making payments. this is followed by cash withdrawals. Airtime purchase and money transfer happen to be the least uses for the service. This could be because they are easily accessible needs unlike cash withdrawal and making payments in terms of mobility convenience.</p>
+<p>Most respondents found mobile banking services <strong>very important</strong>, probably owing to the affordable cost charges and good service which could mean less usability issues when using the services.</p>
+<p><br>
+<br></p>
+<p><img src="/post/2019-08-04-exploratory-data-analysis_files/figure-html/barplots3-1.png" width="672" /></p>
+<p><br></p>
+</div>
+<div id="bank-visits" class="section level6">
+<h6>Bank Visits</h6>
+<p>We had most users who visit their banks a few times a year while the least do it once a month. This means that generally, fewer people visit the bank physically. This could be a major impact of mobile banking services.</p>
+<p><br></p>
+</div>
+<div id="mobile-banking-safety-influence-and-satisfaction" class="section level6">
+<h6>Mobile Banking Safety, Influence And Satisfaction</h6>
+<p>Despite being majorly satisfied by the services, most respondents did not find mobile banking services very safe. It is also seen as time saving which is probably why we had very few bank visits in general.</p>
+<p><br></p>
+</div>
+<div id="conclusion-from-variable-distributions" class="section level6">
+<h6>Conclusion from variable distributions</h6>
+<p>It can be concluded that mobile banking is mainly preferred by younger people, a majority being of the male gender. However, the only benefit most users find from mobile banking seems to be the convenience it brings. Safety is still a major concern.</p>
+<p><br>
+<br></p>
+<blockquote>
+<p>That’s basically it for exploratory data analysis. I made sure to cover the basics, meaning there’s still much to be added on to this; more visualizations, <a href="https://www.researchgate.net/post/What_are_the_best_R_packages_for_exploratory_data_analysis_of_psychological_data">packages</a> that simplify the whole process etc…This is to be continued. For a detailed documentation on the same, <a href="https://r4ds.had.co.nz/index.html">here’s</a> <a href="https://twitter.com/hadleywickham?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor">Hadley Wickham’s</a> <strong>R for Data Science</strong> book you can use as a reference point.</p>
+</blockquote>
+<p><br></p>
+<center>
+<p><img src="https://fontmeme.com/permalink/190129/8b378e9ce35b7a28dd150c4f1d656807.png" /></p>
+<center>
+<p><br></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+		</div>
+		<footer class="post__footer">
+			
+<div class="post__tags tags clearfix">
+	<svg class="tags__badge icon icon-tag" width="16" height="16" viewBox="0 0 32 32"><path d="M32 19c0 1-1 2-1 2L21 31s-1 1-2 1-2-1-2-1L2 16c-1-1-1.4-2-1.4-2S0 12.5 0 11V3C0 1.5.8.8.8.8S1.5 0 3 0h8c1.5 0 3 .6 3 .6S15 1 16 2l15 15s1 1 1 2zM7 10a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/></svg>
+	<ul class="tags__list">
+		<li class="tags__item"><a class="tags__link btn" href="/tags/data-visualization/" rel="tag">Data Visualization</a></li>
+		<li class="tags__item"><a class="tags__link btn" href="/tags/r/" rel="tag">R</a></li>
+	</ul>
+</div>
+		</footer>
+	</article>
+</main>
+
+
+<nav class="post-nav flex">
+	<div class="post-nav__item post-nav__item--prev">
+		<a class="post-nav__link" href="/post/2019-02-20-digital-nudging-rmd/" rel="prev"><span class="post-nav__caption">«&thinsp;Previous</span><p class="post-nav__post-title">DIGITAL NUDGING</p></a>
+	</div>
+</nav>
+
+<section class="comments">
+	<div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "beyond-raw-data-blog" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</section>
+
+
+			</div>
+			<aside class="sidebar"><div class="widget-search widget">
+	<form class="widget-search__form" role="search" method="get" action="https://google.com/search">
+		<label>
+			<input class="widget-search__field" type="search" placeholder="SEARCH..." value="" name="q" aria-label="SEARCH...">
+		</label>
+		<input class="widget-search__submit" type="submit" value="Search">
+		<input type="hidden" name="sitesearch" value="/" />
+	</form>
+</div>
+<div class="widget-recent widget">
+	<h4 class="widget__title">Recent Posts</h4>
+	<div class="widget__content">
+		<ul class="widget__list">
+			<li class="widget__item"><a class="widget__link" href="/post/2019-08-04-exploratory-data-analysis/">EXPLORATORY DATA ANALYSIS</a></li>
+			<li class="widget__item"><a class="widget__link" href="/post/2019-02-20-digital-nudging-rmd/">DIGITAL NUDGING</a></li>
+			<li class="widget__item"><a class="widget__link" href="/post/2019-01-25-r-data-mining-rmd/">DATA MINING IN R</a></li>
+		</ul>
+	</div>
+</div>
+<div class="widget-categories widget">
+	<h4 class="widget__title">Categories</h4>
+	<div class="widget__content">
+		<ul class="widget__list">
+			<li class="widget__item"><a class="widget__link" href="/categories/data-analytics">Data analytics</a></li>
+			<li class="widget__item"><a class="widget__link" href="/categories/data-mining">Data mining</a></li>
+			<li class="widget__item"><a class="widget__link" href="/categories/machine-learning">Machine learning</a></li>
+			<li class="widget__item"><a class="widget__link" href="/categories/r">R</a></li>
+		</ul>
+	</div>
+</div>
+<div class="widget-taglist widget">
+	<h4 class="widget__title">Tags</h4>
+	<div class="widget__content">
+		<a class="widget-taglist__link widget__link btn" href="/tags/data-mining" title="Data mining">Data mining</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/data-visualization" title="Data visualization">Data visualization</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/decision-trees" title="Decision trees">Decision trees</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/r" title="R">R</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/regression" title="Regression">Regression</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/rpython" title="Rpython">Rpython</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/sentiment-analysis" title="Sentiment analysis">Sentiment analysis</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/twitter" title="Twitter">Twitter</a>
+	</div>
+</div>
+<div class="widget-social widget">
+	<h4 class="widget-social__title widget__title">Social</h4>
+	<div class="widget-social__content widget__content">
+		<div class="widget-social__item widget__item">
+			<a class="widget-social__link widget__link btn" title="LinkedIn" rel="noopener noreferrer" href="https://linkedin.com/in/carlvinmwange" target="_blank">
+				<svg class="widget-social__link-icon icon icon-linkedin" width="24" height="24" viewBox="0 0 352 352"><path d="M0,40v272c0,21.9,18.1,40,40,40h272c21.9,0,40-18.1,40-40V40c0-21.9-18.1-40-40-40H40C18.1,0,0,18.1,0,40z M312,32 c4.6,0,8,3.4,8,8v272c0,4.6-3.4,8-8,8H40c-4.6,0-8-3.4-8-8V40c0-4.6,3.4-8,8-8H312z M59.5,87c0,15.2,12.3,27.5,27.5,27.5 c15.2,0,27.5-12.3,27.5-27.5c0-15.2-12.3-27.5-27.5-27.5C71.8,59.5,59.5,71.8,59.5,87z M187,157h-1v-21h-45v152h47v-75 c0-19.8,3.9-39,28.5-39c24.2,0,24.5,22.4,24.5,40v74h47v-83.5c0-40.9-8.7-72-56.5-72C208.5,132.5,193.3,145.1,187,157z M64,288h47.5 V136H64V288z"/></svg>
+				<span>LinkedIn</span>
+			</a>
+		</div>
+		<div class="widget-social__item widget__item">
+			<a class="widget-social__link widget__link btn" title="GitHub" rel="noopener noreferrer" href="https://github.com/CarlvinJerry" target="_blank">
+				<svg class="widget-social__link-icon icon icon-github" width="24" height="24" viewBox="0 0 384 374"><path d="m192 0c-106.1 0-192 85.8-192 191.7 0 84.7 55 156.6 131.3 181.9 9.6 1.8 13.1-4.2 13.1-9.2 0-4.6-.2-16.6-.3-32.6-53.4 11.6-64.7-25.7-64.7-25.7-8.7-22.1-21.3-28-21.3-28-17.4-11.9 1.3-11.6 1.3-11.6 19.3 1.4 29.4 19.8 29.4 19.8 17.1 29.3 44.9 20.8 55.9 15.9 1.7-12.4 6.7-20.8 12.2-25.6-42.6-4.8-87.5-21.3-87.5-94.8 0-20.9 7.5-38 19.8-51.4-2-4.9-8.6-24.3 1.9-50.7 0 0 16.1-5.2 52.8 19.7 15.3-4.2 31.7-6.4 48.1-6.5 16.3.1 32.7 2.2 48.1 6.5 36.7-24.8 52.8-19.7 52.8-19.7 10.5 26.4 3.9 45.9 1.9 50.7 12.3 13.4 19.7 30.5 19.7 51.4 0 73.7-44.9 89.9-87.7 94.6 6.9 5.9 13 17.6 13 35.5 0 25.6-.2 46.3-.2 52.6 0 5.1 3.5 11.1 13.2 9.2 76.2-25.5 131.2-97.3 131.2-182 0-105.9-86-191.7-192-191.7z"/></svg>
+				<span>GitHub</span>
+			</a>
+		</div>
+	</div>
+</div>
+</aside>
+		</div>
+		<footer class="footer">
+	<div class="container footer__container flex">
+		
+		<div class="footer__copyright">
+			&copy; 2019 Carlvin M.
+			<span class="footer__copyright-credits">Generated with <a href="https://gohugo.io/" rel="nofollow noopener" target="_blank">Hugo</a> and <a href="https://github.com/Vimux/Mainroad/" rel="nofollow noopener" target="_blank">Mainroad</a> theme.</span>
+		</div>
+	</div>
+</footer>
+	</div>
+<script async defer src="/js/menu.js"></script></body>
+</html>
