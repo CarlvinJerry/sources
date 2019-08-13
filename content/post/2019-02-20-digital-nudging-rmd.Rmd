@@ -412,7 +412,7 @@ For the tagged tweets, we had a __false negative of 2 predictions__ against a __
 <center>
 
 <figure>
-  <img  = src = "https://carlvinjerry.github.io/post/MyImages/math.jpg">
+  <img class="pure-u-1-2"  src = "https://carlvinjerry.github.io/post/MyImages/math.jpg">
   <figcaption>Figure 3: The formula</figcaption>
 </figure>
   
