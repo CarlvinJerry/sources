@@ -61,7 +61,7 @@ The team agreed on a few terms to query data on from twitter. For an unbiased ra
 * **“PWC”**    
 * **#Friday Feeling**  
 
-```{r Fetching twitter data, eval=FALSE, include=FALSE, tidy=TRUE}
+```{r Fetching twitter data, eval=FALSE, include=FALSE, tidy=FALSE}
 # Install And Load Requried Packages
 install.packages("twitteR") #install package if not yet
 install.packages("rtweet") #install package if not yet
@@ -93,7 +93,7 @@ bind_Data<- as.data.frame(bind_Data)
 
 A total of **7000 tweets** were captured. The data frame had a total of 88 columns which we treated as variables for the research. However, not all variables were used in the research we therefore had to do some data cleaning. Here is a preview of the variables in our raw data.  
 
-```{r Column names preview from the raw data, eval=FALSE, eval=FALSE, include=FALSE, tidy=TRUE}
+```{r Column names preview from the raw data, eval=FALSE, eval=FALSE, include=FALSE, tidy=FALSE}
 > bind_Data<- as.data.frame(bind_Data)
 > names(bind_Data)
  [1] "user_id"                 "status_id"               "created_at"             
@@ -174,7 +174,7 @@ This stage involved cleaning up our data by removing the unwanted columns/variab
   * **Retweet Verifie** - Whether the tweet had been retweeted by a verified user or not.
   * **Source** - Source of the tweet i.e "Android", "web client" e.t.c    
   
-```{r data sorting and variable selection, eval=FALSE, eval=FALSE, include=FALSE, tidy=TRUE}
+```{r data sorting and variable selection, eval=FALSE, eval=FALSE, include=FALSE, tidy=FALSE}
 #Removing unusable variables--They apear as lists in the data
 bind_Data<-subset(bind_Data, select = -c(hashtags,symbols,
                                            urls_url,urls_t.co,
@@ -205,7 +205,7 @@ Code for the data cleanup and variables setting that was done in Python can be f
 #### 2.1 Re-importing Data in R and setting up for the Models
 
 After cleaning up the data, we imported it into R, the code chunk shows a preview of the top 4 rows of the input data.   
-```{r Data import,eval=FALSE, eval=FALSE, include=FALSE, tidy=TRUE}
+```{r Data import,eval=FALSE, eval=FALSE, include=FALSE, tidy=FALSE}
 > #Data Prep
 > #Shuffle data
 > index.shuffle <- sample(1:nrow(data)) #Shuffle data index to randomize contents and remove bias
@@ -254,7 +254,7 @@ After cleaning up the data, we imported it into R, the code chunk shows a previe
 ```
 
 We still had to do some data pre-processing for the models which includes checking for and removing NULL values if present. Below is a sample table of the final data set used in the analysis.   
-```{r data prep,eval=FALSE, eval=FALSE, include=FALSE, tidy=TRUE}
+```{r data prep,eval=FALSE, eval=FALSE, include=FALSE, tidy=FALSE}
 #Clean Data
 library(dplyr)
 # Drop variables
@@ -304,7 +304,7 @@ Due to the nature of our problem,(we had several uncorrelated variables) we deci
 
 For the training and test data sets, we randomly split our data set into two sates. Usually, the best practice is to train the model with with a larger proportion of the data set. We therefore took **80%** for training and **20%** for test purposes.   
 
-```{r Split train and test data sets,eval=FALSE, include=FALSE, eval=FALSE, tidy=TRUE}
+```{r Split train and test data sets,eval=FALSE, include=FALSE, eval=FALSE, tidy=FALSE}
 #Train & Test sets
 create_train_test<- function(data, size = 0.8, train = TRUE) {
   n_row = nrow(data)
@@ -330,7 +330,7 @@ dim(data_test) #Checkdimensions for test data
 
 #### Model Training.
 We trained our decision tree model to predict a **class** "location". Whether a location is **geotagged** or **not geotagged** based on whether the user is verified, protected, has over 500 followers, is retweeted by another verified user and the number of characters in their tweet. Bellow is the visual output of the trained model.
-```{r model fit, eval=FALSE, include=FALSE, eval=FALSE, tidy=TRUE}
+```{r model fit, eval=FALSE, include=FALSE, eval=FALSE, tidy=FALSE}
 #install.packages("rpart.plot")	-This is for decision trees.
 #Create and fit model
 library(rpart)#load package
@@ -371,7 +371,7 @@ For our case, we only focus on what we found:
 
 #### 3.1 Model Testing and performance accuracy.
 With our model trained and outputs observed, we were able to run a test with our test subset. Here is our confusion matrix.   
-```{r prediction accuracy, eval=FALSE, include=FALSE,eval=FALSE, tidy=TRUE}
+```{r prediction accuracy, eval=FALSE, include=FALSE,eval=FALSE, tidy=FALSE}
  #Predicting
  predict_geotags <-predict(fit, data_test, type = 'class')
  table_mat <- table(data_test$Location, predict_geotags)
