@@ -10,14 +10,14 @@ googleAnalytics = "UA-137362362-1"# Enable Google Analytics by entering your tra
 #[Author] # Used in authorbox
  #name = "Carlvin M"
   #bio = "Carlvin is a young data science enthusiast who loves building and testing all things data analytics and visualization. Here to learn, here to grow! Have questions or suggestions? Feel free to open an issue on GitHub or ask me on Twitter.Thanks for reading!"
-  avatar = "img/avatar.png"
+  #avatar = "img/avatar.png"
  
  [menu]
- [[menu.main]]
-    name = "Home"
-    identifier = "home"
-    url = ""
-    weight = 1
+ #[[menu.main]]
+   # name = "Home"
+   # identifier = "Home"
+   # url = ""
+    #weight = 1
 	
  [[menu.main]]
     name = "Posts"
@@ -25,12 +25,12 @@ googleAnalytics = "UA-137362362-1"# Enable Google Analytics by entering your tra
     url = "/post/"
     weight = 2
  
- #[[menu.main]]
-  #  name = "About"
-  #  pre = "<i class='fa fa-user fa-fw'></i>"
-  #  weight = 5
-   # identifier = "about"
-   # url = "/about/"
+ [[menu.main]]
+    name = "About"
+    pre = "<i class='fa fa-user fa-fw'></i>"
+    weight = 5
+    identifier = "about"
+    url = "/about/"
 	#avatar = "img/avatar.png"
 
  [[menu.main]]
