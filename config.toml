@@ -2,6 +2,7 @@ baseurl = "https://beyondrawdata.rbind.io/"
 title = "Beyond Raw Data"
 languageCode = "en-us"
 paginate = "10" # Number of posts per page
+ignoreFiles = ["\\.Rmd$", "\\.Rmarkdown$", "_files$", "_cache$"]
 theme = "Mainroad"
 disqusShortname = "beyond-raw-data-blog" # Enable comments by entering your Disqus shortname
 googleAnalytics = "UA-137362362-1"# Enable Google Analytics by entering your tracking id
