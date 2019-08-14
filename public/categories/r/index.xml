@@ -7,7 +7,7 @@
     <language>en-us</language>
     <lastBuildDate>Sun, 04 Aug 2019 00:00:00 +0000</lastBuildDate>
     
-        <atom:link href="/categories/r/index.xml" rel="self" type="application/rss+xml" />
+        <atom:link href="https://beyondrawdata.rbind.io/categories/r/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
@@ -75,7 +75,7 @@ sapply(load.libraries, require, character = TRUE)&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;The function above takes in a list of required libraries, checks if they are already installed and installs them if not. It then loads all the packages one at a go.&lt;/p&gt;
 &lt;/center&gt;
 &lt;figure&gt;
-&lt;img class=&#34;pure-u-1-2&#34; src=&#34;https://carlvinjerry.github.io/post/MyImages/packages.png&#34; height=&#34;100%&#34; width=&#34;Auto&#34;&gt;
+&lt;img class=&#34;pure-u-1-2&#34; src=&#34;https://github.com/CarlvinJerry/CarlvinJerry.github.io/blob/master/post/MyImages/packages.png?raw=true&#34; height=&#34;100%&#34; width=&#34;Auto&#34;&gt;
 &lt;figcaption&gt;
 Figure 1: Loaded packages
 &lt;/figcaption&gt;
@@ -296,7 +296,7 @@ plotDen &amp;lt;- function(data_in, i){
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;#Plotting categorical values----
 #Bar plots
 doPlots(mobileBanking.Df_cat, fun = plotHist, ii = 1:4, ncol = 2)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;/post/2019-08-04-exploratory-data-analysis_files/figure-html/barplots1-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://beyondrawdata.rbind.io/post/2019-08-04-exploratory-data-analysis_files/figure-html/barplots1-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;&lt;br&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
@@ -313,7 +313,7 @@ doPlots(mobileBanking.Df_cat, fun = plotHist, ii = 1:4, ncol = 2)&lt;/code&gt;&l
 &lt;p&gt;All the respondents had bank accounts. A very small number had their business bank accounts linked to mobile banking. Majority had linked their current accounts probably due to the convenience that comes with mobile banking like frequent or timeless withdrawals.&lt;/p&gt;
 &lt;p&gt;&lt;br&gt;
 &lt;br&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;/post/2019-08-04-exploratory-data-analysis_files/figure-html/barplots2-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://beyondrawdata.rbind.io/post/2019-08-04-exploratory-data-analysis_files/figure-html/barplots2-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;&lt;br&gt;&lt;/p&gt;
 &lt;div id=&#34;uses-of-mobile-banking-importance-and-benefits&#34; class=&#34;section level6&#34;&gt;
 &lt;h6&gt;Uses Of Mobile Banking, Importance And Benefits&lt;/h6&gt;
@@ -321,7 +321,7 @@ doPlots(mobileBanking.Df_cat, fun = plotHist, ii = 1:4, ncol = 2)&lt;/code&gt;&l
 &lt;p&gt;Most respondents found mobile banking services &lt;strong&gt;very important&lt;/strong&gt;, probably owing to the affordable cost charges and good service which could mean less usability issues when using the services.&lt;/p&gt;
 &lt;p&gt;&lt;br&gt;
 &lt;br&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;/post/2019-08-04-exploratory-data-analysis_files/figure-html/barplots3-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://beyondrawdata.rbind.io/post/2019-08-04-exploratory-data-analysis_files/figure-html/barplots3-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;&lt;br&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;div id=&#34;bank-visits&#34; class=&#34;section level6&#34;&gt;
@@ -391,7 +391,7 @@ doPlots(mobileBanking.Df_cat, fun = plotHist, ii = 1:4, ncol = 2)&lt;/code&gt;&l
 &lt;p&gt;To create a twitter app we can use for fetching metadata, we first need to have a Twitter account. We then need to go to the &lt;strong&gt;twitter dev site&lt;/strong&gt; &lt;a href=&#34;https://developer.twitter.com/&#34; class=&#34;uri&#34;&gt;https://developer.twitter.com/&lt;/a&gt; and log in with our user account.
 On the top right corner should be a drop down menu next to your username, go to APPS. At this point if you are doing this for the first time your Apps section should be blank. Click on “Create an app” to… create an app.&lt;/p&gt;
 &lt;center&gt;
-&lt;img src=&#34;https://carlvinjerry.github.io/post/MyImages/apps.PNG&#34; alt=&#34;Figure 1: App login&#34; /&gt;
+&lt;img src=&#34;https://github.com/CarlvinJerry/carlvinjerry.github.io/blob/master/post/MyImages/apps.PNG?raw=true&#34; alt=&#34;Figure 1: App login&#34; /&gt;
 &lt;/center&gt;
 &lt;p&gt;&lt;br&gt;&lt;/p&gt;
 &lt;p&gt;We then have to fill in the form below appropriately. Here is a breakdown of what’s required:&lt;/p&gt;
@@ -406,18 +406,18 @@ This should be your application’s home page web site. It is however not applic
 I would ignore the Callback URL field. If you are allowing users to log into your app to authenticate themselves, you’d enter the URL where they would be returned after they’ve given permission to Twitter to use your app.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;center&gt;
-&lt;img src=&#34;https://carlvinjerry.github.io/post/MyImages/apps2.PNG&#34; alt=&#34;Figure 2: Create an app&#34; /&gt;
+&lt;img src=&#34;https://github.com/CarlvinJerry/CarlvinJerry.github.io/blob/master/post/MyImages/apps2.PNG?raw=true&#34; alt=&#34;Figure 2: Create an app&#34; /&gt;
 &lt;/center&gt;
 &lt;p&gt;&lt;br&gt;&lt;/p&gt;
 &lt;p&gt;The remaining fields should be quite straight forward but must be filled. Click “Create” once done and there you have your first twitter app.
 On your app is a menu with &lt;strong&gt;Keys and tokens&lt;/strong&gt;. These are the most important components since we will need them to access data from the APIs.Generate both consumer and access tokens (if not readily available) and take note of them. &lt;strong&gt;NB:&lt;/strong&gt; &lt;strong&gt;These keys are meant for your eyes only!&lt;/strong&gt;&lt;/p&gt;
 &lt;center&gt;
-&lt;img src=&#34;https://CarlvinJerry.github.io/post/MyImages/keys.PNG&#34; alt=&#34;Figure 3: API Keys&#34; /&gt;
+&lt;img src=&#34;https://github.com/CarlvinJerry/CarlvinJerry.github.io/blob/master/post/MyImages/keys.PNG?raw=true&#34; alt=&#34;Figure 3: API Keys&#34; /&gt;
 &lt;/center&gt;
 &lt;p&gt;&lt;br&gt;&lt;/p&gt;
 &lt;p&gt;The final bit of setting up our twitter app is granting access permissions. We will mostly do fine with the &lt;strong&gt;read-only&lt;/strong&gt; if all we need is to fetch data but it can always be changed later.&lt;/p&gt;
 &lt;center&gt;
-&lt;img src=&#34;https://carlvinjerry.github.io/post/MyImages/permisions.PNG&#34; alt=&#34;Figure 4: Permissions&#34; /&gt;
+&lt;img src=&#34;https://github.com/CarlvinJerry/CarlvinJerry.github.io/blob/master/post/MyImages/permisions.PNG?raw=true&#34; alt=&#34;Figure 4: Permissions&#34; /&gt;
 &lt;/center&gt;
 &lt;p&gt;&lt;br&gt;&lt;br&gt;&lt;/p&gt;
 &lt;p&gt;Now we can move on to the next step where we set up &lt;strong&gt;R&lt;/strong&gt; to query data from Twitter.&lt;/p&gt;

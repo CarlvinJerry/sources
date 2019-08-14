@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>R on Beyond Raw Data</title>
-    <link>/tags/r/</link>
+    <link>https://beyondrawdata.rbind.io/tags/r/</link>
     <description>Recent content in R on Beyond Raw Data</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Sun, 04 Aug 2019 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="/tags/r/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://beyondrawdata.rbind.io/tags/r/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>EXPLORATORY DATA ANALYSIS</title>
-      <link>/post/2019-08-04-exploratory-data-analysis/</link>
+      <link>https://beyondrawdata.rbind.io/post/2019-08-04-exploratory-data-analysis/</link>
       <pubDate>Sun, 04 Aug 2019 00:00:00 +0000</pubDate>
       
-      <guid>/post/2019-08-04-exploratory-data-analysis/</guid>
+      <guid>https://beyondrawdata.rbind.io/post/2019-08-04-exploratory-data-analysis/</guid>
       <description>“The goal is to turn data into information and information into insight.” – Carly Fiorina, former chief executive officer, Hewlett Packard.
 INTRODUCTIONIf you are familiar with data analysis then I’m certain that you fully relate to the above statement. After all, it would be pointless to play around with lots of data just for the love of it.
 Data is gold, and the more you have the better off you are.</description>
@@ -24,10 +24,10 @@ Data is gold, and the more you have the better off you are.</description>
     
     <item>
       <title>DATA MINING IN R</title>
-      <link>/post/2019-01-25-r-data-mining-rmd/</link>
+      <link>https://beyondrawdata.rbind.io/post/2019-01-25-r-data-mining-rmd/</link>
       <pubDate>Fri, 25 Jan 2019 00:00:00 +0000</pubDate>
       
-      <guid>/post/2019-01-25-r-data-mining-rmd/</guid>
+      <guid>https://beyondrawdata.rbind.io/post/2019-01-25-r-data-mining-rmd/</guid>
       <description>#PartI{#PartI}&amp;gt;This first section assumes you have no knowledge in building a twitter app to be used for fetching data. You can skip directly to the second section here if you are able to build your own twitter app and get the required authentication keys.
 Introduction:Social media usage has grown rapidly over the past few decades. Most social networks we can think of now are so well established, making them a platform where people can not only talk to one another but also be able to come forward with different views and interests they would like to express.</description>
     </item>

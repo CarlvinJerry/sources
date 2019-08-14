@@ -1,7 +1,8 @@
 ---
 title: "DIGITAL NUDGING"
 description: "Influencing online User decisions on Twitter through nudge units"
-thumbnail: "https://carlvinjerry.github.io/post/MyImages/hero-main.jpg" # Optional, thumbnail
+thumbnail: "https://github.com/CarlvinJerry/CarlvinJerry.github.io/blob/master/post/MyImages/hero-main.jpg?raw=true" # Optional, thumbnail
+
 lead: "Influencing online User decisions on Twitter through nudge units"
 disable_comments: false # Optional, disable Disqus comments if true
 toc: false # Optional, enable Table of Contents for specific post
@@ -40,7 +41,7 @@ This photo a team mate took at the hackathon contains a problem statement for th
 </center>
 
 <figure>
-<img class="pure-u-1-2" src="https://carlvinjerry.github.io/post/MyImages/theChallenge.jpg" height="100%" width="Auto"> 
+<img class="pure-u-1-2" src="https://github.com/CarlvinJerry/CarlvinJerry.github.io/blob/master/post/MyImages/theChallenge.jpg?raw=true" height="100%" width="Auto"> 
 <figcaption>Figure 1: The challenge</figcaption>
 </figure>
 
@@ -350,7 +351,7 @@ rpart.plot(fit)
 </center>
 
 <figure>
-<img class="pure-u-1-2 pure-u-md-1-3" src="https://carlvinjerry.github.io/post/MyImages/tagged.png"  height="100%" width="Auto"> 
+<img class="pure-u-1-2 pure-u-md-1-3" src="https://github.com/CarlvinJerry/CarlvinJerry.github.io/blob/master/post/MyImages/tagged.png?raw=true"  height="100%" width="Auto"> 
 <figcaption>Figure 2: The Tree</figcaption>
 </figure>
 
@@ -412,7 +413,7 @@ For the tagged tweets, we had a __false negative of 2 predictions__ against a __
 <center>
 
 <figure>
-  <img class="pure-u-1-2"  src = "https://carlvinjerry.github.io/post/MyImages/math.jpg">
+  <img class="pure-u-1-2"  src = "https://github.com/CarlvinJerry/CarlvinJerry.github.io/blob/master/post/MyImages/math.jpg?raw=true">
   <figcaption>Figure 3: The formula</figcaption>
 </figure>
   

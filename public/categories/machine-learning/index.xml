@@ -7,7 +7,7 @@
     <language>en-us</language>
     <lastBuildDate>Sun, 17 Feb 2019 00:00:00 +0000</lastBuildDate>
     
-        <atom:link href="/categories/machine-learning/index.xml" rel="self" type="application/rss+xml" />
+        <atom:link href="https://beyondrawdata.rbind.io/categories/machine-learning/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
@@ -30,7 +30,7 @@
 &lt;p&gt;This photo a team mate took at the hackathon contains a problem statement for the challenge:&lt;/p&gt;
 &lt;/center&gt;
 &lt;figure&gt;
-&lt;img class=&#34;pure-u-1-2&#34; src=&#34;https://carlvinjerry.github.io/post/MyImages/theChallenge.jpg&#34; height=&#34;100%&#34; width=&#34;Auto&#34;&gt;
+&lt;img class=&#34;pure-u-1-2&#34; src=&#34;https://github.com/CarlvinJerry/CarlvinJerry.github.io/blob/master/post/MyImages/theChallenge.jpg?raw=true&#34; height=&#34;100%&#34; width=&#34;Auto&#34;&gt;
 &lt;figcaption&gt;
 Figure 1: The challenge
 &lt;/figcaption&gt;
@@ -203,7 +203,7 @@ Figure 1: The challenge
 &lt;p&gt;We trained our decision tree model to predict a &lt;strong&gt;class&lt;/strong&gt; “location”. Whether a location is &lt;strong&gt;geotagged&lt;/strong&gt; or &lt;strong&gt;not geotagged&lt;/strong&gt; based on whether the user is verified, protected, has over 500 followers, is retweeted by another verified user and the number of characters in their tweet. Bellow is the visual output of the trained model.&lt;/p&gt;
 &lt;/center&gt;
 &lt;figure&gt;
-&lt;img class=&#34;pure-u-1-2 pure-u-md-1-3&#34; src=&#34;https://carlvinjerry.github.io/post/MyImages/tagged.png&#34;  height=&#34;100%&#34; width=&#34;Auto&#34;&gt;
+&lt;img class=&#34;pure-u-1-2 pure-u-md-1-3&#34; src=&#34;https://github.com/CarlvinJerry/CarlvinJerry.github.io/blob/master/post/MyImages/tagged.png?raw=true&#34;  height=&#34;100%&#34; width=&#34;Auto&#34;&gt;
 &lt;figcaption&gt;
 Figure 2: The Tree
 &lt;/figcaption&gt;
@@ -241,7 +241,7 @@ For our case, we only focus on what we found:&lt;/p&gt;
 &lt;p&gt;For the tagged tweets, we had a &lt;strong&gt;false negative of 2 predictions&lt;/strong&gt; against a &lt;strong&gt;true positive of 1043 predictions&lt;/strong&gt;. This means that our model was able to correctly predict 1043 geotagged tweets from the test data. The accuracy of the model turned out pretty good, at an &lt;strong&gt;82 percent accuracy level&lt;/strong&gt;. The theoretical formula for the accuracy is the proportion of true positives and the true negatives divided by the sum of the confusion matrix.&lt;/p&gt;
 &lt;center&gt;
 &lt;figure&gt;
-&lt;img class=&#34;pure-u-1-2&#34;  src = &#34;https://carlvinjerry.github.io/post/MyImages/math.jpg&#34;&gt;
+&lt;img class=&#34;pure-u-1-2&#34;  src = &#34;https://github.com/CarlvinJerry/CarlvinJerry.github.io/blob/master/post/MyImages/math.jpg?raw=true&#34;&gt;
 &lt;figcaption&gt;
 Figure 3: The formula
 &lt;/figcaption&gt;

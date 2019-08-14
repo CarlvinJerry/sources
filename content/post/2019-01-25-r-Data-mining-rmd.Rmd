@@ -50,10 +50,11 @@ To create a twitter app we can use for fetching metadata, we first need to have 
 On the top right corner should be a drop down menu next to your username, go to APPS. At this point if you are doing this for the first time your Apps section should be blank. Click on "Create an app" to... create an app.  
 
 <center>
-![Figure 1: App login](https://carlvinjerry.github.io/post/MyImages/apps.PNG)  
+![Figure 1: App login](https://github.com/CarlvinJerry/carlvinjerry.github.io/blob/master/post/MyImages/apps.PNG?raw=true)  
 </center>
 
 <br>
+
 
 We then have to fill in the form below appropriately. Here is a breakdown of what's required:
 
@@ -67,16 +68,16 @@ This should be your application's home page web site. It is however not applicab
 I would ignore the Callback URL field. If you are allowing users to log into your app to authenticate themselves, you'd enter the URL where they would be returned after they've given permission to Twitter to use your app.  
 
 <center>
- ![Figure 2: Create an app](https://carlvinjerry.github.io/post/MyImages/apps2.PNG)
+ ![Figure 2: Create an app]( https://github.com/CarlvinJerry/CarlvinJerry.github.io/blob/master/post/MyImages/apps2.PNG?raw=true)
  </center>
  
  <br>
- 
+
  The remaining fields should be quite straight forward but must be filled. Click "Create" once done and there you have your first twitter app.
  On your app is a menu with __Keys and tokens__. These are the most important components since we will need them to access data from the APIs.Generate both consumer and access tokens (if not readily available) and take note of them. __NB:__ __These keys are meant for your eyes only!__
 
 <center>
-![Figure 3: API Keys](https://CarlvinJerry.github.io/post/MyImages/keys.PNG)
+![Figure 3: API Keys](https://github.com/CarlvinJerry/CarlvinJerry.github.io/blob/master/post/MyImages/keys.PNG?raw=true)
  </center>
  
  <br>
@@ -84,7 +85,7 @@ I would ignore the Callback URL field. If you are allowing users to log into you
 The final bit of setting up our twitter app is granting access permissions. We will mostly do fine with the __read-only__ if all we need is to fetch data but it can always be changed later.
 
 <center>
-![Figure 4: Permissions](https://carlvinjerry.github.io/post/MyImages/permisions.PNG)
+![Figure 4: Permissions](https://github.com/CarlvinJerry/CarlvinJerry.github.io/blob/master/post/MyImages/permisions.PNG?raw=true)
  </center>
  
 <br><br> 
