@@ -5,19 +5,19 @@ paginate = "10" # Number of posts per page
 ignoreFiles = ["\\.Rmd$", "\\.Rmarkdown$", "_files$", "_cache$"]
 theme = "Mainroad"
 disqusShortname = "beyond-raw-data-blog" # Enable comments by entering your Disqus shortname
-googleAnalytics = "UA-137362362-1"# Enable Google Analytics by entering your tracking id
-
+googleAnalytics = "UA-137362362-1" # Enable Google Analytics by entering your tracking id
+publishDir = "../CarlvinJerry.github.io"
 #[Author] # Used in authorbox
  #name = "Carlvin M"
   #bio = "Carlvin is a young data science enthusiast who loves building and testing all things data analytics and visualization. Here to learn, here to grow! Have questions or suggestions? Feel free to open an issue on GitHub or ask me on Twitter.Thanks for reading!"
   #avatar = "img/avatar.png"
  
  [menu]
- #[[menu.main]]
-   # name = "Home"
-   # identifier = "Home"
-   # url = ""
-    #weight = 1
+ [[menu.main]]
+    name = "Home"
+    identifier = "Home"
+    url = ""
+    weight = 1
 	
  [[menu.main]]
     name = "Posts"
@@ -42,13 +42,9 @@ googleAnalytics = "UA-137362362-1"# Enable Google Analytics by entering your tra
  [[menu.main]]
     name = "RSS Feed"
     identifier = "RSS"
-    url = "/post/index.xml"
+    url = "/post/rss.xml"
     weight = 101
  
-   ##identifier = "RSS"
-    #url = "/layouts/_default/rss.xml"
-    #weight = 101
-
 [[menu.main]]
     name = "R Bloggers"
     identifier = "R"
