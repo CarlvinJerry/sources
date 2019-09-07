@@ -1,251 +1,3531 @@
 <!DOCTYPE html>
-<html class="no-js" lang="en-us">
+<html lang="en-us">
+
 <head>
-	<meta name="generator" content="Hugo 0.56.3" />
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>Beyond Raw Data</title>
-	<script>(function(d,e){d[e]=d[e].replace("no-js","js");})(document.documentElement,"className");</script>
-	<meta name="description" content="Carlvin&#39;s personal blog on everything Data Science">
-	<meta property="og:title" content="Beyond Raw Data" />
-<meta property="og:description" content="Carlvin&#39;s personal blog on everything Data Science" />
-<meta property="og:type" content="website" />
-<meta property="og:url" content="https://beyondrawdata.rbind.io/" />
 
-<meta property="og:updated_time" content="2019-08-04T00:00:00+00:00" />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="generator" content="Source Themes Academic 4.4.0">
 
-	<meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Beyond Raw Data"/>
-<meta name="twitter:description" content="Carlvin&#39;s personal blog on everything Data Science"/>
+  
 
-	<link rel="dns-prefetch" href="//fonts.googleapis.com">
-	<link rel="dns-prefetch" href="//fonts.gstatic.com">
-	<link rel="alternate" type="application/rss+xml" href="/index.xml" title="Beyond Raw Data">
-	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700">
-	<link rel="stylesheet" href="/css/style.css">
-	
-	<link rel="shortcut icon" href="/favicon.ico">
-		
-<script type="application/javascript">
-var doNotTrack = false;
-if (!doNotTrack) {
-	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
-	ga('create', 'UA-137362362-1', 'auto');
-	
-	ga('send', 'pageview');
+  
+  
+  
+  
+  
+    
+    
+    
+  
+  
+
+  <meta name="author" content="Nelson Bighetti">
+
+  
+  
+  
+    
+  
+  <meta name="description" content="Professor of Artificial Intelligence">
+
+  
+  <link rel="alternate" hreflang="en-us" href="/">
+
+  
+
+
+  
+  
+  
+  <meta name="theme-color" content="#2962ff">
+  
+
+  
+  
+  
+  
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.8.6/css/academicons.min.css" integrity="sha256-uFVgMKfistnJAfoCUQigIl+JfUaP47GrRKjf6CTPVmw=" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.0/css/all.css" integrity="sha384-aOkxzJ5uQz7WBObEZcHvV5JvRW3TUc2rNPA7pe3AwnsUohiw1Vj2Rgx2KSOkF5+h" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.css" integrity="sha256-ygkqlh3CYSUri3LhQxzdcm0n1EQvH2Y+U5S2idbLtxs=" crossorigin="anonymous">
+
+    
+    
+    
+      
+    
+    
+      
+      
+        
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/styles/github.min.css" crossorigin="anonymous" title="hl-light">
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/styles/dracula.min.css" crossorigin="anonymous" title="hl-dark" disabled>
+        
+      
+    
+
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.2.0/leaflet.css" integrity="sha512-M2wvCLH6DSRazYeZRIm1JnYyh22purTM+FDB5CsyxtQJYeKq83arPe5wgbNmcFXGqiSH2XR8dT/fJISVA1r/zQ==" crossorigin="anonymous">
+    
+
+    
+
+  
+
+  
+  
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,700|Roboto:400,400italic,700|Roboto+Mono&display=swap">
+  
+
+  
+  
+  
+  <link rel="stylesheet" href="/css/academic.min.04a87a1cb9027e3c50f566322527c56f.css">
+
+  
+
+  
+  
+  
+
+  
+  <link rel="alternate" href="/index.xml" type="application/rss+xml" title="Academic">
+  
+
+  <link rel="manifest" href="/index.webmanifest">
+  <link rel="icon" type="image/png" href="/img/icon-32.png">
+  <link rel="apple-touch-icon" type="image/png" href="/img/icon-192.png">
+
+  <link rel="canonical" href="/">
+
+  
+  
+  
+  
+    
+    
+  
+  
+  <meta property="twitter:card" content="summary">
+  
+  <meta property="og:site_name" content="Academic">
+  <meta property="og:url" content="/">
+  <meta property="og:title" content="Academic">
+  <meta property="og:description" content="Professor of Artificial Intelligence"><meta property="og:image" content="/img/icon-192.png">
+  <meta property="twitter:image" content="/img/icon-192.png"><meta property="og:locale" content="en-us">
+  
+    <meta property="og:updated_time" content="2030-06-01T13:00:00&#43;00:00">
+  
+
+  
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "potentialAction": {
+    "@type": "SearchAction",
+    "target": "/?q={search_term_string}",
+    "query-input": "required name=search_term_string"
+  },
+  "url": "/"
 }
 </script>
-<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+
+
+  
+
+
+  
+
+
+
+
+
+  <title>Academic</title>
 
 </head>
-<body class="body">
-	<div class="container container--outer">
-		<header class="header">
-	<div class="container">
-		<div class="logo">
-			<a class="logo__link" href="/" title="Beyond Raw Data" rel="home">
-				<div class="logo__title">Beyond Raw Data</div>
-				<div class="logo__tagline">Fitting a thousand data stories in a nutshell...</div>
-			</a>
-		</div>
-		
-<nav class="menu">
-	<button class="menu__btn" aria-haspopup="true" aria-expanded="false" tabindex="0">
-		<span class="menu__btn-title" tabindex="-1">Menu</span>
-	</button>
-	<ul class="menu__list">
-		<li class="menu__item">
-			<a class="menu__link" href="/post/">Posts</a>
-		</li>
-		<li class="menu__item">
-			<a class="menu__link" href="/about/">About</a>
-		</li>
-		<li class="menu__item">
-			<a class="menu__link" href="/contact/">Contact</a>
-		</li>
-		<li class="menu__item">
-			<a class="menu__link" href="/post/index.xml">RSS Feed</a>
-		</li>
-		<li class="menu__item">
-			<a class="menu__link" href="https://www.r-bloggers.com/">R Bloggers</a>
-		</li>
-	</ul>
+
+<body id="top" data-spy="scroll" data-offset="70" data-target="#navbar-main" >
+
+  <aside class="search-results" id="search">
+  <div class="container">
+    <section class="search-header">
+
+      <div class="row no-gutters justify-content-between mb-3">
+        <div class="col-6">
+          <h1>Search</h1>
+        </div>
+        <div class="col-6 col-search-close">
+          <a class="js-search" href="#"><i class="fas fa-times-circle text-muted" aria-hidden="true"></i></a>
+        </div>
+      </div>
+
+      <div id="search-box">
+        
+        <input name="q" id="search-query" placeholder="Search..." autocapitalize="off"
+        autocomplete="off" autocorrect="off" spellcheck="false" type="search">
+        
+      </div>
+
+    </section>
+    <section class="section-search-results">
+
+      <div id="search-hits">
+        
+      </div>
+
+    </section>
+  </div>
+</aside>
+
+
+  
+<nav class="navbar navbar-light fixed-top navbar-expand-lg py-0 compensate-for-scrollbar" id="navbar-main">
+  <div class="container">
+
+    
+      <a class="navbar-brand" href="/">Academic</a>
+      
+      <button type="button" class="navbar-toggler" data-toggle="collapse"
+              data-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
+        <span><i class="fas fa-bars"></i></span>
+      </button>
+      
+
+    
+    <div class="collapse navbar-collapse" id="navbar">
+
+      
+      
+      <ul class="navbar-nav mr-auto">
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+          
+          
+          
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/#hero" data-target="#hero"><span>Demo</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+          
+          
+          
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/#posts" data-target="#posts"><span>Posts</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+          
+          
+          
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/#projects" data-target="#projects"><span>Projects</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+          
+          
+          
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/#featured" data-target="#featured"><span>Publications</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/courses/"><span>Courses</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+          
+          
+          
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/#contact" data-target="#contact"><span>Contact</span></a>
+        </li>
+
+        
+        
+
+      
+      </ul>
+      <ul class="navbar-nav ml-auto">
+      
+
+        
+
+        
+        <li class="nav-item">
+          <a class="nav-link js-search" href="#"><i class="fas fa-search" aria-hidden="true"></i></a>
+        </li>
+        
+
+        
+
+        
+        <li class="nav-item">
+          <a class="nav-link js-dark-toggle" href="#"><i class="fas fa-moon" aria-hidden="true"></i></a>
+        </li>
+        
+
+      </ul>
+
+    </div>
+  </div>
 </nav>
 
-	</div>
-</header>
-		<div class="wrapper flex">
-			<div class="primary">
-			
-<main class="main list" role="main">
-	<article class="list__item post">
-	<figure class="list__thumbnail">
-		<a href="https://beyondrawdata.rbind.io/post/2019-08-04-exploratory-data-analysis/">
-			<img src="https://github.com/CarlvinJerry/CarlvinJerry.github.io/blob/master/post/MyImages/Collage%202019-08-04%2002_58_03.jpg?raw=true" alt="EXPLORATORY DATA ANALYSIS" />
-		</a>
-	</figure>
-	<header class="list__header">
-		<h3 class="list__title post__title ">
-			<a href="/post/2019-08-04-exploratory-data-analysis/" rel="bookmark">
-			EXPLORATORY DATA ANALYSIS
-			</a>
-		</h3>
-		<p class="list__lead post__lead">An introduction to data manipulation and analysis in R</p>
-		<div class="list__meta meta">
-<div class="meta__item-datetime meta__item">
-	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0C7 0 1 6 1 14s6 14 14 14 14-6 14-14S23 0 15 0zm0 25C9 25 4 20 4 14S9 3 15 3s11 5 11 11-5 11-11 11zm1-18h-2v8.4l6.8 4.4L22 18l-6-3.8V7z"/></svg>
-	<time class="meta__text" datetime="2019-08-04T00:00:00">August 04, 2019</time>
-</div>
 
-<div class="meta__item-categories meta__item">
-	<svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2l1 2h8v11h-16v-13z"/></svg>
-	<span class="meta__text"><a class="meta__link" href="/categories/data-analytics" rel="category">Data Analytics</a>, <a class="meta__link" href="/categories/r" rel="category">R</a></span>
-</div>
-</div>
-	</header>
-	<div class="content list__excerpt post__content clearfix">
-		“The goal is to turn data into information and information into insight.” – Carly Fiorina, former chief executive officer, Hewlett Packard.
-INTRODUCTIONIf you are familiar with data analysis then I’m certain that you fully relate to the above statement. After all, it would be pointless to play around with lots of data just for the love of it.
-Data is gold, and the more you have the better off you are.
-	</div>
-	<div class="list__footer clearfix">
-		<a class="list__footer-readmore btn" href="/post/2019-08-04-exploratory-data-analysis/">Read more…</a>
-	</div>
-</article><article class="list__item post">
-	<figure class="list__thumbnail">
-		<a href="https://beyondrawdata.rbind.io/post/2019-02-20-digital-nudging-rmd/">
-			<img src="https://github.com/CarlvinJerry/CarlvinJerry.github.io/blob/master/post/MyImages/hero-main.jpg?raw=true" alt="DIGITAL NUDGING" />
-		</a>
-	</figure>
-	<header class="list__header">
-		<h3 class="list__title post__title ">
-			<a href="/post/2019-02-20-digital-nudging-rmd/" rel="bookmark">
-			DIGITAL NUDGING
-			</a>
-		</h3>
-		<p class="list__lead post__lead">Influencing online User decisions on Twitter through nudge units</p>
-		<div class="list__meta meta">
-<div class="meta__item-datetime meta__item">
-	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0C7 0 1 6 1 14s6 14 14 14 14-6 14-14S23 0 15 0zm0 25C9 25 4 20 4 14S9 3 15 3s11 5 11 11-5 11-11 11zm1-18h-2v8.4l6.8 4.4L22 18l-6-3.8V7z"/></svg>
-	<time class="meta__text" datetime="2019-02-17T00:00:00">February 17, 2019</time>
-</div>
-
-<div class="meta__item-categories meta__item">
-	<svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2l1 2h8v11h-16v-13z"/></svg>
-	<span class="meta__text"><a class="meta__link" href="/categories/data-mining" rel="category">Data Mining</a>, <a class="meta__link" href="/categories/machine-learning" rel="category">Machine Learning</a></span>
-</div>
-</div>
-	</header>
-	<div class="content list__excerpt post__content clearfix">
-		Introduction:Here is a fun fact; An average human being (probably an adult) makes close to 30,000 conscious decisions every day. This isn’t entirely true though, in fact, I just made that number up. I could be right because if you think about it, how many decisions would you say you make on a day to day basis? Depending on who you are the above obviously varies widely and you know best.
-	</div>
-	<div class="list__footer clearfix">
-		<a class="list__footer-readmore btn" href="/post/2019-02-20-digital-nudging-rmd/">Read more…</a>
-	</div>
-</article><article class="list__item post">
-	<header class="list__header">
-		<h3 class="list__title post__title ">
-			<a href="/post/2019-01-25-r-data-mining-rmd/" rel="bookmark">
-			DATA MINING IN R
-			</a>
-		</h3>
-		<p class="list__lead post__lead">Getting started with Text mining using Twitter and R</p>
-		<div class="list__meta meta">
-<div class="meta__item-datetime meta__item">
-	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0C7 0 1 6 1 14s6 14 14 14 14-6 14-14S23 0 15 0zm0 25C9 25 4 20 4 14S9 3 15 3s11 5 11 11-5 11-11 11zm1-18h-2v8.4l6.8 4.4L22 18l-6-3.8V7z"/></svg>
-	<time class="meta__text" datetime="2019-01-25T00:00:00">January 25, 2019</time>
-</div>
-
-<div class="meta__item-categories meta__item">
-	<svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2l1 2h8v11h-16v-13z"/></svg>
-	<span class="meta__text"><a class="meta__link" href="/categories/data-mining" rel="category">Data Mining</a>, <a class="meta__link" href="/categories/r" rel="category">R</a></span>
-</div>
-</div>
-	</header>
-	<div class="content list__excerpt post__content clearfix">
-		#PartI{#PartI}&gt;This first section assumes you have no knowledge in building a twitter app to be used for fetching data. You can skip directly to the second section here if you are able to build your own twitter app and get the required authentication keys.
-Introduction:Social media usage has grown rapidly over the past few decades. Most social networks we can think of now are so well established, making them a platform where people can not only talk to one another but also be able to come forward with different views and interests they would like to express.
-	</div>
-	<div class="list__footer clearfix">
-		<a class="list__footer-readmore btn" href="/post/2019-01-25-r-data-mining-rmd/">Read more…</a>
-	</div>
-</article>
-</main>
+  
 
 
-			</div>
-			<aside class="sidebar"><div class="widget-search widget">
-	<form class="widget-search__form" role="search" method="get" action="https://google.com/search">
-		<label>
-			<input class="widget-search__field" type="search" placeholder="SEARCH..." value="" name="q" aria-label="SEARCH...">
-		</label>
-		<input class="widget-search__submit" type="submit" value="Search">
-		<input type="hidden" name="sitesearch" value="https://beyondrawdata.rbind.io/" />
-	</form>
+
+
+<span class="js-widget-page d-none"></span>
+
+
+
+
+  
+
+
+
+
+
+
+
+  
+  
+  
+
+  
+
+  
+    
+  
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+  
+  
+
+  
+  
+  
+  
+  
+
+  
+  
+
+  <section id="hero" class="home-section wg-hero dark  " style="background-image: linear-gradient(#4bb4e3, #2b94c3);" >
+    <div class="container">
+      
+
+
+
+
+<div class="row">
+  <div class="col-md-6 order-md-1 text-center text-md-left">
+
+
+    <h1 class="hero-title" itemprop="headline">
+      Academic
+    </h1>
+
+    
+    <div class="hero-lead"><p><strong>The Best Way to Create the Website You Want from Markdown (or Jupyter/RStudio)</strong></p>
+
+<p>Build <strong>Anything</strong> with Widgets</p>
+
+<p><span style="text-shadow: none;"><a class="github-button" href="https://github.com/gcushen/hugo-academic" data-icon="octicon-star" data-size="large" data-show-count="true" aria-label="Star this on GitHub">Star</a><script async defer src="https://buttons.github.io/buttons.js"></script></span></p>
 </div>
-<div class="widget-recent widget">
-	<h4 class="widget__title">Recent Posts</h4>
-	<div class="widget__content">
-		<ul class="widget__list">
-			<li class="widget__item"><a class="widget__link" href="/post/2019-08-04-exploratory-data-analysis/">EXPLORATORY DATA ANALYSIS</a></li>
-			<li class="widget__item"><a class="widget__link" href="/post/2019-02-20-digital-nudging-rmd/">DIGITAL NUDGING</a></li>
-			<li class="widget__item"><a class="widget__link" href="/post/2019-01-25-r-data-mining-rmd/">DATA MINING IN R</a></li>
-		</ul>
-	</div>
+    
+
+    
+    
+      
+      
+      
+        
+      
+      
+      
+      
+      
+        
+      
+    <p class="cta-btns">
+      <a href="https://sourcethemes.com/academic/docs/install/" target="_blank" rel="noopener" class="btn btn-light btn-lg"><i class="fas fa-download pr-1" aria-hidden="true"></i>Get Started</a>
+
+      
+      
+        
+        
+        
+        
+          
+        
+      <a href="https://sourcethemes.com/academic/" target="_blank" rel="noopener" class="hero-cta-alt pl-4">View Documentation <i class="fas fa-angle-right"></i></a>
+      
+    </p>
+    
+
+    
+    
+    <p class="hero-note text-muted mb-0">
+      <a class="js-github-release" href="https://sourcethemes.com/academic/updates" data-repo="gcushen/hugo-academic">Latest release<!-- V --></a>
+    </p>
+    
+
+  
+  
+  </div>
+  <div class="col-6 mx-auto col-md-6 order-md-2 hero-media">
+    <img src="/img/hero-academic.png" alt="">
+  </div>
 </div>
-<div class="widget-categories widget">
-	<h4 class="widget__title">Categories</h4>
-	<div class="widget__content">
-		<ul class="widget__list">
-			<li class="widget__item"><a class="widget__link" href="/categories/data-analytics">Data analytics</a></li>
-			<li class="widget__item"><a class="widget__link" href="/categories/data-mining">Data mining</a></li>
-			<li class="widget__item"><a class="widget__link" href="/categories/machine-learning">Machine learning</a></li>
-			<li class="widget__item"><a class="widget__link" href="/categories/r">R</a></li>
-		</ul>
-	</div>
+
+
+    </div>
+  </section>
+
+  
+  
+  
+
+  
+
+  
+
+  
+    
+    
+      
+    
+    
+    
+  
+
+  
+    
+    
+  
+
+  
+
+  
+  
+
+  
+  
+  
+
+  
+  
+  
+  
+  
+
+  
+  
+
+  <section id="demo" class="home-section wg-blank dark parallax " style="background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url(&#39;/img/headers/bubbles-wide.jpg&#39;);padding: 20px 0 20px 0;" >
+    <div class="container">
+      
+
+
+<div class="row">
+  
+    <div class="col-lg-12">
+      <h1>Demos</h1>
+      
+      <p>Welcome to the <strong>personal demo</strong> of Academic. Other demos available include:</p>
+
+<ul>
+<li><a href="https://sourcethemes.com/academic/" target="_blank"><strong>Project Demo</strong> (Academic&rsquo;s actual site)</a></li>
+</ul>
+
+<p><strong>Over 100,000 <a href="https://sourcethemes.com/academic/#expo" target="_blank">Amazing Websites</a> have Already Been Built with Academic</strong></p>
+
+<p><strong><a href="https://sourcethemes.com/academic/docs/install/" target="_blank">Join</a> the Most Empowered Hugo Community</strong></p>
+
+<div class="alert alert-note">
+  <div>
+    <p>This homepage section is an example of adding <a href="https://sourcethemes.com/academic/docs/writing-markdown-latex/" target="_blank">elements</a> to the <a href="https://sourcethemes.com/academic/docs/widgets/" target="_blank"><em>Blank</em> widget</a>.</p>
+
+<p>Backgrounds can be applied to any section. Here, the <em>background</em> option is set give an <em>image parallax</em> effect.</p>
+
+  </div>
 </div>
-<div class="widget-taglist widget">
-	<h4 class="widget__title">Tags</h4>
-	<div class="widget__content">
-		<a class="widget-taglist__link widget__link btn" href="/tags/data-mining" title="Data mining">Data mining</a>
-		<a class="widget-taglist__link widget__link btn" href="/tags/data-visualization" title="Data visualization">Data visualization</a>
-		<a class="widget-taglist__link widget__link btn" href="/tags/decision-trees" title="Decision trees">Decision trees</a>
-		<a class="widget-taglist__link widget__link btn" href="/tags/r" title="R">R</a>
-		<a class="widget-taglist__link widget__link btn" href="/tags/regression" title="Regression">Regression</a>
-		<a class="widget-taglist__link widget__link btn" href="/tags/rpython" title="Rpython">Rpython</a>
-		<a class="widget-taglist__link widget__link btn" href="/tags/sentiment-analysis" title="Sentiment analysis">Sentiment analysis</a>
-		<a class="widget-taglist__link widget__link btn" href="/tags/twitter" title="Twitter">Twitter</a>
-	</div>
+
+    </div>
+  
 </div>
-<div class="widget-social widget">
-	<h4 class="widget-social__title widget__title">Social</h4>
-	<div class="widget-social__content widget__content">
-		<div class="widget-social__item widget__item">
-			<a class="widget-social__link widget__link btn" title="LinkedIn" rel="noopener noreferrer" href="https://linkedin.com/in/carlvinmwange" target="_blank">
-				<svg class="widget-social__link-icon icon icon-linkedin" width="24" height="24" viewBox="0 0 352 352"><path d="M0,40v272c0,21.9,18.1,40,40,40h272c21.9,0,40-18.1,40-40V40c0-21.9-18.1-40-40-40H40C18.1,0,0,18.1,0,40z M312,32 c4.6,0,8,3.4,8,8v272c0,4.6-3.4,8-8,8H40c-4.6,0-8-3.4-8-8V40c0-4.6,3.4-8,8-8H312z M59.5,87c0,15.2,12.3,27.5,27.5,27.5 c15.2,0,27.5-12.3,27.5-27.5c0-15.2-12.3-27.5-27.5-27.5C71.8,59.5,59.5,71.8,59.5,87z M187,157h-1v-21h-45v152h47v-75 c0-19.8,3.9-39,28.5-39c24.2,0,24.5,22.4,24.5,40v74h47v-83.5c0-40.9-8.7-72-56.5-72C208.5,132.5,193.3,145.1,187,157z M64,288h47.5 V136H64V288z"/></svg>
-				<span>LinkedIn</span>
-			</a>
-		</div>
-		<div class="widget-social__item widget__item">
-			<a class="widget-social__link widget__link btn" title="GitHub" rel="noopener noreferrer" href="https://github.com/CarlvinJerry" target="_blank">
-				<svg class="widget-social__link-icon icon icon-github" width="24" height="24" viewBox="0 0 384 374"><path d="m192 0c-106.1 0-192 85.8-192 191.7 0 84.7 55 156.6 131.3 181.9 9.6 1.8 13.1-4.2 13.1-9.2 0-4.6-.2-16.6-.3-32.6-53.4 11.6-64.7-25.7-64.7-25.7-8.7-22.1-21.3-28-21.3-28-17.4-11.9 1.3-11.6 1.3-11.6 19.3 1.4 29.4 19.8 29.4 19.8 17.1 29.3 44.9 20.8 55.9 15.9 1.7-12.4 6.7-20.8 12.2-25.6-42.6-4.8-87.5-21.3-87.5-94.8 0-20.9 7.5-38 19.8-51.4-2-4.9-8.6-24.3 1.9-50.7 0 0 16.1-5.2 52.8 19.7 15.3-4.2 31.7-6.4 48.1-6.5 16.3.1 32.7 2.2 48.1 6.5 36.7-24.8 52.8-19.7 52.8-19.7 10.5 26.4 3.9 45.9 1.9 50.7 12.3 13.4 19.7 30.5 19.7 51.4 0 73.7-44.9 89.9-87.7 94.6 6.9 5.9 13 17.6 13 35.5 0 25.6-.2 46.3-.2 52.6 0 5.1 3.5 11.1 13.2 9.2 76.2-25.5 131.2-97.3 131.2-182 0-105.9-86-191.7-192-191.7z"/></svg>
-				<span>GitHub</span>
-			</a>
-		</div>
-	</div>
+
+    </div>
+  </section>
+
+  
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+  
+  
+
+  
+  
+  
+  
+  
+
+  
+  
+
+  <section id="about" class="home-section wg-about   "  >
+    <div class="container">
+      
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+<div class="row" itemprop="author" itemscope itemtype="http://schema.org/Person" itemref="person-email person-telephone person-address">
+  <div class="col-12 col-lg-4">
+    <div id="profile">
+
+      
+      
+      <img class="portrait" src="/authors/admin/avatar_hu52a603635ecebd45650b162dadabb4e5_12861_250x250_fill_q90_lanczos_center.jpg" itemprop="image" alt="Avatar">
+      
+
+      <div class="portrait-title">
+        <h2 itemprop="name">Nelson Bighetti</h2>
+        <h3 itemprop="jobTitle">Professor of Artificial Intelligence</h3>
+
+        
+        <h3 itemprop="worksFor" itemscope itemtype="http://schema.org/Organization">
+          
+          <span itemprop="name">Stanford University</span>
+          
+        </h3>
+        
+      </div>
+
+      <link itemprop="url" href="">
+
+      <ul class="network-icon" aria-hidden="true">
+        
+        
+        
+        
+          
+        
+        
+        
+        
+        
+          
+        
+        <li>
+          <a itemprop="sameAs" href="/#contact" >
+            <i class="fas fa-envelope big-icon"></i>
+          </a>
+        </li>
+        
+        
+        
+        
+          
+        
+        
+        
+        
+        
+          
+        
+        <li>
+          <a itemprop="sameAs" href="https://twitter.com/GeorgeCushen" target="_blank" rel="noopener">
+            <i class="fab fa-twitter big-icon"></i>
+          </a>
+        </li>
+        
+        
+        
+        
+        
+        
+        
+        
+          
+        
+        <li>
+          <a itemprop="sameAs" href="https://scholar.google.co.uk/citations?user=sIwtMXoAAAAJ" target="_blank" rel="noopener">
+            <i class="ai ai-google-scholar big-icon"></i>
+          </a>
+        </li>
+        
+        
+        
+        
+          
+        
+        
+        
+        
+        
+          
+        
+        <li>
+          <a itemprop="sameAs" href="https://github.com/gcushen" target="_blank" rel="noopener">
+            <i class="fab fa-github big-icon"></i>
+          </a>
+        </li>
+        
+      </ul>
+
+    </div>
+  </div>
+  <div class="col-12 col-lg-8" itemprop="description">
+
+    
+    <h1>Biography</h1>
+
+    <p>Nelson Bighetti is a professor of artificial intelligence at the Stanford AI Lab. His research interests include distributed robotics, mobile computing and programmable matter. He leads the Robotic Neurobiology group, which develops self-reconfiguring robots, systems of self-organizing robots, and mobile sensor networks.</p>
+
+<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed neque elit, tristique placerat feugiat ac, facilisis vitae arcu. Proin eget egestas augue. Praesent ut sem nec arcu pellentesque aliquet. Duis dapibus diam vel metus tempus vulputate.</p>
+
+
+    <div class="row">
+
+      
+      <div class="col-md-5">
+        <h3>Interests</h3>
+        <ul class="ul-interests">
+          
+          <li>Artificial Intelligence</li>
+          
+          <li>Computational Linguistics</li>
+          
+          <li>Information Retrieval</li>
+          
+        </ul>
+      </div>
+      
+
+      
+      <div class="col-md-7">
+        <h3>Education</h3>
+        <ul class="ul-edu fa-ul">
+          
+          <li>
+            <i class="fa-li fas fa-graduation-cap"></i>
+            <div class="description">
+              <p class="course">PhD in Artificial Intelligence, 2012</p>
+              <p class="institution">Stanford University</p>
+            </div>
+          </li>
+          
+          <li>
+            <i class="fa-li fas fa-graduation-cap"></i>
+            <div class="description">
+              <p class="course">MEng in Artificial Intelligence, 2009</p>
+              <p class="institution">Massachusetts Institute of Technology</p>
+            </div>
+          </li>
+          
+          <li>
+            <i class="fa-li fas fa-graduation-cap"></i>
+            <div class="description">
+              <p class="course">BSc in Artificial Intelligence, 2008</p>
+              <p class="institution">Massachusetts Institute of Technology</p>
+            </div>
+          </li>
+          
+        </ul>
+      </div>
+      
+
+    </div>
+  </div>
 </div>
-</aside>
-		</div>
-		<footer class="footer">
-	<div class="container footer__container flex">
-		
-		<div class="footer__copyright">
-			&copy; 2019 Carlvin M.
-			<span class="footer__copyright-credits">Generated with <a href="https://gohugo.io/" rel="nofollow noopener" target="_blank">Hugo</a> and <a href="https://github.com/Vimux/Mainroad/" rel="nofollow noopener" target="_blank">Mainroad</a> theme.</span>
-		</div>
-	</div>
+
+    </div>
+  </section>
+
+  
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+  
+  
+
+  
+  
+  
+  
+  
+
+  
+  
+
+  <section id="skills" class="home-section wg-featurette   "  >
+    <div class="container">
+      
+
+
+<div class="row featurette">
+  
+  <div class="col-md-12 section-heading">
+    <h1>Skills</h1>
+    
+  </div>
+  
+
+  
+
+  
+  
+  
+  
+    
+  
+  <div class="col-12 col-sm-4">
+    <div class="featurette-icon"><i class="fab fa-r-project"></i></div>
+    <h3>R</h3>
+    <p>90%</p>
+  </div>
+  
+  
+  
+  
+    
+  
+  <div class="col-12 col-sm-4">
+    <div class="featurette-icon"><i class="fas fa-chart-line"></i></div>
+    <h3>Statistics</h3>
+    <p>100%</p>
+  </div>
+  
+  
+  
+  
+    
+  
+  <div class="col-12 col-sm-4">
+    <div class="featurette-icon"><i class="fas fa-camera-retro"></i></div>
+    <h3>Photography</h3>
+    <p>10%</p>
+  </div>
+  
+</div>
+
+    </div>
+  </section>
+
+  
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+  
+  
+
+  
+  
+  
+  
+  
+
+  
+  
+
+  <section id="experience" class="home-section wg-experience   "  >
+    <div class="container">
+      
+
+
+
+<div class="row">
+  <div class="col-12 col-lg-4 section-heading">
+    <h1>Experience</h1>
+    
+  </div>
+  <div class="col-12 col-lg-8">
+    
+
+    
+    
+    
+    <div class="row experience">
+      
+      <div class="col-auto text-center flex-column d-none d-sm-flex">
+        <div class="row h-50">
+          <div class="col ">&nbsp;</div>
+          <div class="col">&nbsp;</div>
+        </div>
+        <div class="m-2">
+          <span class="badge badge-pill border exp-fill">&nbsp;</span>
+        </div>
+        <div class="row h-50">
+          <div class="col border-right">&nbsp;</div>
+          <div class="col">&nbsp;</div>
+        </div>
+      </div>
+      
+      <div class="col py-2">
+        <div class="card">
+          <div class="card-body">
+            <h4 class="card-title exp-title text-muted mt-0 mb-1">CEO</h4>
+            <h4 class="card-title exp-company text-muted my-0">GenCoin</h4>
+            <div class="text-muted exp-meta">
+              Jan 2017 –
+              
+                Present
+              
+              
+                <span class="middot-divider"></span>
+                <span>California</span>
+              
+            </div>
+            <div class="card-text">Responsibilities include:</p>
+
+<ul>
+<li>Analysing</li>
+<li>Modelling</li>
+<li>Deploying
+<br /></li>
+</ul></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="row experience">
+      
+      <div class="col-auto text-center flex-column d-none d-sm-flex">
+        <div class="row h-50">
+          <div class="col border-right">&nbsp;</div>
+          <div class="col">&nbsp;</div>
+        </div>
+        <div class="m-2">
+          <span class="badge badge-pill border ">&nbsp;</span>
+        </div>
+        <div class="row h-50">
+          <div class="col ">&nbsp;</div>
+          <div class="col">&nbsp;</div>
+        </div>
+      </div>
+      
+      <div class="col py-2">
+        <div class="card">
+          <div class="card-body">
+            <h4 class="card-title exp-title text-muted mt-0 mb-1">Professor</h4>
+            <h4 class="card-title exp-company text-muted my-0">University X</h4>
+            <div class="text-muted exp-meta">
+              Jan 2016 –
+              
+                Dec 2016
+              
+              
+                <span class="middot-divider"></span>
+                <span>California</span>
+              
+            </div>
+            <div class="card-text">Taught electronic engineering and researched semiconductor physics.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    
+  </div>
+</div>
+
+    </div>
+  </section>
+
+  
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+  
+  
+
+  
+  
+  
+  
+  
+
+  
+  
+
+  <section id="accomplishments" class="home-section wg-accomplishments   "  >
+    <div class="container">
+      
+
+
+
+<div class="row">
+  <div class="col-12 col-lg-4 section-heading">
+    <h1>Accomplish&shy;ments</h1>
+    
+  </div>
+  <div class="col-12 col-lg-8">
+    
+
+    
+    
+      <div class="card experience course">
+        <div class="card-body"><h4 class="card-title exp-title text-muted my-0">Neural Networks and Deep Learning</h4><div class="card-subtitle my-0 article-metadata"><a href="https://www.coursera.org" target="_blank" rel="noopener">Coursera</a><span class="middot-divider"></span>
+
+            Oct 2018
+            
+          </div>
+
+          
+
+          
+            <a class="card-link" href="https://www.coursera.org" target="_blank" rel="noopener">
+              See certificate
+            </a>
+          
+        </div>
+      </div>
+    
+      <div class="card experience course">
+        <div class="card-body"><a href="https://www.edx.org/professional-certificate/uc-berkeleyx-blockchain-fundamentals" target="_blank" rel="noopener"><h4 class="card-title exp-title text-muted my-0">Blockchain Fundamentals</h4></a><div class="card-subtitle my-0 article-metadata"><a href="https://www.edx.org" target="_blank" rel="noopener">edX</a><span class="middot-divider"></span>
+
+            Mar 2018
+            
+          </div>
+
+          
+            <div class="card-text">Formulated informed blockchain models, hypotheses, and use cases.</div>
+          
+
+          
+            <a class="card-link" href="https://www.edx.org" target="_blank" rel="noopener">
+              See certificate
+            </a>
+          
+        </div>
+      </div>
+    
+      <div class="card experience course">
+        <div class="card-body"><h4 class="card-title exp-title text-muted my-0">Object-Oriented Programming in R: S3 and R6 Course</h4><div class="card-subtitle my-0 article-metadata"><a href="https://www.datacamp.com" target="_blank" rel="noopener">DataCamp</a><span class="middot-divider"></span>
+
+            Jul 2017
+            
+            – Dec 2017
+            
+          </div>
+
+          
+
+          
+            <a class="card-link" href="https://www.datacamp.com" target="_blank" rel="noopener">
+              See certificate
+            </a>
+          
+        </div>
+      </div>
+    
+    
+  </div>
+</div>
+
+    </div>
+  </section>
+
+  
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+  
+  
+
+  
+  
+  
+  
+  
+
+  
+  
+
+  <section id="posts" class="home-section wg-pages   "  >
+    <div class="container">
+      
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="row">
+  <div class="col-12 col-lg-4 section-heading">
+    <h1>Recent Posts</h1>
+    
+  </div>
+  <div class="col-12 col-lg-8">
+
+    
+
+    
+      
+        
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="media stream-item" itemscope itemtype="http://schema.org/BlogPosting">
+  <div class="media-body">
+
+    <h3 class="article-title mb-0 mt-0" itemprop="name">
+      <a href="/post/writing-technical-content/"  itemprop="url">Writing technical content in Academic</a>
+    </h3>
+
+    
+    <div class="article-style" itemprop="articleBody">
+      Academic is designed to give technical content creators a seamless experience. You can focus on the content and Academic handles the …
+    </div>
+    
+
+    <div class="stream-meta article-metadata">
+
+      
+
+      
+        
+
+
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    Jul 12, 2019
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    4 min read
+  </span>
+  
+
+  
+  
+  
+
+  
+  
+
+  
+
+</div>
+
+      
+    </div>
+
+    
+
+  </div>
+  <div class="ml-3">
+    
+    
+    
+    <a href="/post/writing-technical-content/" >
+      <img src="/post/writing-technical-content/featured_huc72159e0fc0d14b85f60d34436a630f0_266353_150x0_resize_q90_lanczos.jpg" itemprop="image">
+    </a>
+    
+  </div>
+</div>
+
+      
+    
+      
+        
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="media stream-item" itemscope itemtype="http://schema.org/BlogPosting">
+  <div class="media-body">
+
+    <h3 class="article-title mb-0 mt-0" itemprop="name">
+      <a href="/post/jupyter/"  itemprop="url">Display Jupyter Notebooks with Academic</a>
+    </h3>
+
+    
+    <div class="article-style" itemprop="articleBody">
+      Learn how to blog in Academic using Jupyter notebooks
+    </div>
+    
+
+    <div class="stream-meta article-metadata">
+
+      
+
+      
+        
+
+
+
+<div class="article-metadata">
+
+  
+  
+  
+  
+  <div>
+    
+
+
+
+  <span itemprop="author name" itemtype="http://schema.org/Person"><a href="/authors/admin/">Nelson Bighetti</a></span>
+
+  </div>
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+          Last updated on
+      
+    
+    Sep 5, 2019
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    2 min read
+  </span>
+  
+
+  
+  
+  
+
+  
+  
+
+  
+
+</div>
+
+      
+    </div>
+
+    
+
+  </div>
+  <div class="ml-3">
+    
+    
+    
+    <a href="/post/jupyter/" >
+      <img src="/post/jupyter/featured_hub1daa031c2af6888ff37bd93eb033a1a_71549_150x0_resize_lanczos_2.png" itemprop="image">
+    </a>
+    
+  </div>
+</div>
+
+      
+    
+      
+        
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="media stream-item" itemscope itemtype="http://schema.org/BlogPosting">
+  <div class="media-body">
+
+    <h3 class="article-title mb-0 mt-0" itemprop="name">
+      <a href="/post/getting-started/"  itemprop="url">Academic: the website builder for Hugo</a>
+    </h3>
+
+    
+    <div class="article-style" itemprop="articleBody">
+      Create a beautifully simple website in under 10 minutes.
+    </div>
+    
+
+    <div class="stream-meta article-metadata">
+
+      
+
+      
+        
+
+
+
+<div class="article-metadata">
+
+  
+  
+  
+  
+  <div>
+    
+
+
+
+  <span itemprop="author name" itemtype="http://schema.org/Person"><a href="/authors/admin/">Nelson Bighetti</a></span>
+
+  </div>
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+          Last updated on
+      
+    
+    Apr 17, 2019
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    3 min read
+  </span>
+  
+
+  
+  
+  
+
+  
+  
+  <span class="middot-divider"></span>
+  <span class="article-categories">
+    <i class="fas fa-folder mr-1"></i><a href="/categories/demo/">Demo</a></span>
+  
+
+  
+
+</div>
+
+      
+    </div>
+
+    
+
+  </div>
+  <div class="ml-3">
+    
+    
+    
+    <a href="/post/getting-started/" >
+      <img src="/post/getting-started/featured_hub9ee31969f44a6711206a2baf9f065b4_241861_150x0_resize_q90_lanczos.jpg" itemprop="image">
+    </a>
+    
+  </div>
+</div>
+
+      
+    
+      
+        
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="media stream-item" itemscope itemtype="http://schema.org/BlogPosting">
+  <div class="media-body">
+
+    <h3 class="article-title mb-0 mt-0" itemprop="name">
+      <a href="/post/2015-07-23-r-rmarkdown/"  itemprop="url">Hello R Markdown</a>
+    </h3>
+
+    
+    <div class="article-style" itemprop="articleBody">
+      R MarkdownThis is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For …
+    </div>
+    
+
+    <div class="stream-meta article-metadata">
+
+      
+
+      
+        
+
+
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    Jul 23, 2015
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    1 min read
+  </span>
+  
+
+  
+  
+  
+
+  
+  
+  <span class="middot-divider"></span>
+  <span class="article-categories">
+    <i class="fas fa-folder mr-1"></i><a href="/categories/r/">R</a></span>
+  
+
+  
+
+</div>
+
+      
+    </div>
+
+    
+
+  </div>
+  <div class="ml-3">
+    
+    
+  </div>
+</div>
+
+      
+    
+
+    
+
+  </div>
+</div>
+
+    </div>
+  </section>
+
+  
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+  
+  
+
+  
+  
+  
+  
+  
+
+  
+  
+
+  <section id="projects" class="home-section wg-portfolio   "  >
+    <div class="container">
+      
+
+
+
+
+
+
+
+
+
+
+<div class="row">
+  <div class="col-xs-12 col-md-4 section-heading">
+
+    <h1>Projects</h1>
+    
+
+  </div>
+  <div class="col-xs-12 col-md-8">
+
+
+
+    
+
+    
+
+      
+
+      
+      
+      
+      
+        
+      
+
+      <span class="d-none default-project-filter">*</span>
+
+      
+      
+      <div class="project-toolbar">
+        <div class="project-filters">
+          <div class="btn-toolbar">
+            <div class="btn-group flex-wrap">
+              
+                
+                
+                
+                  
+                
+                <a href="#" data-filter="*" class="btn btn-primary btn-lg active">All</a>
+              
+                
+                
+                
+                <a href="#" data-filter=".js-id-Deep-Learning" class="btn btn-primary btn-lg">Deep Learning</a>
+              
+                
+                
+                
+                <a href="#" data-filter=".js-id-Demo" class="btn btn-primary btn-lg">Other</a>
+              
+            </div>
+          </div>
+        </div>
+      </div>
+      
+    
+
+    <div class="isotope projects-container js-layout-masonry ">
+      
+
+        
+        
+        
+          
+          
+        
+
+        
+          
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+<div class="project-card project-item isotope-item js-id-Demo">
+  <div class="card">
+    
+    
+    <a href="http://example.org" target="_blank" rel="noopener" class="card-image hover-overlay">
+      <img src="/project/external-project/featured_hu3d03a01dcc18bc5be0e67db3d8d209a6_329522_550x0_resize_q90_lanczos.jpg" alt="" class="img-responsive">
+    </a>
+    
+    <div class="card-text">
+      <h4><a href="http://example.org" target="_blank" rel="noopener">External Project</a></h4>
+      
+      <div class="article-style">
+        <p>An example of linking directly to an external project website using <code>external_link</code>.</p>
+      </div>
+      
+    </div>
+  </div>
+</div>
+
+        
+
+      
+
+        
+        
+        
+
+        
+          
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+<div class="project-card project-item isotope-item js-id-Deep-Learning">
+  <div class="card">
+    
+    
+    <a href="/project/internal-project/"  class="card-image hover-overlay">
+      <img src="/project/internal-project/featured_hu3d03a01dcc18bc5be0e67db3d8d209a6_224363_550x0_resize_q90_lanczos.jpg" alt="" class="img-responsive">
+    </a>
+    
+    <div class="card-text">
+      <h4><a href="/project/internal-project/" >Internal Project</a></h4>
+      
+      <div class="article-style">
+        <p>An example of using the in-built project page.</p>
+      </div>
+      
+    </div>
+  </div>
+</div>
+
+        
+
+      
+    </div>
+
+  </div>
+</div>
+
+    </div>
+  </section>
+
+  
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+  
+  
+
+  
+  
+  
+  
+  
+
+  
+  
+
+  <section id="gallery" class="home-section wg-blank   "  >
+    <div class="container">
+      
+
+
+<div class="row">
+  
+    <div class="col-12 col-lg-4 section-heading">
+      <h1>Gallery</h1>
+      
+    </div>
+    <div class="col-12 col-lg-8">
+      
+
+
+
+
+
+
+
+  
+  
+
+
+<div class="gallery">
+
+  
+  
+  
+  
+    
+    
+    
+    
+    
+  <a data-fancybox="gallery-gallery" href="/home/gallery/gallery/theme-1950s.png" >
+  <img src="/home/gallery/gallery/theme-1950s_huaf5482f8cea0c5a703a328640e3b7509_21614_0x190_resize_lanczos_2.png" alt="">
+  </a>
+  
+    
+    
+    
+    
+    
+  <a data-fancybox="gallery-gallery" href="/home/gallery/gallery/theme-apogee.png" >
+  <img src="/home/gallery/gallery/theme-apogee_hu4b45d99db97150df01464c393bfd17d4_24119_0x190_resize_lanczos_2.png" alt="">
+  </a>
+  
+    
+    
+    
+    
+    
+  <a data-fancybox="gallery-gallery" href="/home/gallery/gallery/theme-coffee-playfair.png" >
+  <img src="/home/gallery/gallery/theme-coffee-playfair_hu446a8f670cc5622adcc77b97ba95f6c5_22462_0x190_resize_lanczos_2.png" alt="">
+  </a>
+  
+    
+    
+    
+    
+    
+  <a data-fancybox="gallery-gallery" href="/home/gallery/gallery/theme-dark.png" >
+  <img src="/home/gallery/gallery/theme-dark_hu1e8601ecc47f58eada7743fdcd709d3d_21456_0x190_resize_lanczos_2.png" alt="">
+  </a>
+  
+    
+    
+    
+    
+    
+  <a data-fancybox="gallery-gallery" href="/home/gallery/gallery/theme-default.png" >
+  <img src="/home/gallery/gallery/theme-default_huba6228b7bdf30e2f03f12ea91b2cba0d_21751_0x190_resize_lanczos_2.png" alt="">
+  </a>
+  
+    
+    
+    
+    
+    
+  <a data-fancybox="gallery-gallery" href="/home/gallery/gallery/theme-forest.png" >
+  <img src="/home/gallery/gallery/theme-forest_hu4f093a1c683134431456584193ea41ee_21797_0x190_resize_lanczos_2.png" alt="">
+  </a>
+  
+    
+    
+    
+    
+    
+  <a data-fancybox="gallery-gallery" href="/home/gallery/gallery/theme-ocean.png" >
+  <img src="/home/gallery/gallery/theme-ocean_hu14831ccafc2219f30a7a096fa7617e01_21760_0x190_resize_lanczos_2.png" alt="">
+  </a>
+  
+    
+    
+    
+    
+    
+  <a data-fancybox="gallery-gallery" href="/home/gallery/gallery/theme-strawberry.png" >
+  <img src="/home/gallery/gallery/theme-strawberry_hu36b0b347fcca08bd39e2df22dcedbdfb_39532_0x190_resize_lanczos_2.png" alt="">
+  </a>
+  
+
+  
+</div>
+
+    </div>
+  
+</div>
+
+    </div>
+  </section>
+
+  
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+  
+  
+
+  
+  
+  
+  
+  
+
+  
+  
+
+  <section id="talks" class="home-section wg-pages   "  >
+    <div class="container">
+      
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="row">
+  <div class="col-12 col-lg-4 section-heading">
+    <h1>Recent &amp; Upcoming Talks</h1>
+    
+  </div>
+  <div class="col-12 col-lg-8">
+
+    
+
+    
+      
+        
+
+
+
+
+
+
+
+
+
+
+  
+  
+  
+
+
+
+
+
+  
+
+
+<div class="media stream-item" itemscope itemtype="http://schema.org/Event">
+  <div class="media-body">
+
+    <h3 class="article-title mb-0 mt-0" itemprop="name">
+      <a href="/talk/example/"  itemprop="url">Example Talk</a>
+    </h3>
+
+    
+    <div class="article-style" itemprop="articleBody">
+      An example talk using Academic&rsquo;s Markdown slides feature.
+    </div>
+    
+
+    <div class="stream-meta article-metadata">
+
+      
+      <div>
+        <span itemprop="startDate">
+          Jun 1, 2030 1:00 PM &mdash; 3:00 PM
+        </span>
+        
+        <span class="middot-divider"></span>
+        <span itemprop="location">London, United Kingdom</span>
+        
+      </div>
+      
+
+      
+    </div>
+
+    
+    <div class="btn-links">
+      
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+  
+  <a class="btn btn-outline-primary my-1 mr-1 btn-sm" href="/project/internal-project/">
+    Project
+  </a>
+  
+
+
+
+
+  
+  <a class="btn btn-outline-primary my-1 mr-1 btn-sm" href="/slides/example/" target="_blank">
+    Slides
+  </a>
+  
+
+
+
+
+
+  
+  
+  
+    
+  
+  
+  
+  
+  
+    
+  
+  <a class="btn btn-outline-primary my-1 mr-1 btn-sm" href="https://twitter.com/georgecushen" target="_blank" rel="noopener">
+    <i class="fab fa-twitter mr-1"></i>
+    Follow
+  </a>
+
+
+    </div>
+    
+
+  </div>
+  <div class="ml-3">
+    
+    
+    
+    <a href="/talk/example/" >
+      <img src="/talk/example/featured_hu3d03a01dcc18bc5be0e67db3d8d209a6_620088_150x0_resize_q90_lanczos.jpg" itemprop="image">
+    </a>
+    
+  </div>
+</div>
+
+      
+    
+
+    
+
+  </div>
+</div>
+
+    </div>
+  </section>
+
+  
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+  
+  
+
+  
+  
+  
+  
+  
+
+  
+  
+
+  <section id="featured" class="home-section wg-featured   "  >
+    <div class="container">
+      
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="row">
+  <div class="col-12 col-lg-4 section-heading">
+    <h1>Featured Publications</h1>
+    
+  </div>
+  <div class="col-12 col-lg-8">
+
+    
+
+    
+      
+        
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+  
+
+
+<div class="card-simple" itemscope itemtype="http://schema.org/ScholarlyArticle">
+
+  
+    
+
+
+
+<div class="article-metadata">
+
+  
+  
+  
+  
+  <div>
+    
+
+
+
+  <span itemprop="author name" itemtype="http://schema.org/Person"><a href="/authors/admin/">Nelson Bighetti</a></span>, <span itemprop="author name" itemtype="http://schema.org/Person"><a href="/authors/robert-ford/">Robert Ford</a></span>
+
+  </div>
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    July 2013
+  </span>
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="pub-publication">
+    
+      In <em>STC</em>
+    
+  </span>
+  
+
+  
+
+  
+  
+  
+
+  
+  
+
+  
+
+</div>
+
+  
+
+  
+  
+  
+  
+  <a href="/publication/conference-paper/">
+      <img src="/publication/conference-paper/featured_hu3d03a01dcc18bc5be0e67db3d8d209a6_312700_918x517_fill_q90_lanczos_smart1.jpg" class="article-banner" itemprop="image" alt="">
+  </a>
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/publication/conference-paper/" itemprop="url">An example conference paper</a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis posuere tellus ac convallis placerat. Proin tincidunt magna sed ex sollicitudin condimentum.</p>
+  </div>
+  
+
+  
+  <div class="btn-links">
+    
+
+
+
+
+
+
+
+
+  
+    
+  
+
+
+
+<a class="btn btn-outline-primary my-1 mr-1 btn-sm" href="http://eprints.soton.ac.uk/352095/1/Cushen-IMV2013.pdf" target="_blank" rel="noopener">
+  PDF
+</a>
+
+
+
+<button type="button" class="btn btn-outline-primary my-1 mr-1 btn-sm js-cite-modal"
+        data-filename="/publication/conference-paper/cite.bib">
+  Cite
+</button>
+
+
+  
+  
+    
+  
+<a class="btn btn-outline-primary my-1 mr-1 btn-sm" href="/#" target="_blank" rel="noopener">
+  Code
+</a>
+
+
+  
+  
+    
+  
+<a class="btn btn-outline-primary my-1 mr-1 btn-sm" href="/#" target="_blank" rel="noopener">
+  Dataset
+</a>
+
+
+
+  
+  <a class="btn btn-outline-primary my-1 mr-1 btn-sm" href="/project/internal-project/">
+    Project
+  </a>
+  
+
+
+
+  
+  
+    
+  
+<a class="btn btn-outline-primary my-1 mr-1 btn-sm" href="/#" target="_blank" rel="noopener">
+  Poster
+</a>
+
+
+  
+  <a class="btn btn-outline-primary my-1 mr-1 btn-sm" href="/slides/example/" target="_blank">
+    Slides
+  </a>
+  
+
+
+  
+  
+    
+  
+<a class="btn btn-outline-primary my-1 mr-1 btn-sm" href="/#" target="_blank" rel="noopener">
+  Video
+</a>
+
+
+  
+  
+    
+  
+<a class="btn btn-outline-primary my-1 mr-1 btn-sm" href="/#" target="_blank" rel="noopener">
+  Source Document
+</a>
+
+
+
+  
+  
+  
+    
+  
+  
+  
+  
+  
+    
+  
+  <a class="btn btn-outline-primary my-1 mr-1 btn-sm" href="http://example.org" target="_blank" rel="noopener">
+    
+    Custom Link
+  </a>
+
+
+  </div>
+  
+
+</div>
+
+      
+    
+
+  </div>
+</div>
+
+    </div>
+  </section>
+
+  
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+  
+  
+
+  
+  
+  
+  
+  
+
+  
+  
+
+  <section id="publications" class="home-section wg-pages   "  >
+    <div class="container">
+      
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="row">
+  <div class="col-12 col-lg-4 section-heading">
+    <h1>Recent Publications</h1>
+    
+  </div>
+  <div class="col-12 col-lg-8">
+
+    <div class="alert alert-note">
+  <div>
+    Quickly discover relevant content by <a href="/publication/">filtering publications</a>.
+  </div>
+</div>
+
+
+    
+      
+        
+
+
+
+
+
+
+
+
+
+
+  
+  
+  
+
+
+
+
+
+  
+
+
+<div class="media stream-item" itemscope itemtype="http://schema.org/ScholarlyArticle">
+  <div class="media-body">
+
+    <h3 class="article-title mb-0 mt-0" itemprop="name">
+      <a href="/publication/preprint/"  itemprop="url">An example preprint / working paper</a>
+    </h3>
+
+    
+    <div class="article-style" itemprop="articleBody">
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis posuere tellus ac convallis placerat. Proin tincidunt magna sed ex …
+    </div>
+    
+
+    <div class="stream-meta article-metadata">
+
+      
+
+      
+      <div itemprop="author">
+        
+
+
+
+  <span itemprop="author name" itemtype="http://schema.org/Person"><a href="/authors/admin/">Nelson Bighetti</a></span>
+
+      </div>
+      
+    </div>
+
+    
+    <div class="btn-links">
+      
+
+
+
+
+
+
+
+
+  
+    
+  
+
+
+
+<a class="btn btn-outline-primary my-1 mr-1 btn-sm" href="http://arxiv.org/pdf/1512.04133v1" target="_blank" rel="noopener">
+  PDF
+</a>
+
+
+
+
+  
+  
+    
+  
+<a class="btn btn-outline-primary my-1 mr-1 btn-sm" href="/#" target="_blank" rel="noopener">
+  Code
+</a>
+
+
+  
+  
+    
+  
+<a class="btn btn-outline-primary my-1 mr-1 btn-sm" href="/#" target="_blank" rel="noopener">
+  Dataset
+</a>
+
+
+
+  
+  <a class="btn btn-outline-primary my-1 mr-1 btn-sm" href="/project/internal-project/">
+    Project
+  </a>
+  
+
+
+
+  
+  
+    
+  
+<a class="btn btn-outline-primary my-1 mr-1 btn-sm" href="/#" target="_blank" rel="noopener">
+  Poster
+</a>
+
+
+  
+  <a class="btn btn-outline-primary my-1 mr-1 btn-sm" href="/slides/example/" target="_blank">
+    Slides
+  </a>
+  
+
+
+  
+  
+    
+  
+<a class="btn btn-outline-primary my-1 mr-1 btn-sm" href="/#" target="_blank" rel="noopener">
+  Video
+</a>
+
+
+  
+  
+    
+  
+<a class="btn btn-outline-primary my-1 mr-1 btn-sm" href="/#" target="_blank" rel="noopener">
+  Source Document
+</a>
+
+
+
+  
+  
+  
+    
+  
+  
+  
+  
+  
+    
+  
+  <a class="btn btn-outline-primary my-1 mr-1 btn-sm" href="http://example.org" target="_blank" rel="noopener">
+    
+    Custom Link
+  </a>
+
+
+    </div>
+    
+
+  </div>
+  <div class="ml-3">
+    
+    
+    
+    <a href="/publication/preprint/" >
+      <img src="/publication/preprint/featured_hu559a5add5185b02575aa8333502ab2cc_220813_150x0_resize_q90_lanczos.jpg" itemprop="image">
+    </a>
+    
+  </div>
+</div>
+
+      
+    
+      
+        
+
+
+
+
+
+
+
+
+
+
+  
+  
+  
+
+
+
+
+
+  
+
+
+<div class="media stream-item" itemscope itemtype="http://schema.org/ScholarlyArticle">
+  <div class="media-body">
+
+    <h3 class="article-title mb-0 mt-0" itemprop="name">
+      <a href="/publication/journal-article/"  itemprop="url">An example journal article</a>
+    </h3>
+
+    
+    <div class="article-style" itemprop="articleBody">
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis posuere tellus ac convallis placerat. Proin tincidunt magna sed ex …
+    </div>
+    
+
+    <div class="stream-meta article-metadata">
+
+      
+
+      
+      <div itemprop="author">
+        
+
+
+
+  <span itemprop="author name" itemtype="http://schema.org/Person"><a href="/authors/admin/">Nelson Bighetti</a></span>, <span itemprop="author name" itemtype="http://schema.org/Person"><a href="/authors/robert-ford/">Robert Ford</a></span>
+
+      </div>
+      
+    </div>
+
+    
+    <div class="btn-links">
+      
+
+
+
+
+
+
+
+
+  
+    
+  
+
+
+
+<a class="btn btn-outline-primary my-1 mr-1 btn-sm" href="http://arxiv.org/pdf/1512.04133v1" target="_blank" rel="noopener">
+  PDF
+</a>
+
+
+
+<button type="button" class="btn btn-outline-primary my-1 mr-1 btn-sm js-cite-modal"
+        data-filename="/publication/journal-article/cite.bib">
+  Cite
+</button>
+
+
+
+
+
+
+
+
+  
+  <a class="btn btn-outline-primary my-1 mr-1 btn-sm" href="/slides/example/" target="_blank">
+    Slides
+  </a>
+  
+
+
+
+
+
+
+    </div>
+    
+
+  </div>
+  <div class="ml-3">
+    
+    
+    
+    <a href="/publication/journal-article/" >
+      <img src="/publication/journal-article/featured_hu3d03a01dcc18bc5be0e67db3d8d209a6_214168_150x0_resize_q90_lanczos.jpg" itemprop="image">
+    </a>
+    
+  </div>
+</div>
+
+      
+    
+      
+        
+
+
+
+
+
+
+
+
+
+
+  
+  
+  
+
+
+
+
+
+  
+
+
+<div class="media stream-item" itemscope itemtype="http://schema.org/ScholarlyArticle">
+  <div class="media-body">
+
+    <h3 class="article-title mb-0 mt-0" itemprop="name">
+      <a href="/publication/conference-paper/"  itemprop="url">An example conference paper</a>
+    </h3>
+
+    
+    <div class="article-style" itemprop="articleBody">
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis posuere tellus ac convallis placerat. Proin tincidunt magna sed ex …
+    </div>
+    
+
+    <div class="stream-meta article-metadata">
+
+      
+
+      
+      <div itemprop="author">
+        
+
+
+
+  <span itemprop="author name" itemtype="http://schema.org/Person"><a href="/authors/admin/">Nelson Bighetti</a></span>, <span itemprop="author name" itemtype="http://schema.org/Person"><a href="/authors/robert-ford/">Robert Ford</a></span>
+
+      </div>
+      
+    </div>
+
+    
+    <div class="btn-links">
+      
+
+
+
+
+
+
+
+
+  
+    
+  
+
+
+
+<a class="btn btn-outline-primary my-1 mr-1 btn-sm" href="http://eprints.soton.ac.uk/352095/1/Cushen-IMV2013.pdf" target="_blank" rel="noopener">
+  PDF
+</a>
+
+
+
+<button type="button" class="btn btn-outline-primary my-1 mr-1 btn-sm js-cite-modal"
+        data-filename="/publication/conference-paper/cite.bib">
+  Cite
+</button>
+
+
+  
+  
+    
+  
+<a class="btn btn-outline-primary my-1 mr-1 btn-sm" href="/#" target="_blank" rel="noopener">
+  Code
+</a>
+
+
+  
+  
+    
+  
+<a class="btn btn-outline-primary my-1 mr-1 btn-sm" href="/#" target="_blank" rel="noopener">
+  Dataset
+</a>
+
+
+
+  
+  <a class="btn btn-outline-primary my-1 mr-1 btn-sm" href="/project/internal-project/">
+    Project
+  </a>
+  
+
+
+
+  
+  
+    
+  
+<a class="btn btn-outline-primary my-1 mr-1 btn-sm" href="/#" target="_blank" rel="noopener">
+  Poster
+</a>
+
+
+  
+  <a class="btn btn-outline-primary my-1 mr-1 btn-sm" href="/slides/example/" target="_blank">
+    Slides
+  </a>
+  
+
+
+  
+  
+    
+  
+<a class="btn btn-outline-primary my-1 mr-1 btn-sm" href="/#" target="_blank" rel="noopener">
+  Video
+</a>
+
+
+  
+  
+    
+  
+<a class="btn btn-outline-primary my-1 mr-1 btn-sm" href="/#" target="_blank" rel="noopener">
+  Source Document
+</a>
+
+
+
+  
+  
+  
+    
+  
+  
+  
+  
+  
+    
+  
+  <a class="btn btn-outline-primary my-1 mr-1 btn-sm" href="http://example.org" target="_blank" rel="noopener">
+    
+    Custom Link
+  </a>
+
+
+    </div>
+    
+
+  </div>
+  <div class="ml-3">
+    
+    
+    
+    <a href="/publication/conference-paper/" >
+      <img src="/publication/conference-paper/featured_hu3d03a01dcc18bc5be0e67db3d8d209a6_312700_150x0_resize_q90_lanczos.jpg" itemprop="image">
+    </a>
+    
+  </div>
+</div>
+
+      
+    
+
+    
+
+  </div>
+</div>
+
+    </div>
+  </section>
+
+  
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+  
+  
+
+  
+  
+  
+  
+  
+
+  
+  
+
+  <section id="tags" class="home-section wg-tag-cloud   "  >
+    <div class="container">
+      
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+<div class="row">
+  <div class="col-12 col-lg-4 section-heading">
+    <h1>Popular Topics</h1>
+    
+  </div>
+  <div class="col-12 col-lg-8">
+    
+
+    
+
+      
+      
+      
+      
+      
+
+      <div class="tag-cloud">
+        
+          
+          
+          
+          <a href="/tags/academic/" style="font-size:0.7rem">Academic</a>
+        
+          
+          
+          
+          <a href="/tags/deep-learning/" style="font-size:0.7rem">Deep Learning</a>
+        
+          
+          
+          
+          <a href="/tags/demo/" style="font-size:0.7rem">Demo</a>
+        
+          
+          
+          
+          <a href="/tags/plot/" style="font-size:0.7rem">plot</a>
+        
+          
+          
+          
+          <a href="/tags/r-markdown/" style="font-size:0.7rem">R Markdown</a>
+        
+          
+          
+          
+          <a href="/tags/regression/" style="font-size:0.7rem">regression</a>
+        
+          
+          
+          
+          <a href="/tags/source-themes/" style="font-size:2.7604512509375025rem">Source Themes</a>
+        
+      </div>
+    
+
+  </div>
+</div>
+
+    </div>
+  </section>
+
+  
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+  
+  
+
+  
+  
+  
+  
+  
+
+  
+  
+
+  <section id="contact" class="home-section wg-contact   "  >
+    <div class="container">
+      
+
+
+
+
+<div class="row contact-widget">
+  <div class="col-12 col-lg-4 section-heading">
+    <h1>Contact</h1>
+    
+  </div>
+  <div class="col-12 col-lg-8">
+    
+
+    
+
+    
+    
+      
+      
+    
+
+    <div class="mb-3">
+      <form name="contact" method="POST" action="https://formspree.io/test@example.org">
+        <div class="form-group form-inline">
+          <label class="sr-only" for="inputName">Name</label>
+          <input type="text" name="name" class="form-control w-100" id="inputName" placeholder="Name" required>
+        </div>
+        <div class="form-group form-inline">
+          <label class="sr-only" for="inputEmail">Email</label>
+          <input type="email" name="email" class="form-control w-100" id="inputEmail" placeholder="Email" required>
+        </div>
+        <div class="form-group">
+          <label class="sr-only" for="inputMessage">Message</label>
+          <textarea name="message" class="form-control" id="inputMessage" rows="5" placeholder="Message" required></textarea>
+        </div>
+        <button type="submit" class="btn btn-outline-primary px-3 py-2">Send</button>
+      </form>
+    </div>
+    
+
+    <ul class="fa-ul" itemscope>
+
+      
+
+      
+      <li>
+        <i class="fa-li fas fa-phone fa-2x" aria-hidden="true"></i>
+        <span id="person-telephone" itemprop="telephone"><a href="tel:888%20888%2088%2088">888 888 88 88</a></span>
+      </li>
+      
+
+      
+      <li>
+        <i class="fa-li fas fa-map-marker fa-2x" aria-hidden="true"></i>
+        <span id="person-address" itemprop="address">Building 1 Room 1, Stanford University, California, 90210, USA</span>
+      </li>
+      
+
+      
+      <li>
+        <i class="fa-li fas fa-clock fa-2x" aria-hidden="true"></i>
+        <span>Monday 10:00 to 13:00<br>
+                  Wednesday 09:00 to 10:00</span>
+      </li>
+      
+
+      
+      <li>
+        <i class="fa-li fas fa-calendar-check fa-2x" aria-hidden="true"></i>
+        <a href="https://calendly.com" target="_blank" rel="noopener">Book an appointment</a>
+      </li>
+      
+
+      
+      
+      
+      
+      
+        
+      
+      
+      
+      
+      
+        
+      
+      <li>
+        <i class="fa-li fab fa-twitter fa-2x" aria-hidden="true"></i>
+        <a href="https://twitter.com/Twitter" target="_blank" rel="noopener">DM Me</a>
+      </li>
+      
+      
+      
+      
+        
+      
+      
+      
+      
+      
+      <li>
+        <i class="fa-li fab fa-skype fa-2x" aria-hidden="true"></i>
+        <a href="skype:echo123?call" >Skype Me</a>
+      </li>
+      
+      
+      
+      
+        
+      
+      
+      
+      
+      
+        
+      
+      <li>
+        <i class="fa-li fab fa-keybase fa-2x" aria-hidden="true"></i>
+        <a href="https://keybase.io/" target="_blank" rel="noopener">Chat on Keybase</a>
+      </li>
+      
+      
+      
+      
+        
+      
+      
+      
+      
+      
+        
+      
+      <li>
+        <i class="fa-li fas fa-comments fa-2x" aria-hidden="true"></i>
+        <a href="https://discourse.gohugo.io" target="_blank" rel="noopener">Discuss on Forum</a>
+      </li>
+      
+
+    </ul>
+
+    
+    <div class="d-none">
+      <input id="map-provider" value="2">
+      <input id="map-lat" value="37.4275">
+      <input id="map-lng" value="-122.1697">
+      <input id="map-dir" value="Building 1 Room 1, Stanford University, California, 90210, USA">
+      <input id="map-zoom" value="15">
+      <input id="map-api-key" value="">
+    </div>
+    <div id="map"></div>
+    
+
+  </div>
+</div>
+
+    </div>
+  </section>
+
+
+
+      
+
+    
+    
+
+    
+    
+    
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/4.1.4/imagesloaded.pkgd.min.js" integrity="sha256-lqvxZrPLtfffUl2G/e7szqSvPBILGbwmsGE1MKlOi0Q=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/3.0.6/isotope.pkgd.min.js" integrity="sha256-CBrpuqrMhXwcLLUd5tvQ4euBHCdh7wGlDfNz8vbu/iI=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.js" integrity="sha256-X5PoE3KU5l+JcX+w09p/wHl9AzK333C4hJ2I9S5mD4M=" crossorigin="anonymous"></script>
+
+      
+
+      
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/highlight.min.js" integrity="sha256-aYTdUrn6Ow1DDgh5JTc3aDGnnju48y/1c8s1dgkYPQ8=" crossorigin="anonymous"></script>
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/languages/r.min.js"></script>
+        
+      
+
+      
+      
+    
+
+    
+    
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.2.0/leaflet.js" integrity="sha512-lInM/apFSqyy1o6s89K4iQUKg6ppXEgsVxT35HbzUupEVRh2Eu9Wdl4tHj7dZO0s1uvplcYGmt3498TtHq+log==" crossorigin="anonymous"></script>
+    
+
+    
+    
+    <script>hljs.initHighlightingOnLoad();</script>
+    
+
+    
+    
+    <script>
+      const search_index_filename = "/index.json";
+      const i18n = {
+        'placeholder': "Search...",
+        'results': "results found",
+        'no_results': "No results found"
+      };
+      const content_type = {
+        'post': "Posts",
+        'project': "Projects",
+        'publication' : "Publications",
+        'talk' : "Talks"
+        };
+    </script>
+    
+
+    
+    
+
+    
+    
+    <script id="search-hit-fuse-template" type="text/x-template">
+      <div class="search-hit" id="summary-{{key}}">
+      <div class="search-hit-content">
+        <div class="search-hit-name">
+          <a href="{{relpermalink}}">{{title}}</a>
+          <div class="article-metadata search-hit-type">{{type}}</div>
+          <p class="search-hit-description">{{snippet}}</p>
+        </div>
+      </div>
+      </div>
+    </script>
+    
+
+    
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/3.2.1/fuse.min.js" integrity="sha256-VzgmKYmhsGNNN4Ph1kMW+BjoYJM2jV5i4IlFoeZA9XI=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/jquery.mark.min.js" integrity="sha256-4HLtjeVgH0eIB3aZ9mLYF6E8oU5chNdjU6p6rrXpl9U=" crossorigin="anonymous"></script>
+    
+
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+      
+    
+    
+    
+    
+    <script src="/js/academic.min.16bbb3750feb7244c9bc409a5a4fe678.js"></script>
+
+    
+
+
+
+
+
+
+  
+  <div class="container">
+    <footer class="site-footer">
+  
+  <p class="powered-by">
+    
+      <a href="/privacy/">Privacy Policy</a>
+    
+    
+       &middot; 
+      <a href="/terms/">Terms</a>
+        
+  </p>
+  
+
+  <p class="powered-by">
+    
+
+    Powered by the
+    <a href="https://sourcethemes.com/academic/" target="_blank" rel="noopener">Academic theme</a> for
+    <a href="https://gohugo.io" target="_blank" rel="noopener">Hugo</a>.
+
+    
+    <span class="float-right" aria-hidden="true">
+      <a href="#" id="back_to_top">
+        <span class="button_icon">
+          <i class="fas fa-chevron-up fa-2x"></i>
+        </span>
+      </a>
+    </span>
+    
+  </p>
 </footer>
-	</div>
-<script async defer src="/js/menu.js"></script></body>
+
+  </div>
+  
+
+  
+<div id="modal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Cite</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <pre><code class="tex hljs"></code></pre>
+      </div>
+      <div class="modal-footer">
+        <a class="btn btn-outline-primary my-1 js-copy-cite" href="#" target="_blank">
+          <i class="fas fa-copy"></i> Copy
+        </a>
+        <a class="btn btn-outline-primary my-1 js-download-cite" href="#" target="_blank">
+          <i class="fas fa-download"></i> Download
+        </a>
+        <div id="modal-error"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+</body>
 </html>

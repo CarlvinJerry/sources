@@ -1,93 +1,71 @@
-baseurl = "https://beyondrawdata.rbind.io/"
-title = "Beyond Raw Data"
-languageCode = "en-us"
-paginate = "10" # Number of posts per page
-ignoreFiles = ["\\.Rmd$", "\\.Rmarkdown$", "_files$", "_cache$"]
-theme = "Mainroad"
-disqusShortname = "beyond-raw-data-blog" # Enable comments by entering your Disqus shortname
-googleAnalytics = "UA-137362362-1" # Enable Google Analytics by entering your tracking id
-publishDir = "../CarlvinJerry.github.io"
-#[Author] # Used in authorbox
- #name = "Carlvin M"
-  #bio = "Carlvin is a young data science enthusiast who loves building and testing all things data analytics and visualization. Here to learn, here to grow! Have questions or suggestions? Feel free to open an issue on GitHub or ask me on Twitter.Thanks for reading!"
-  #avatar = "img/avatar.png"
- 
- [menu]
- [[menu.main]]
-    name = "Home"
-    identifier = "Home"
-    url = ""
-    weight = 1
-	
- [[menu.main]]
-    name = "Posts"
-    identifier = "posts"
-    url = "/post/"
-    weight = 2
- 
- [[menu.main]]
-    name = "About"
-    pre = "<i class='fa fa-user fa-fw'></i>"
-    weight = 5
-    identifier = "about"
-    url = "/about/"
-	#avatar = "img/avatar.png"
+# Configuration of Academic
+# Documentation: https://sourcethemes.com/academic/
+#
+# This file is formatted using TOML syntax - learn more at https://learnxinyminutes.com/docs/toml/
+# Each configuration section is defined by a name in square brackets (e.g. `[outputs]`).
 
- [[menu.main]]
-    name = "Contact"
-    pre = "<i class='fa fa-phone fa-fw'></i>"
-    weight = 6
-    url = "/contact/"
-	
- [[menu.main]]
-    name = "RSS Feed"
-    identifier = "RSS"
-    url = "/post/rss.xml"
-    weight = 101
- 
-[[menu.main]]
-    name = "R Bloggers"
-    identifier = "R"
-    url = "https://www.r-bloggers.com/"
-    weight = 110
+# Title of your site
+title = "Academic"
 
-[Params]
-  subtitle = "Fitting a thousand data stories in a nutshell..." # Subtitle of your site
-  description = "Carlvin's personal blog on everything Data Science"  # Description of your site
-  copyright = "Carlvin M"
-  opengraph = true
-  twitter_cards = true
-  readmore = true # Show "Read more" button in list if true
-  authorbox = false
-  post_navigation = true
-  post_meta = ["date", "categories"] # Order of post meta information
-  postSections = ["post"] # the section pages to show on home page and the "Recent articles" widget #--------------------------
+# The URL of your site.
+# End your URL with a `/` trailing slash, e.g. `https://example.com/`.
+baseurl = "/"
 
-[Params.sidebar]
-  home = "right"   # Configure layout for home page
-  list = "right"   # Configure layout for list pages
-  single = "right" # Configure layout for single pages
-  # Enable widgets in given order
-  widgets = ["search", "recent", "categories", "taglist", "social", "languages"]
+# Enter a copyright notice to display in the site footer.
+# To display a copyright symbol, type `&copy;`. For current year, type `{year}`.
+copyright = ""
 
-[Params.widgets]
-  recent_num = 5 # Set the number of articles in the "Recent articles" widget
-  tags_counter = false # Enable counter for each tag in "Tags" widget (disabled by default)
+# Enable analytics by entering your Google Analytics tracking ID
+googleAnalytics = ""
 
-#--------
-[Params.widgets.social]
-  # Enable parts of social widget
-  # Link your social networking accounts to the side menu
-  # by entering your username or ID.
+############################
+## Advanced options below ##
+############################
 
-  # SNS microblogging
-  #twitter = ""#"@Ctrl_Shft_Del"
-  #gnusocial = "*" # Specify href (e.g. https://quitter.se/yourusername)
-  #facebook = "*"
-  googleplus = "carlvinjerry@gmail.com"
-  
-  # SNS career oriented
-  linkedin = "carlvinmwange"
-  
-  # Techie
-  github = "CarlvinJerry"
+# Name of Academic theme folder in `themes/`.
+theme = "hugo-academic"
+
+# Get last modified date for content from Git?
+enableGitInfo = false
+
+# Default language to use (if you setup multilingual support)
+defaultContentLanguage = "en"
+hasCJKLanguage = false  # Set `true` for Chinese/Japanese/Korean languages.
+defaultContentLanguageInSubdir = false
+removePathAccents = true  # Workaround for https://github.com/gohugoio/hugo/issues/5687
+
+paginate = 10  # Number of items per page in paginated lists.
+enableEmoji = true
+footnotereturnlinkcontents = "<sup>^</sup>"
+ignoreFiles = ["\\.ipynb$", ".ipynb_checkpoints$", "\\.Rmd$", "\\.Rmarkdown$", "_files$", "_cache$"]
+
+[outputs]
+  home = [ "HTML", "RSS", "JSON", "WebAppManifest" ]
+  section = [ "HTML", "RSS" ]
+
+[mediaTypes."application/manifest+json"]
+  suffixes = ["webmanifest"]
+
+[outputFormats.WebAppManifest]
+  mediaType = "application/manifest+json"
+  rel = "manifest"
+
+# Configure BlackFriday Markdown rendering.
+#   See: https://gohugo.io/getting-started/configuration/#configure-blackfriday
+[blackfriday]
+  hrefTargetBlank = true  # `true` opens external links in a new tab. See https://github.com/gohugoio/hugo/issues/2424
+	angledQuotes = false
+	latexDashes = true
+  extensions = ["backslashLineBreak"]
+
+[imaging]
+  resampleFilter = "lanczos"
+  quality = 90
+  anchor = "smart"  # Anchor for cropping. Options include Smart and Center.
+
+# Taxonomies.
+[taxonomies]
+  tag = "tags"
+  category = "categories"
+  publication_type = "publication_types"
+  author = "authors"
