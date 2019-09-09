@@ -1,5 +1,5 @@
 ---
-title: "Data Mining In R"
+title: "Twitter Data Mining In R"
 lead: "Getting started with Text mining using Twitter and R"
 authors:
 - admin
