@@ -1,0 +1,20 @@
+---
+title: "Handy Shiny Apps"
+subtitle: "A curated list of web apps, built in R's Shiny"
+author: "admin"
+date: '2019-09-09'
+summary:  "A urated list of web apps, built in R's Shiny"
+image:
+  caption: '#tidyTuesday official banner'
+  focal_point: ''
+  preview_only: true
+editor_options: 
+  chunk_output_type: console
+tags: [Data Visualization]
+categories: [Data Visualization]   
+---
+# Motivation
+
+This project contains links to my developed shiny apps you might find helpful...For every new interesting idea I have I'll build an app. Some might be basic shiny, others might be complex shiny, depending on how important I think they are. Let me know what you think,suggestions for improvements and new apps are welcome. 
+
+**1.** [Live time progress](https://carlvinjerry3.shinyapps.io/AreWeThereYet1n2/) A live time visualizing app with a stop watch for board games hosted in [ShinyApp.io](https://www.shinyapps.io/)

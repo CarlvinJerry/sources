@@ -13,6 +13,8 @@ output:
     css: custom.css
 editor_options: 
   chunk_output_type: console
+tags: [Twitter,Data Visualization]
+categories: [Twitter,Data Visualization]
 ---
 
 <div class="flex-container">
@@ -35,9 +37,6 @@ editor_options:
 <div>
 <blockquote class="twitter-tweet"><p lang="en" dir="ltr">Highlighting top 1000 nukes by yield, Bravo yielded the most megatons:15 followed by Yankee: 13.5 mt , Romeo:11 mt , Mike:10.4 mt , Handley:10 mt . All were US&#39;s , mostly deployed in Bikini...apart from Hanley which was UK&#39;s <a href="https://twitter.com/hashtag/rstats?src=hash&amp;ref_src=twsrc%5Etfw">#rstats</a> <a href="https://twitter.com/hashtag/TidyTuesday?src=hash&amp;ref_src=twsrc%5Etfw">#TidyTuesday</a> <a href="https://twitter.com/hashtag/dataviz?src=hash&amp;ref_src=twsrc%5Etfw">#dataviz</a> <a href="https://t.co/c9KnQGaUiH">pic.twitter.com/c9KnQGaUiH</a></p>&mdash; Professional Griefer (@PipeFunction) <a href="https://twitter.com/PipeFunction/status/1164234676208320513?ref_src=twsrc%5Etfw">August 21, 2019</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 </div>
-
-
-
 
 
 </div>
