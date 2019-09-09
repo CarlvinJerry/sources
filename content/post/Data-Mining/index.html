@@ -1,19 +1,15 @@
 ---
 title: "Data Mining In R"
 lead: "Getting started with Text mining using Twitter and R"
-author: ["admin"]
-
+authors:
+- admin
 date: '2019-01-25'
 
 
-output:
-  html_document:
-    includes:
-    df_print: paged
-  pdf_document: default
+output: md_document
   
 tags: [Twitter,Data Mining,R]
-categories: [Data Mining, R]
+categories: [Data Mining,R]
 ---
 
 
@@ -38,11 +34,9 @@ categories: [Data Mining, R]
 <h1>Creating a Twitter app</h1>
 <p>To create a twitter app we can use for fetching metadata, we first need to have a Twitter account. We then need to go to the <strong>twitter dev site</strong> <a href="https://developer.twitter.com/" class="uri">https://developer.twitter.com/</a> and log in with our user account.
 On the top right corner should be a drop down menu next to your username, go to APPS. At this point if you are doing this for the first time your Apps section should be blank. Click on “Create an app” to… create an app.</p>
-<div class="figure">
-<img src="https://github.com/CarlvinJerry/CarlvinJerry.github.io/blob/master/MyImages/apps.PNG?raw=true" alt="“imagery”" />
-<p class="caption">“imagery”</p>
-</div>
-<p><br></p>
+<center>
+<img src="https://github.com/CarlvinJerry/sources/blob/master/static/MyImages/apps.PNG?raw=true" alt="create app" />
+</center>
 <p>We then have to fill in the form below appropriately. Here is a breakdown of what’s required:</p>
 <ul>
 <li><strong>Name:</strong>
@@ -56,20 +50,20 @@ I would ignore the Callback URL field. If you are allowing users to log into you
 </ul>
 <center>
 <div class="figure">
-<img src="apps2.PNG" alt="png" />
-<p class="caption">png</p>
+<img src="https://github.com/CarlvinJerry/sources/blob/master/static/MyImages/apps2.PNG?raw=true" alt="App details" />
+<p class="caption">App details</p>
 </div>
 </center>
 <p><br></p>
 <p>The remaining fields should be quite straight forward but must be filled. Click “Create” once done and there you have your first twitter app.
 On your app is a menu with <strong>Keys and tokens</strong>. These are the most important components since we will need them to access data from the APIs.Generate both consumer and access tokens (if not readily available) and take note of them. <strong>NB:</strong> <strong>These keys are meant for your eyes only!</strong></p>
 <center>
-<img src="keys.PNG" alt="png" />
+<img src="https://github.com/CarlvinJerry/sources/blob/master/static/MyImages/keys.PNG?raw=true" alt="Keys" />
 </center>
 <p><br></p>
 <p>The final bit of setting up our twitter app is granting access permissions. We will mostly do fine with the <strong>read-only</strong> if all we need is to fetch data but it can always be changed later.</p>
 <center>
-<img src="permisions.png" alt="png" />
+<img src="https://github.com/CarlvinJerry/sources/blob/master/static/MyImages/permisions.PNG?raw=true" alt="Permisions" />
 </center>
 <p><br><br></p>
 <p>Now we can move on to the next step where we set up <strong>R</strong> to query data from Twitter.</p>
@@ -139,10 +133,7 @@ save(UKenyatta_Tweets, file=&quot;UKenyatta_Tweets.RData&quot;)
 
 # You can then access them later at will...
 # load(&quot;UKenyatta_Tweets.RData&quot;)</code></pre>
-<p>You can now manipulate your data and see what you find out.</p>
-<center>
-<img src="https://media.giphy.com/media/ZtMkorgeyRu5q/giphy.gif" alt="Happy crunching!!" />
-</center>
+<p>You can now manipulate your data and see what you find out…</p>
 <p><br></p>
 <center>
 <img src="https://fontmeme.com/permalink/190129/8b378e9ce35b7a28dd150c4f1d656807.png" />

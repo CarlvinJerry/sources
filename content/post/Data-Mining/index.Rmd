@@ -1,19 +1,15 @@
 ---
 title: "Data Mining In R"
 lead: "Getting started with Text mining using Twitter and R"
-author: ["admin"]
-
+authors:
+- admin
 date: '2019-01-25'
 
 
-output:
-  html_document:
-    includes:
-    df_print: paged
-  pdf_document: default
+output: md_document
   
 tags: [Twitter,Data Mining,R]
-categories: [Data Mining, R]
+categories: [Data Mining,R]
 ---
  
 
@@ -42,10 +38,11 @@ With the help of APIs, we are easily able to get data from such platforms to be 
 To create a twitter app we can use for fetching metadata, we first need to have a Twitter account. We then need to go to the __twitter dev site__ https://developer.twitter.com/ and log in with our user account.
 On the top right corner should be a drop down menu next to your username, go to APPS. At this point if you are doing this for the first time your Apps section should be blank. Click on "Create an app" to... create an app.  
 
+<center>
 
-!["imagery"](https://github.com/CarlvinJerry/CarlvinJerry.github.io/blob/master/MyImages/apps.PNG?raw=true)
+![create app](https://github.com/CarlvinJerry/sources/blob/master/static/MyImages/apps.PNG?raw=true)
+</center>
 
-<br>
 
 
 We then have to fill in the form below appropriately. Here is a breakdown of what's required:
@@ -61,7 +58,7 @@ I would ignore the Callback URL field. If you are allowing users to log into you
 
 
 <center>
- ![png](./apps2.png)
+ ![App details](https://github.com/CarlvinJerry/sources/blob/master/static/MyImages/apps2.PNG?raw=true)
  
  </center>
 
@@ -71,7 +68,7 @@ I would ignore the Callback URL field. If you are allowing users to log into you
  On your app is a menu with __Keys and tokens__. These are the most important components since we will need them to access data from the APIs.Generate both consumer and access tokens (if not readily available) and take note of them. __NB:__ __These keys are meant for your eyes only!__
 
 <center>
-![png](./keys.png)
+![Keys](https://github.com/CarlvinJerry/sources/blob/master/static/MyImages/keys.PNG?raw=true)
  </center>
  
  <br>
@@ -79,7 +76,7 @@ I would ignore the Callback URL field. If you are allowing users to log into you
 The final bit of setting up our twitter app is granting access permissions. We will mostly do fine with the __read-only__ if all we need is to fetch data but it can always be changed later.
 
 <center>
-![png](./permisions.png)
+![Permisions](https://github.com/CarlvinJerry/sources/blob/master/static/MyImages/permisions.PNG?raw=true)
  </center>
  
 <br><br> 
@@ -163,11 +160,8 @@ save(UKenyatta_Tweets, file="UKenyatta_Tweets.RData")
 # load("UKenyatta_Tweets.RData")
 ```
 
-You can now manipulate your data and see what you find out.
+You can now manipulate your data and see what you find out...
 
-<center>
-![Happy crunching!!](https://media.giphy.com/media/ZtMkorgeyRu5q/giphy.gif)
-</center>
 
 <br>
 

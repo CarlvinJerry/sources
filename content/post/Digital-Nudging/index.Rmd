@@ -1,40 +1,30 @@
 ---
-title: "DIGITAL NUDGING"
-description: "Influencing online User decisions on Twitter through nudge units"
-thumbnail: "https://github.com/CarlvinJerry/CarlvinJerry.github.io/blob/master/post/MyImages/hero-main.jpg?raw=true" # Optional, thumbnail
+title: "Digital Nudging"
+description: "Influencing online User decisions on Twitter through nudge units" 
 
 lead: "Influencing online User decisions on Twitter through nudge units"
 disable_comments: false # Optional, disable Disqus comments if true
 toc: false # Optional, enable Table of Contents for specific post
-author: "Carlvin M"
+authors:
+- admin
 
 date: '2019-02-17'
 draft: false
 
 featured: true
 image:
-  caption: 'Image credit: [Hero Main](https://unsplash.com/photos/CpkOjOcXdUY)'
-  focal_point: ""
+  caption: 'Image credit'
   placement: 3
   preview_only: false
 
-output: 
-  html_document:
-    number_sections: FALSE
-    code_folding: hide
+output: md_document
     
-tags:
-- Twitter
-- Data Mining
-- R,Python
-- Decision trees
-- regression
-categories:
-- Data Mining
-- Machine Learning
+tags: [Twitter,Data Mining,R,Python,Decision trees,regression]
+categories: [Data Mining,Machine Learning]
+
 ---
 
-### Introduction:    
+# Introduction:    
 Here is a fun fact; An average human being (probably an adult) makes close to 30,000 conscious decisions every day. This isn't entirely true though, in fact, I just made that number up. I could be right because if you think about it, how many decisions would you say you make on a day to day basis? Depending on who you are the above obviously varies widely and you know best. We all make __**n**__ decisions every day- what to do, eat, buy or hit. The real question however is, do we always choose well? Are there any other factors at hand that influence our decision making process? Are all these factors, if any, always straight forward choices or do we sometimes get __"nudged"__ into these choices we make?    
 
 **Nudge theory** basically states that; by understanding how people think and what drives their decisions, we can use those factors to steer them into making decisions differently, through positive reinforcement. Research has shown that, by presenting choices differently rather than in a legislative manner, people can be influenced into making specific desired choices. This theory is widely used in behavioral economics by presenting subtle **nudge units** intended to influence people's thoughts about financial products. The theory was however initially more of a moral aspect meant to help people make better decisions in life and not as a tool for commercial gain. Over years of practice, different applications of the theory emerged.   
@@ -49,14 +39,14 @@ This photo a team mate took at the hackathon contains a problem statement for th
 </center>
 
 <figure>
-<img class="pure-u-1-2" src="https://github.com/CarlvinJerry/CarlvinJerry.github.io/blob/master/post/MyImages/theChallenge.jpg?raw=true" height="100%" width="Auto"> 
+![the challenge](https://github.com/CarlvinJerry/sources/blob/master/static/MyImages/theChallenge.jpg?raw=true)
 <figcaption>Figure 1: The challenge</figcaption>
 </figure>
 
 </center>
 
 
-#### Tools used:
+# Tools used:
 Our twitter data was fetched using **R**, I have done a post on setting up a twitter API to fetch twitter data [here](https://beyondrawdata.rbind.io/2019/01/25/data-mining-in-r/). **R** has several packages (such as **"tweeteR"** and **"rtweet"**) that one can use to stream data from twitter. Our data cleaning and pre-processing was mainly done in **Python**.
 
 >**Note:** To keep this post concise, code for the workings has been minimized. [The source code for this post can be found here,](https://github.com/CarlvinJerry/sources/blob/master/content/post/2019-02-20-digital-nudging-rmd.Rmd) for anyone interested in trying out the same process. The code is well commented for easier understanding as well.
@@ -309,7 +299,7 @@ From the table above, we can observe a new column "Characters". This was an addi
 Due to the nature of our problem,(we had several uncorrelated variables) we decided to do a classification analysis. This means we had to come up with a classifier model to regress __n__ variables based on our dependent variable, the **Location** variable. The main challenge of classifier models is knowing what really goes on inside the  models that leads to the final output. Even with higher levels of accuracy in some models, it is quite difficult o understand the paths of a given model. However, using **Random forests** and **Decision Tree** classifiers can give us a graphical representation of the criteria followed by the models to arrive at a given output. Another upper hand of decision tree models is that they require minimal data cleaning, less time consuming. Here is a detailed read on [how decision trees work](https://medium.com/x8-the-ai-community/decision-trees-an-intuitive-introduction-86c2b39c1a6c).  
 
 
-#### Creating Train & Test Sets.
+# Creating Train & Test Sets.
 
 For the training and test data sets, we randomly split our data set into two sates. Usually, the best practice is to train the model with with a larger proportion of the data set. We therefore took **80%** for training and **20%** for test purposes.   
 
@@ -337,7 +327,7 @@ dim(data_test) #Checkdimensions for test data
 
 <br>
 
-#### Model Training.
+# Model Training.
 We trained our decision tree model to predict a **class** "location". Whether a location is **geotagged** or **not geotagged** based on whether the user is verified, protected, has over 500 followers, is retweeted by another verified user and the number of characters in their tweet. Bellow is the visual output of the trained model.
 ```{r model fit, eval=FALSE, include=FALSE, eval=FALSE, tidy=FALSE}
 #install.packages("rpart.plot")	-This is for decision trees.
@@ -359,7 +349,7 @@ rpart.plot(fit)
 </center>
 
 <figure>
-<img class="pure-u-1-2 pure-u-md-1-3" src="https://github.com/CarlvinJerry/CarlvinJerry.github.io/blob/master/post/MyImages/tagged.png?raw=true"  height="100%" width="Auto"> 
+![Tags](https://github.com/CarlvinJerry/sources/blob/master/static/MyImages/tagged.png?raw=true)
 <figcaption>Figure 2: The Tree</figcaption>
 </figure>
 
@@ -396,7 +386,7 @@ With our model trained and outputs observed, we were able to run a test with our
 
 ```
 
-#### Confusion matrix  
+# Confusion matrix  
 ```{}
           predict_geotags
              NON-TAGGED TAGGED
@@ -406,7 +396,7 @@ With our model trained and outputs observed, we were able to run a test with our
 
 <br>
 
-#### Model Accuracy  
+# Model Accuracy  
 ```{}
 > #performance
 > accuracy_Test <- sum(diag(table_mat)) / sum(table_mat)
@@ -421,7 +411,7 @@ For the tagged tweets, we had a __false negative of 2 predictions__ against a __
 <center>
 
 <figure>
-  <img class="pure-u-1-2"  src = "https://github.com/CarlvinJerry/CarlvinJerry.github.io/blob/master/post/MyImages/math.jpg?raw=true">
+  ![Math](https://github.com/CarlvinJerry/sources/blob/master/static/MyImages/math.jpg?raw=true)
   <figcaption>Figure 3: The formula</figcaption>
 </figure>
   
@@ -439,7 +429,7 @@ With our decision tree model, we were able to attain a high level of accuracy fo
 
 <br>
 
-#### References
+# References
 
 1. [Business balls official website](https://www.businessballs.com/improving-workplace-performance/nudge-theory/)
 
