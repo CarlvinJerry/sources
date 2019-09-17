@@ -6,7 +6,7 @@ active = false  # Activate this widget? true/false
 weight = 66  # Order that this section will appear.
 
 title = "Gallery"
-subtitle = "A gallery of in-projct/post charts"
+subtitle = "A gallery of in-post charts"
 +++
 
 {{< gallery >}}
