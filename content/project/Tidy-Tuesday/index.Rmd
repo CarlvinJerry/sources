@@ -20,6 +20,10 @@ categories: [Twitter,Data Visualization]
 <div class="flex-container">
 
 <div>
+<blockquote class="twitter-tweet"><p lang="en" dir="ltr">Tried out a Sankey plot for this week&#39;s <a href="https://twitter.com/hashtag/TidyTuesday?src=hash&amp;ref_src=twsrc%5Etfw">#TidyTuesday</a> data... Distribution of gender across age groups, body weight, and equipment used for Squat-Bench-Deadlift events. Code: <a href="https://t.co/6HLl7z6wzp">https://t.co/6HLl7z6wzp</a> <a href="https://twitter.com/hashtag/rstats?src=hash&amp;ref_src=twsrc%5Etfw">#rstats</a> <a href="https://twitter.com/hashtag/dataviz?src=hash&amp;ref_src=twsrc%5Etfw">#dataviz</a> <a href="https://t.co/5dcSGYHZ1H">pic.twitter.com/5dcSGYHZ1H</a></p>&mdash; Professional Griefer (@PipeFunction) <a href="https://twitter.com/PipeFunction/status/1181992637877936128?ref_src=twsrc%5Etfw">October 9, 2019</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+</div>
+
+<div>
 <blockquote class="twitter-tweet"><p lang="en" dir="ltr">Tried out a spaghetti plot for this weeks <a href="https://twitter.com/hashtag/TidyTuesday?src=hash&amp;ref_src=twsrc%5Etfw">#TidyTuesday</a> , reducing the unit_type to my own based on a few common features... Quick one, is it that there are very few accessible (they also started in the 50s-60s) parks with water bodies or guys just don&#39;t visit them? <a href="https://t.co/yTmsplg41R">pic.twitter.com/yTmsplg41R</a></p>&mdash; Professional Griefer (@PipeFunction) <a href="https://twitter.com/PipeFunction/status/1174070770261250054?ref_src=twsrc%5Etfw">September 17, 2019</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 </div>
 
