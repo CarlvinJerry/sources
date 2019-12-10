@@ -1,23 +1,25 @@
 Introduction:
 =============
 
-Here is a fun fact; An average human being (probably an adult) makes
+Here’s a fun fact; An average human being (probably an adult) makes
 close to 30,000 conscious decisions every day. This isn’t entirely true
 though, in fact, I just made that number up. I could be right because if
 you think about it, how many decisions would you say you make on a day
 to day basis? Depending on who you are the above obviously varies widely
 and you know best. We all make ****n**** decisions every day- what to
-do, eat, buy or hit. The real question however is, do we always choose
-well? Are there any other factors at hand that influence our decision
-making process? Are all these factors, if any, always straight forward
-choices or do we sometimes get **“nudged”** into these choices we make?
+do, eat, buy or hit. The real question however is, do our daily choices
+solely depend on our consciousness? Are there any other factors at hand
+that influence our decision making process? Are all these factors, if
+any, always straight forward choices or do we sometimes get **“nudged”**
+into these choices we make?
 
 **Nudge theory** basically states that; by understanding how people
 think and what drives their decisions, we can use those factors to steer
 them into making decisions differently, through positive reinforcement.
 Research has shown that, by presenting choices differently rather than
 in a legislative manner, people can be influenced into making specific
-desired choices. This theory is widely used in behavioral economics by
+desired choices. This theory is widely used in [**behavioral
+economics**](https://en.wikipedia.org/wiki/Behavioral_economics) by
 presenting subtle **nudge units** intended to influence people’s
 thoughts about financial products. The theory was however initially more
 of a moral aspect meant to help people make better decisions in life and
@@ -37,7 +39,7 @@ statement for the challenge:
 </center>
 <figure>
 ![the
-challenge](https://github.com/CarlvinJerry/sources/blob/master/static/MyImages/theChallenge.jpg?raw=true)
+challenge](https://github.com/CarlvinJerry/sources/blob/master/static/MyImages/theChallenge.jpg?raw=true "fig:")
 <figcaption>
 Figure 1: The challenge
 </figcaption>
@@ -268,7 +270,7 @@ tweet. Bellow is the visual output of the trained model.
 
 </center>
 <figure>
-![Tags](https://github.com/CarlvinJerry/sources/blob/master/static/MyImages/tagged.png?raw=true)
+![Tags](https://github.com/CarlvinJerry/sources/blob/master/static/MyImages/tagged.png?raw=true "fig:")
 <figcaption>
 Figure 2: The Tree
 </figcaption>
@@ -346,12 +348,9 @@ the proportion of true positives and the true negatives divided by the
 sum of the confusion matrix.
 
 <center>
-<figure>
-![Math](https://github.com/CarlvinJerry/sources/blob/master/static/MyImages/math.jpg?raw=true)
-<figcaption>
-Figure 3: The formula
-</figcaption>
-</figure>
+
+$$ Accuracy = \\frac{TP + TN}{TP + TN + FP + FN}$$
+
 </center>
 
 For a better accuracy level, the model’s hyper-parameters can be tweaked

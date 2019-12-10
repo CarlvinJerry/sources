@@ -4,12 +4,20 @@ lead: "Getting started with Text mining using Twitter and R"
 authors:
 - admin
 date: '2019-01-25'
+draft: false
+
+featured: true
+image:
+  caption: '[Image credit](https://thewestsidestory.net/twitter-search-index-now-allows-users-search-every-tweet-ever-since-2006/)'
+  placement: 3
+  preview_only: false
 
 
 output: md_document
   
 tags: [Twitter,Data Mining,R]
 categories: [Data Mining,R]
+indent: true
 ---
  
 
@@ -21,22 +29,25 @@ knitr::opts_chunk$set(collapse = TRUE)
 >This first section assumes you have no knowledge in building a twitter app to be used for fetching data. You can skip directly to [the second section here](#PartII) if you are able to build your own twitter app and get the required authentication keys.
 
 # Introduction:
-Social media usage has grown rapidly over the past few decades. Most social networks we can think of now are so well established, making them a platform where people can not only talk to one another but also be able to come forward with different views and interests they would like to express. With an almost constant rate of increasing users each day, social networks such as Facebook and Twitter have become great sources of data which can be used in the broad field of Data Science:Talk of (those pretty annoying) targeted ads for example...
+Social media usage has grown rapidly over the past few decades. Most social networks we can think of now are so well established, making them a platform where people can not only interact but also a haven for anyone in need of **"unstructured"** data. With an almost constant rate of increasing users each day, social networks such as Facebook and Twitter have become great sources of data which can be used in the broad field of Data Science:Talk of (those pretty annoying) targeted ads for example...
 
 <center>
-![Gif: They just keep coming!!](https://media.giphy.com/media/3o6Mbmg6AchRmB4ylO/giphy.gif)
+![](https://media.giphy.com/media/3o6Mbmg6AchRmB4ylO/giphy.gif)
 <center>
 
 
 <br>
 
-With the help of APIs, we are easily able to get data from such platforms to be used for further analysis. In this article we will go through the first step of text mining in R using data fetched from Twitter. The main advantage of these APIs is that the data we will fetch comes in a well-structured format which makes our work easier when crunching. In this case we will use the readily available Twitter API and create our own Twitter app that will then help in fetching the data. The following steps will accomplish the task...
+With the help of APIs, we are easily able to get data from such platforms to be used for further analysis.
+In this article we will go through the preliminaries of text mining in R using Twitter data.
+The main advantage of these APIs is that the data we will fetch comes in a well-structured format which makes our work easier when crunching.
+In this case we will use the readily available Twitter API and create our own Twitter app that will then help in fetching the data.
 
 <br>
 
 # Creating a Twitter app
-To create a twitter app we can use for fetching metadata, we first need to have a Twitter account. We then need to go to the __twitter dev site__ https://developer.twitter.com/ and log in with our user account.
-On the top right corner should be a drop down menu next to your username, go to APPS. At this point if you are doing this for the first time your Apps section should be blank. Click on "Create an app" to... create an app.  
+To create a twitter app we can use for fetching metadata, we first need to have a Twitter account. We then need to go to the [__twitter dev site__](https://developer.twitter.com/) and log in with our user account.
+On the top right corner should be a drop down menu next to your username, go to APPS. At this point if you are doing this for the first time your **Apps** section should be blank. Click on **"Create an app"** to... create an app.  
 
 <center>
 
@@ -64,8 +75,8 @@ I would ignore the Callback URL field. If you are allowing users to log into you
 
  <br>
 
- The remaining fields should be quite straight forward but must be filled. Click "Create" once done and there you have your first twitter app.
- On your app is a menu with __Keys and tokens__. These are the most important components since we will need them to access data from the APIs.Generate both consumer and access tokens (if not readily available) and take note of them. __NB:__ __These keys are meant for your eyes only!__
+The remaining fields should be quite straight forward but must be filled. Click **"Create"** once done and there you have your first twitter app.
+On your app is a menu with __Keys and tokens__. These are the most important components since we will need them to access data from the API.Generate both consumer and access tokens (if not readily available) and take note of them. __NB:__ __Keys are private property...most of the times__
 
 <center>
 ![Keys](https://github.com/CarlvinJerry/sources/blob/master/static/MyImages/keys.PNG?raw=true)
@@ -73,7 +84,7 @@ I would ignore the Callback URL field. If you are allowing users to log into you
  
  <br>
 
-The final bit of setting up our twitter app is granting access permissions. We will mostly do fine with the __read-only__ if all we need is to fetch data but it can always be changed later.
+The final bit of setting up our twitter app is granting access permissions. We will mostly do fine with __read-only__ if all we need is to fetch data but it can always be changed later.
 
 <center>
 ![Permisions](https://github.com/CarlvinJerry/sources/blob/master/static/MyImages/permisions.PNG?raw=true)
@@ -94,10 +105,16 @@ Now we can move on to the next step where we set up __R__ to query data from Twi
 # Setting up R to fetch twitter data
 With our twitter app set up [in part I above](#PartI) and we are able to get the authentication keys for the API, we can now easily fetch data from twitter in R. The following steps will help us do this:
 
+<style>
+div.blue { background-color:#e6f0ff; border-radius: 5px; padding: 20px;}
+</style>
+<div class = "blue">
+
 # Prerequisites:
 - **Twitter API Keys:** At this point we already have our twitter app with the required API keys.
 - **R and an IDE of choice:** We also need to have R installed, advisably the latest version. Microsoft's [__enhanced R distribution__](https://mran.microsoft.com/open) is recommended over the
 [**base R**](https://cran.r-project.org/bin/windows/base/) but for this specific task either can do just fine. I would recommend [**R STUDIO**](https://www.rstudio.com/products/rstudio/download/) for an **IDE**. One obvious advantage of all these is that they're open-source tools.
+</div>
 
 <br>
 
@@ -106,14 +123,14 @@ R has a standard set of packages, each with different tasks. You can find some p
 [**here**](https://cran.cnr.berkeley.edu/). The code chunk below installs and loads the specific packages we need for this task. Take note of comments at each line of code, initiated by an octothorp.
 
 ```{r, install_packages,cache=TRUE, eval=FALSE, background='#F7F7F7'}
-#Install packages
-install.packages("twitteR")#------Extracts data from twitter
-install.packages("httr")#--------Tools for Working with URLs and HTTP
+# Install packages
+install.packages("twitteR") #------Extracts data from twitter
+install.packages("httr") #--------Tools for Working with URLs and HTTP
 ```
 ```{r, load_packages,cache=TRUE, eval=FALSE, background='#F7F7F7'}
-#We can now load the two packages 
+# We can now load the two packages
 library("twitteR")
-require("httr")#-------------Both require() and library() can be used to call an installed package
+require("httr") #-------------Both require() and library() can be used to call an installed package
 ```
 
 <br>
@@ -121,7 +138,7 @@ require("httr")#-------------Both require() and library() can be used to call an
 **NB:** Windows users might need to download a certification file and store it in the working directory. This certificate file initiates a handshake between R and the Twitter API.
 ```{r, download_cert,cache=TRUE, eval=FALSE, background='#F7F7F7'}
 # Download "cacert.pem" file
-download.file(url="https://curl.haxx.se/ca/cacert.pem",destfile="cacert.pem")
+download.file(url = "https://curl.haxx.se/ca/cacert.pem", destfile = "cacert.pem")
 ```
 
 <br><br>
@@ -130,31 +147,30 @@ download.file(url="https://curl.haxx.se/ca/cacert.pem",destfile="cacert.pem")
 This is where we invoke the twitter API using the credentials from our app and query the data we need.
 ```{r, invoke_twitter,cache=TRUE, eval=FALSE, background='#F7F7F7'}
 # Authentication keys
-consumer_key <- 'hjksdha08097afnjhaa90uaf'
-consumer_secret <- 'hjksdha08097afnjhaa90uaf'
-access_token <- 'hjksdha08097afnjhaa90uaf'
-access_secret <- 'hjksdha08097afnjhaa90uaf'
+consumer_key <- "hjksdha08097afnjhaa90uaf"
+consumer_secret <- "hjksdha08097afnjhaa90uaf"
+access_token <- "hjksdha08097afnjhaa90uaf"
+access_secret <- "hjksdha08097afnjhaa90uaf"
 
-#The above tokens are what we made the twitter app for.
-
+# The above tokens are what we made the twitter app for.
 ```
 
 <br><br>
 
 # 3.Query data from twitter
-We can now go ahead and fetch our data. Due to limitations on the twitter standard apps, it is advisable to store your data in R locally. This will reduce the number of times you have to make requests to twitter to fetch data. You will therefore do much more with your app that way regardless of the limitations- Or you can as well buy the premium app. In my example below, I am fetching data for a user on twitter called @UKenyatta.
+We can now go ahead and fetch our data. Due to limitations on the twitter standard apps, it is advisable to store your data in R locally. This will reduce the number of times you have to make requests to fetch data. You will therefore do much more with your app that way regardless of the limitations- Or you can as well buy the premium rights. In my example below, I am fetching data for a user on twitter called @UKenyatta.
 
 ```{r, fetch_data,cache=TRUE, eval=FALSE, background='#F7F7F7'}
-#Connect to Twitter 
+# Connect to Twitter
 setup_twitter_oauth(consumer_key, consumer_secret, access_token, access_secret)
-tweets <- userTimeline("UKenyatta", n=3200) #Standard twitter apps are limited to 3200 tweets per                                                  #download session. This could come out less depending on
-                                            #the app
+tweets <- userTimeline("UKenyatta", n = 3200) # Standard twitter apps are limited to 3200 tweets per                                                  #download session. This could come out less depending on
+# the app
 
-#create a data frame of the tweets
+# create a data frame of the tweets
 UKenyatta_Tweets <- tbl_df(map_df(tweets, as.data.frame))
 
 # Save tweets for later (and note when saved):
-save(UKenyatta_Tweets, file="UKenyatta_Tweets.RData")
+save(UKenyatta_Tweets, file = "UKenyatta_Tweets.RData")
 
 # You can then access them later at will...
 # load("UKenyatta_Tweets.RData")

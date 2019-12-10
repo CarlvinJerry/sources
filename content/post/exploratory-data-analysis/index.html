@@ -9,7 +9,7 @@ authors:
 date: '2019-08-04'
 featured: true
 image:
-  caption: 'Image credit: [**Unsplash**](https://unsplash.com/photos/CpkOjOcXdUY)'
+  caption: 'Image credit: [**Photo by Isaac Smith on Unsplash**](https://unsplash.com/photos/AT77Q0Njnt0)'
   focal_point: ""
   placement: 3
   preview_only: true
@@ -29,16 +29,16 @@ tags: [Twitter, R, Data Visualization]
 </blockquote>
 <div id="introduction" class="section level3">
 <h3>INTRODUCTION</h3>
-<p>If you are familiar with data analysis then I’m certain that you fully relate to the above statement. After all, it would be pointless to play around with lots of data just for the love of it.</p>
-<p>Data is gold, and the more you have the better off you are. However, raw unprocessed data is of no use unless you manipulate and gain insights from it. Before embarking on statistical modelling and visualization of your data, it is very important to first have an understanding of the data itself. Exploratory Data Analysis (<strong>EDA</strong>) aids in visualization, transformation, and generally cleaning or remodeling data before diving deep into statistics and predictive modelling.</p>
-<p>There are not set rules to be followed when performing EDA. As a data reparation phase, one is allowed to decide what suits them best in order to gain an understanding of their data. However, there are two most important questions one should seek to answer while studying their data:</p>
+<p>If you are familiar with data analysis then I’m certain that you fully relate to the above statement. After all, it would be pointless to play around with lots of data just for the love of it, sometimes not but you get the point.</p>
+<p>Data is gold, and the more you have the better off you are. However, raw unprocessed data is of no use unless you manipulate and gain insights from it. Before embarking on say statistical modelling and visualization of your data, it is very important to first have an understanding of the data itself. Exploratory Data Analysis (<strong>EDA</strong>) aids in visualization, transformation, and generally cleaning or remodeling data before diving deep into information extraction.</p>
+<p>There are no set rules to be followed when performing EDA. As a data preparation phase, one is allowed to decide what suits them best in order to gain an understanding of their data. However, there are two most important questions one should seek to answer while studying their data:</p>
 <ul>
 <li>Is there variation within my variables?</li>
 <li>Is there any correlation between my variables?</li>
 </ul>
 <p>That being said, EDA involves the following checks among others:</p>
 <ul>
-<li><strong>Descriptive Statistics</strong> - Give a summarized understanding of the data, usually as measures of central tendency and variability.
+<li><strong>Descriptive Statistics</strong> - Gives a summarized understanding of the data, usually as measures of central tendency and variability.
 <ul>
 <li><strong>Mean</strong> - Arithmetic average</li>
 <li><strong>Median</strong> - middle value</li>
@@ -58,7 +58,7 @@ tags: [Twitter, R, Data Visualization]
 <li><strong>Scatter plots</strong> - a graphical display of variables plotted on the x and y axes.</li>
 </ul></li>
 </ul>
-<p>In this post, we will perform EDA on a sample data set containing responses on mobile banking survey in Kenya. If you would like to follow along with the same data, you can download it <a href="https://github.com/CarlvinJerry/sources/blob/master/data/Mobile%20Banking%20in%20Kenya.csv">here</a>.</p>
+<p>In this post, we will perform EDA on a sample data set containing responses to a mobile banking survey in Kenya. If you would like to follow along with the same data, you can download it <a href="https://github.com/CarlvinJerry/sources/blob/master/data/Mobile%20Banking%20in%20Kenya.csv">here</a>.</p>
 </div>
 <div id="data-importation" class="section level1">
 <h1>Data Importation</h1>
@@ -68,7 +68,7 @@ mobileBanking.Df &lt;- read.csv(&quot;J://Personalprojects//Blogsite//data//Mobi
 mobileBanking.Df &lt;- mobileBanking.Df[,-1] #Remove the number column which is Irrelevant</code></pre>
 <div id="data-inspection" class="section level4">
 <h4>1.0.0 Data Inspection</h4>
-<p>Once our sample data set loaded, we can check for features present in it. We first need to load all the libraries needed for data analysis and manipulation.</p>
+<p>Once our sample data set is loaded, we check for features present. We first need to load all the libraries needed for data analysis and manipulation.</p>
 <pre class="r"><code> #Load required packages or install if not present.----
 load.libraries &lt;- c(&#39;data.table&#39;,&#39;tidyverse&#39;,&#39;gridExtra&#39;, &#39;corrplot&#39;, &#39;GGally&#39;, &#39;ggplot2&#39;, &#39;e1071&#39;, &#39;dplyr&#39;)
 install.lib &lt;- load.libraries[!load.libraries %in% installed.packages()]
@@ -80,7 +80,7 @@ sapply(load.libraries, require, character = TRUE)</code></pre>
 <p>The function above takes in a list of required libraries, checks if they are already installed and installs them if not. It then loads all the packages one at a go.</p>
 </center>
 <figure>
-<img src="packages.png" alt="packages" />
+<img src="packages.png" title="fig:" alt="packages" />
 <figcaption>
 Figure 1: Loaded packages
 </figcaption>
@@ -91,7 +91,7 @@ Figure 1: Loaded packages
 <h4>1.1.0 Observing the data structure</h4>
 <pre class="r"><code>dim(mobileBanking.Df)
 ## [1] 43 11</code></pre>
-<p>The data set has 43 rows with 11 Variables. We therefore explore the data types present in each variable column.</p>
+<p>The data set has 43 rows with 11 Variables. We therefore explore the data types of each variable/column.</p>
 <pre class="r"><code>#Check Categorical VS Numeric Characters----
 cat_vars &lt;- names(mobileBanking.Df)[which(sapply(mobileBanking.Df, is.character))]
 cat_vars
@@ -105,7 +105,7 @@ cat_vars
 numeric_vars &lt;- names(mobileBanking.Df)[which(sapply(mobileBanking.Df, is.numeric))]
 numeric_vars
 ## character(0)</code></pre>
-<p>To identify the data types, we can check for numeric and categorical variables present in the data. In our case, all the variables in our data set are categorical variables. We will therefore explore the data from a categorical approach rather than numeric. There exists different visualization methods for different data types. Now that we have established the general structure of the data, we can check if there are any missing values within the variables.</p>
+<p>To identify the data types, we can check for numeric and categorical variables present in the data. In our case, all the variables in our data set are categorical. We will therefore explore the data from a categorical approach rather than numeric. There exists different visualization methods for different data types. Now that we have established the general structure of the data, we can check for missing values, <code>NAs</code>.</p>
 <pre class="r"><code>#Checking data for any missing values
 colSums(sapply(mobileBanking.Df, is.na))
 ##                       Gender                    Age.Range 
@@ -120,7 +120,7 @@ colSums(sapply(mobileBanking.Df, is.na))
 ##                            0                            0 
 ##                 Satisfaction 
 ##                            0</code></pre>
-<p>We have no NULL values in our data. We can therefore proceed to analysis without worrying about missing values. In a case whereby there exists null values, one can choose whether to replace the nulls with the most appropriate values or remove the rows with nulls from the data. This is important for later stages of analysis that include data modelling, like Machine Learning.</p>
+<p>We have no columns with missing values in our data. We can therefore proceed to analysis without worrying about missing values. In a case whereby there exists NA values, one can choose whether to replace the nulls with the most appropriate values or remove the rows with nulls from the data. This is important for later stages of analysis that include data modelling, like Machine Learning.</p>
 <p><br>
 <br></p>
 </div>
@@ -145,7 +145,7 @@ summary(mobileBanking.Df)
 ##  Class :character   Class :character  
 ##  Mode  :character   Mode  :character</code></pre>
 <p><br></p>
-<p>The <strong><em>Summary()</em></strong> function comes in handy at summarizing data. I our case, there is no statistical measures since all our variables are categorical. Important to note that the function also specifies the specific data types. There are more than enough ways to inspect data structures in R.</p>
+<p>The base R <code>Summary()</code> function comes in handy at summarizing data. In our case, there is no statistical measures since all our variables are categorical. Note that the function also specifies the specific data types. There are more than enough ways to inspect data structures in R.</p>
 <p><br>
 <br></p>
 </div>
@@ -324,7 +324,7 @@ doPlots(mobileBanking.Df_cat, fun = plotHist, ii = 1:4, ncol = 2)</code></pre>
 </div>
 <div id="uses-of-mobile-banking-importance-and-benefits" class="section level4">
 <h4>Uses Of Mobile Banking, Importance And Benefits</h4>
-<p>Most respondents use mobile banking services for making payments. this is followed by cash withdrawals. Airtime purchase and money transfer happen to be the least uses for the service. This could be because they are easily accessible needs unlike cash withdrawal and making payments in terms of mobility convenience.</p>
+<p>Most respondents use mobile banking services for making payments. This is followed by cash withdrawals. Airtime purchase and money transfer happen to be the least uses for the service. This could be because they are easily accessible needs unlike cash withdrawal and making payments in terms of mobility convenience.</p>
 <p>Most respondents found mobile banking services <strong>very important</strong>, probably owing to the affordable cost charges and good service which could mean less usability issues when using the services.</p>
 <p><br>
 <br></p>

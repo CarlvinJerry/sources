@@ -9,7 +9,7 @@ authors:
 date: '2019-08-04'
 featured: true
 image:
-  caption: 'Image credit: [**Unsplash**](https://unsplash.com/photos/CpkOjOcXdUY)'
+  caption: 'Image credit: [**Photo by Isaac Smith on Unsplash**](https://unsplash.com/photos/AT77Q0Njnt0)'
   focal_point: ""
   placement: 3
   preview_only: true
@@ -30,18 +30,18 @@ knitr::opts_chunk$set(echo = TRUE)
 >“The goal is to turn data into information and information into insight.” – Carly Fiorina, former chief executive officer, Hewlett Packard.
 
 ### INTRODUCTION
-If you are familiar with data analysis then I'm certain that you fully relate to the above statement. After all, it would be pointless to play around with lots of data just for the love of it.
+If you are familiar with data analysis then I'm certain that you fully relate to the above statement. After all, it would be pointless to play around with lots of data just for the love of it, sometimes not but you get the point.
 
-Data is gold, and the more you have the better off you are. However, raw unprocessed data is of no use unless you manipulate and gain insights from it. Before embarking on statistical modelling and visualization of your data, it is very important to first have an understanding of the data itself. Exploratory Data Analysis (**EDA**) aids in  visualization, transformation, and generally cleaning or remodeling data before diving deep into statistics and predictive modelling.
+Data is gold, and the more you have the better off you are. However, raw unprocessed data is of no use unless you manipulate and gain insights from it. Before embarking on say statistical modelling and visualization of your data, it is very important to first have an understanding of the data itself. Exploratory Data Analysis (**EDA**) aids in  visualization, transformation, and generally cleaning or remodeling data before diving deep into information extraction.  
 
-There are not set rules to be followed when performing EDA. As a data reparation phase, one is allowed to decide what suits them best in order to gain an understanding of their data. However, there are two most important questions one should seek to answer while studying their data: 
+There are no set rules to be followed when performing EDA. As a data preparation phase, one is allowed to decide what suits them best in order to gain an understanding of their data. However, there are two most important questions one should seek to answer while studying their data: 
 
 * Is there variation within my variables?
 * Is there any correlation between my variables?
 
 That being said, EDA involves the following checks among others:
 
-* **Descriptive Statistics** - Give a summarized understanding of the data, usually as measures of central tendency and variability.
+* **Descriptive Statistics** - Gives a summarized understanding of the data, usually as measures of central tendency and variability.
   + **Mean** - Arithmetic average
   + **Median** - middle value
   + **Mode** - most frequent value
@@ -59,7 +59,7 @@ That being said, EDA involves the following checks among others:
   + **Scatter plots** - a graphical display of variables plotted on the x and y axes.
 
   
-In this post, we will perform EDA on a sample data set containing responses on mobile banking survey in Kenya. If you would like to follow along with the same data, you can download it [here](https://github.com/CarlvinJerry/sources/blob/master/data/Mobile%20Banking%20in%20Kenya.csv).
+In this post, we will perform EDA on a sample data set containing responses to a mobile banking survey in Kenya. If you would like to follow along with the same data, you can download it [here](https://github.com/CarlvinJerry/sources/blob/master/data/Mobile%20Banking%20in%20Kenya.csv).
 
 # Data Importation
 The code chunk below imports our data set into R.
@@ -71,7 +71,7 @@ mobileBanking.Df <- mobileBanking.Df[,-1] #Remove the number column which is Irr
 ```
 
 #### 1.0.0 Data Inspection
-Once our sample data set loaded, we can check for features present in it. We first need to load all the libraries needed for data analysis and manipulation.
+Once our sample data set is loaded, we check for features present. We first need to load all the libraries needed for data analysis and manipulation.
 
 ```{r Load libraries, eval=FALSE,include=TRUE}
  #Load required packages or install if not present.----
@@ -103,7 +103,7 @@ The function above takes in a list of required libraries, checks if they are alr
 dim(mobileBanking.Df)
 ## [1] 43 11
 ```
-The data set has 43 rows with 11 Variables. We therefore explore the data types present in each variable column.
+The data set has 43 rows with 11 Variables. We therefore explore the data types of each variable/column.
 
 ```{r dataTypes,include=TRUE, eval=FALSE}
 #Check Categorical VS Numeric Characters----
@@ -122,7 +122,7 @@ numeric_vars
 
 ```
 
-To identify the data types, we can check for numeric and categorical variables present in the data. In our case, all the variables in our data set are categorical variables. We will therefore explore the data from a categorical approach rather than numeric. There exists different visualization methods for different data types. Now that we have established the general structure of the data, we can check if there are any missing values within the variables.
+To identify the data types, we can check for numeric and categorical variables present in the data. In our case, all the variables in our data set are categorical. We will therefore explore the data from a categorical approach rather than numeric. There exists different visualization methods for different data types. Now that we have established the general structure of the data, we can check for missing values, ```NAs```.
 
 ```{r, include=TRUE, eval=FALSE}
 #Checking data for any missing values
@@ -141,7 +141,7 @@ colSums(sapply(mobileBanking.Df, is.na))
 ##                            0
 ```
 
-We have no NULL values in our data. We can therefore proceed to analysis without worrying about missing values. In a case whereby there exists null values, one can choose whether to replace the nulls with the most appropriate values or remove the rows with nulls from the data. This is important for later stages of analysis that include data modelling, like Machine Learning. 
+We have no columns with missing values in our data. We can therefore proceed to analysis without worrying about missing values. In a case whereby there exists NA values, one can choose whether to replace the nulls with the most appropriate values or remove the rows with nulls from the data. This is important for later stages of analysis that include data modelling, like Machine Learning. 
 
 <br>
 <br>
@@ -169,7 +169,7 @@ summary(mobileBanking.Df)
 ```
 <br>
 
-The ***Summary()*** function comes in handy at summarizing data. I our case, there is no statistical measures since all our variables are categorical. Important to note that the function also specifies the specific data types. There are more than enough ways to inspect data structures in R.
+The base R ```Summary()``` function comes in handy at summarizing data. In our case, there is no statistical measures since all our variables are categorical. Note that the function also specifies the specific data types. There are more than enough ways to inspect data structures in R.
 
 <br>
 <br>
@@ -380,7 +380,7 @@ All the respondents had bank accounts. A very small number had their business ba
 <br>
 
 #### Uses Of Mobile Banking, Importance And Benefits
-Most respondents use mobile banking services for making payments. this is followed by cash withdrawals. Airtime purchase and money transfer happen to be the least uses for the service. This could be because they are easily accessible needs unlike cash withdrawal and making payments in terms of mobility convenience.
+Most respondents use mobile banking services for making payments. This is followed by cash withdrawals. Airtime purchase and money transfer happen to be the least uses for the service. This could be because they are easily accessible needs unlike cash withdrawal and making payments in terms of mobility convenience.
 
 Most respondents found mobile banking services **very important**, probably owing to the affordable cost charges and good service which could mean less usability issues when using the services.
 

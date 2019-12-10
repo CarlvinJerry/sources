@@ -13,7 +13,7 @@ draft: false
 
 featured: true
 image:
-  caption: 'Image credit'
+  caption: 'Image credit: [**Photo by Victoriano Izquierdo on Unsplash**](https://unsplash.com/photos/JG35CpZLfVs)'
   placement: 3
   preview_only: false
 
@@ -21,13 +21,13 @@ output: md_document
     
 tags: [Twitter,Data Mining,R,Python,Decision trees,regression]
 categories: [Data Mining,Machine Learning]
-
+indent: true
 ---
 
 # Introduction:    
-Here is a fun fact; An average human being (probably an adult) makes close to 30,000 conscious decisions every day. This isn't entirely true though, in fact, I just made that number up. I could be right because if you think about it, how many decisions would you say you make on a day to day basis? Depending on who you are the above obviously varies widely and you know best. We all make __**n**__ decisions every day- what to do, eat, buy or hit. The real question however is, do we always choose well? Are there any other factors at hand that influence our decision making process? Are all these factors, if any, always straight forward choices or do we sometimes get __"nudged"__ into these choices we make?    
+Here's a fun fact; An average human being (probably an adult) makes close to 30,000 conscious decisions every day. This isn't entirely true though, in fact, I just made that number up. I could be right because if you think about it, how many decisions would you say you make on a day to day basis? Depending on who you are the above obviously varies widely and you know best. We all make __**n**__ decisions every day- what to do, eat, buy or hit. The real question however is, do our daily choices solely depend on our consciousness? Are there any other factors at hand that influence our decision making process? Are all these factors, if any, always straight forward choices or do we sometimes get __"nudged"__ into these choices we make?    
 
-**Nudge theory** basically states that; by understanding how people think and what drives their decisions, we can use those factors to steer them into making decisions differently, through positive reinforcement. Research has shown that, by presenting choices differently rather than in a legislative manner, people can be influenced into making specific desired choices. This theory is widely used in behavioral economics by presenting subtle **nudge units** intended to influence people's thoughts about financial products. The theory was however initially more of a moral aspect meant to help people make better decisions in life and not as a tool for commercial gain. Over years of practice, different applications of the theory emerged.   
+**Nudge theory** basically states that; by understanding how people think and what drives their decisions, we can use those factors to steer them into making decisions differently, through positive reinforcement. Research has shown that, by presenting choices differently rather than in a legislative manner, people can be influenced into making specific desired choices. This theory is widely used in [__behavioral economics__](https://en.wikipedia.org/wiki/Behavioral_economics) by presenting subtle **nudge units** intended to influence people's thoughts about financial products. The theory was however initially more of a moral aspect meant to help people make better decisions in life and not as a tool for commercial gain. Over years of practice, different applications of the theory emerged.   
 
 Now that we have a basic understanding of what nudge theory is about, we can explore an applicable example. This post mainly focuses on a short research project I happened to be part of, actually my first hackathon experience hosted by Safaricom PLC. Let's dive in!  
 
@@ -410,10 +410,8 @@ For the tagged tweets, we had a __false negative of 2 predictions__ against a __
 
 <center>
 
-<figure>
-  ![Math](https://github.com/CarlvinJerry/sources/blob/master/static/MyImages/math.jpg?raw=true)
-  <figcaption>Figure 3: The formula</figcaption>
-</figure>
+  
+  $$ Accuracy = \frac{TP + TN}{TP + TN + FP + FN}$$
   
 </center>
 

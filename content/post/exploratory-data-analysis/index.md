@@ -6,27 +6,29 @@
 
 If you are familiar with data analysis then I’m certain that you fully
 relate to the above statement. After all, it would be pointless to play
-around with lots of data just for the love of it.
+around with lots of data just for the love of it, sometimes not but you
+get the point.
 
 Data is gold, and the more you have the better off you are. However, raw
 unprocessed data is of no use unless you manipulate and gain insights
-from it. Before embarking on statistical modelling and visualization of
-your data, it is very important to first have an understanding of the
+from it. Before embarking on say statistical modelling and visualization
+of your data, it is very important to first have an understanding of the
 data itself. Exploratory Data Analysis (**EDA**) aids in visualization,
 transformation, and generally cleaning or remodeling data before diving
-deep into statistics and predictive modelling.
+deep into information extraction.
 
-There are not set rules to be followed when performing EDA. As a data
-reparation phase, one is allowed to decide what suits them best in order
-to gain an understanding of their data. However, there are two most
-important questions one should seek to answer while studying their data:
+There are no set rules to be followed when performing EDA. As a data
+preparation phase, one is allowed to decide what suits them best in
+order to gain an understanding of their data. However, there are two
+most important questions one should seek to answer while studying their
+data:
 
 -   Is there variation within my variables?
 -   Is there any correlation between my variables?
 
 That being said, EDA involves the following checks among others:
 
--   **Descriptive Statistics** - Give a summarized understanding of the
+-   **Descriptive Statistics** - Gives a summarized understanding of the
     data, usually as measures of central tendency and variability.
     -   **Mean** - Arithmetic average
     -   **Median** - middle value
@@ -47,8 +49,8 @@ That being said, EDA involves the following checks among others:
         the x and y axes.
 
 In this post, we will perform EDA on a sample data set containing
-responses on mobile banking survey in Kenya. If you would like to follow
-along with the same data, you can download it
+responses to a mobile banking survey in Kenya. If you would like to
+follow along with the same data, you can download it
 [here](https://github.com/CarlvinJerry/sources/blob/master/data/Mobile%20Banking%20in%20Kenya.csv).
 
 Data Importation
@@ -62,8 +64,8 @@ The code chunk below imports our data set into R.
 
 #### 1.0.0 Data Inspection
 
-Once our sample data set loaded, we can check for features present in
-it. We first need to load all the libraries needed for data analysis and
+Once our sample data set is loaded, we check for features present. We
+first need to load all the libraries needed for data analysis and
 manipulation.
 
      #Load required packages or install if not present.----
@@ -81,7 +83,7 @@ packages one at a go.
 
 </center>
 <figure>
-![packages](.\packages.png)
+![packages](.\packages.png "fig:")
 <figcaption>
 Figure 1: Loaded packages
 </figcaption>
@@ -94,7 +96,7 @@ Figure 1: Loaded packages
     ## [1] 43 11
 
 The data set has 43 rows with 11 Variables. We therefore explore the
-data types present in each variable column.
+data types of each variable/column.
 
     #Check Categorical VS Numeric Characters----
     cat_vars <- names(mobileBanking.Df)[which(sapply(mobileBanking.Df, is.character))]
@@ -112,11 +114,11 @@ data types present in each variable column.
 
 To identify the data types, we can check for numeric and categorical
 variables present in the data. In our case, all the variables in our
-data set are categorical variables. We will therefore explore the data
-from a categorical approach rather than numeric. There exists different
+data set are categorical. We will therefore explore the data from a
+categorical approach rather than numeric. There exists different
 visualization methods for different data types. Now that we have
-established the general structure of the data, we can check if there are
-any missing values within the variables.
+established the general structure of the data, we can check for missing
+values, `NAs`.
 
     #Checking data for any missing values
     colSums(sapply(mobileBanking.Df, is.na))
@@ -133,12 +135,12 @@ any missing values within the variables.
     ##                 Satisfaction 
     ##                            0
 
-We have no NULL values in our data. We can therefore proceed to analysis
-without worrying about missing values. In a case whereby there exists
-null values, one can choose whether to replace the nulls with the most
-appropriate values or remove the rows with nulls from the data. This is
-important for later stages of analysis that include data modelling, like
-Machine Learning.
+We have no columns with missing values in our data. We can therefore
+proceed to analysis without worrying about missing values. In a case
+whereby there exists NA values, one can choose whether to replace the
+nulls with the most appropriate values or remove the rows with nulls
+from the data. This is important for later stages of analysis that
+include data modelling, like Machine Learning.
 
 <br> <br>
 
@@ -165,11 +167,10 @@ Machine Learning.
 
 <br>
 
-The ***Summary()*** function comes in handy at summarizing data. I our
-case, there is no statistical measures since all our variables are
-categorical. Important to note that the function also specifies the
-specific data types. There are more than enough ways to inspect data
-structures in R.
+The base R `Summary()` function comes in handy at summarizing data. In
+our case, there is no statistical measures since all our variables are
+categorical. Note that the function also specifies the specific data
+types. There are more than enough ways to inspect data structures in R.
 
 <br> <br>
 
@@ -399,7 +400,7 @@ mobile banking like frequent or timeless withdrawals.
 
 #### Uses Of Mobile Banking, Importance And Benefits
 
-Most respondents use mobile banking services for making payments. this
+Most respondents use mobile banking services for making payments. This
 is followed by cash withdrawals. Airtime purchase and money transfer
 happen to be the least uses for the service. This could be because they
 are easily accessible needs unlike cash withdrawal and making payments

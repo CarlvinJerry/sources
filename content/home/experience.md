@@ -24,7 +24,7 @@ date_format = "Jan 2006"
   location = "Nairobi, Kenya"
   date_start = "2018-01-01"
   date_end = ""
-  description = """Applying statistical concepts in Financial Markets leveraging **R** and **Python's** abilities to develop statistical and Machine Learning models.
+  description = """Applying statistical concepts in Financial Markets leveraging **R**, **Python** and **F#'s** abilities to develop statistical and Machine Learning models.
   Responsibilities include:
   
   * Developing financial analysis models
