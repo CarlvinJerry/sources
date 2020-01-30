@@ -7,7 +7,7 @@ summary: "A collection of my data visualization contributions to the TidyTuesday
 image:
   caption: '#tidyTuesday official banner'
   focal_point: ''
-  preview_only: true
+  preview_only: false
 output:
   blogdown::html_page:
     css: custom.css
@@ -21,7 +21,12 @@ categories: [Twitter,Data Visualization]
 
 
 <div>
-<blockquote class="twitter-tweet"><p lang="en" dir="ltr">Perfect timing for <a href="https://twitter.com/dataandme?ref_src=twsrc%5Etfw">@dataandme</a>&#39;s tweet...I decided to use {reactable} for this week&#39;s <a href="https://twitter.com/hashtag/TidyTuesday?src=hash&amp;ref_src=twsrc%5Etfw">#TidyTuesday</a> challenge. Showing average bird rating against number of votes. Still stuck at embedding the bird images though, to be continued... <a href="https://twitter.com/hashtag/rstats?src=hash&amp;ref_src=twsrc%5Etfw">#rstats</a> <br>Code: <a href="https://t.co/FlFyoZKSa8">https://t.co/FlFyoZKSa8</a> <a href="https://t.co/Dsg86QBwqM">pic.twitter.com/Dsg86QBwqM</a></p>&mdash; Professional Griefer (@PipeFunction) <a href="https://twitter.com/PipeFunction/status/1197087644557164544?ref_src=twsrc%5Etfw">November 20, 2019</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+<blockquote class="twitter-tweet" data-theme="dark"><p lang="en" dir="ltr">First <a href="https://twitter.com/hashtag/TidyTuesday?src=hash&amp;ref_src=twsrc%5Etfw">#TidyTuesday</a> contribution for the year, still have a lot to catch up on clearly. I made a leaflet map from a blog post on <a href="https://t.co/wTAS19lPLv">https://t.co/wTAS19lPLv</a> . Stuck at sharing the interactive html file for now. Code: <a href="https://t.co/2inpMWZfuB">https://t.co/2inpMWZfuB</a> <a href="https://t.co/e6SIl02Z8M">pic.twitter.com/e6SIl02Z8M</a></p>&mdash; Professional Griefer (@PipeFunction) <a href="https://twitter.com/PipeFunction/status/1222857742408474626?ref_src=twsrc%5Etfw">January 30, 2020</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+</div>
+
+
+<div>
+<blockquote class="twitter-tweet" data-theme="dark"><p lang="en" dir="ltr">Perfect timing for <a href="https://twitter.com/dataandme?ref_src=twsrc%5Etfw">@dataandme</a>&#39;s tweet...I decided to use {reactable} for this week&#39;s <a href="https://twitter.com/hashtag/TidyTuesday?src=hash&amp;ref_src=twsrc%5Etfw">#TidyTuesday</a> challenge. Showing average bird rating against number of votes. Still stuck at embedding the bird images though, to be continued... <a href="https://twitter.com/hashtag/rstats?src=hash&amp;ref_src=twsrc%5Etfw">#rstats</a> <br>Code: <a href="https://t.co/FlFyoZKSa8">https://t.co/FlFyoZKSa8</a> <a href="https://t.co/Dsg86QBwqM">pic.twitter.com/Dsg86QBwqM</a></p>&mdash; Professional Griefer (@PipeFunction) <a href="https://twitter.com/PipeFunction/status/1197087644557164544?ref_src=twsrc%5Etfw">November 20, 2019</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 </div>
 
 
