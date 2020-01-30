@@ -5,16 +5,16 @@
 #   Latest themes (may require updating Academic): https://sourcethemes.com/academic/themes/
 #   Browse built-in themes in `themes/academic/data/themes/`
 #   Browse user installed themes in `data/themes/`
-theme = "minimal" #minimal forest
+theme = "custom" #minimal forest
 
 # Enable users to switch between day and night mode?
-day_night = true
+day_night = false #true
 
 # Overrride the theme's font set (optional).
 #   Latest font sets (may require updating Academic): https://sourcethemes.com/academic/themes/
 #   Browse built-in font sets in `themes/academic/data/fonts/`
 #   Browse user installed font sets in `data/fonts/`
-font = "playfair"
+font = "playfair" #playfair
 
 # Choose a font size.
 # Sizes: s (small), m (medium), l (large)
