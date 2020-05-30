@@ -106,13 +106,8 @@ passwords.
 <figure>
 ![Weak
 password!](https://github.com/CarlvinJerry/sources/blob/master/static/MyImages/beware.jpg?raw=true "fig:")
-<figcaption>
-Figure 1: The challenge
-</figcaption>
 </figure>
 </center>
-
-<br>
 
 ### \#4. Longer passwords are safer passwords
 

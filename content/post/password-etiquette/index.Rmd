@@ -343,7 +343,7 @@ p2 <- p + theme(panel.background =  element_rect(fill = "gray4", color = NA),
                                   colour = "white"),
         plot.title = element_text(colour = "white",
                                   face = "bold",
-                                  size = 14),
+                                  size = 11),
         plot.subtitle = element_text(face = "italic",
                                      size = 10,
                                      colour = "white"),
@@ -376,12 +376,9 @@ I remember using my own name on MySpace for a password, good days those ones. Ti
 
 <figure>
 ![Weak password!](https://github.com/CarlvinJerry/sources/blob/master/static/MyImages/beware.jpg?raw=true)
-<figcaption>Figure 1: The challenge</figcaption>
 </figure>
 
 </center>
-
-<br>
 
 ### #4. Longer passwords are safer passwords
 #### Variable Distributions
