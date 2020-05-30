@@ -3,6 +3,8 @@
 > thought I should do it here instead and maybe someone will learn one
 > or two things about security, digital privacy to be precise.
 
+<br>
+
 #### Introduction
 
 Exposing ourselves to cyber attacks comes as easy as having access to
@@ -28,19 +30,23 @@ their way into our Facebook(s), Instagram(s) and worse for me, online
 banking and credit card accounts. So here are a few Ps and Qs for
 setting up passwords.
 
-> Small task [here](https://howsecureismypassword.net/), check how long
-> it would take a computer to crack your bank account password.
+> A small challenge for you [here](https://howsecureismypassword.net/),
+> check how long it would take a computer to crack your bank account
+> password.
 
 I used [\#TidyTuesday’s
 passwords](https://github.com/rfordatascience/tidytuesday/blob/master/data/2020/2020-01-14/readme.md)
 data with some more compromised passwords from kaggle for illustration.
 To keep it concise, all the code used in this post can be found
 [here](https://github.com/CarlvinJerry/sources/blob/master/content/post/password-etiquette/index.Rmd).
-Shout out to my good friend and avid data analyst Martin who helped in
-building a password strength meter used in ranking passwords used here,
-you can read more on the tool
-(here)\[<a href="https://ndirangumartin.netlify.app/post/password-meter-in-r/" class="uri">https://ndirangumartin.netlify.app/post/password-meter-in-r/</a>\].
+Shout out to my good friend and avid data analyst
+[Martin](https://www.linkedin.com/in/martin-wanjiru-98414111a/) who
+helped in building a password strength meter used in ranking passwords
+used here, you can read more on the tool
+[here](https://ndirangumartin.netlify.app/post/password-meter-in-r/).
 That being said, let’s get visual.
+
+<br>
 
 Skimming through the data
 -------------------------
@@ -63,7 +69,8 @@ that I’ll be discussing below.
 
 <br>
 
-#### Creating a secure password
+Creating secure passwords
+-------------------------
 
 ### \#1.Don’t share passwords
 

@@ -40,7 +40,7 @@ Different folk memorize passwords differently; some of us share passwords across
 
 >A small challenge for you [here](https://howsecureismypassword.net/), check how long it would take a computer to crack your bank account password.
 
-I used [#TidyTuesday's passwords](https://github.com/rfordatascience/tidytuesday/blob/master/data/2020/2020-01-14/readme.md) data with some more compromised passwords from kaggle for illustration. To keep it concise, all the code used in this post can be found [here](https://github.com/CarlvinJerry/sources/blob/master/content/post/password-etiquette/index.Rmd). Shout out to my good friend and avid data analyst Martin who helped in building a password strength meter used in ranking passwords used here, you can read more on the tool (here)[https://ndirangumartin.netlify.app/post/password-meter-in-r/]. That being said, let's get visual.  
+I used [#TidyTuesday's passwords](https://github.com/rfordatascience/tidytuesday/blob/master/data/2020/2020-01-14/readme.md) data with some more compromised passwords from kaggle for illustration. To keep it concise, all the code used in this post can be found [here](https://github.com/CarlvinJerry/sources/blob/master/content/post/password-etiquette/index.Rmd). Shout out to my good friend and avid data analyst [Martin](https://www.linkedin.com/in/martin-wanjiru-98414111a/) who helped in building a password strength meter used in ranking passwords used here, you can read more on the tool [here](https://ndirangumartin.netlify.app/post/password-meter-in-r/). That being said, let's get visual.  
 
 <br>
 
