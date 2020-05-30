@@ -27,312 +27,76 @@ tags: [TidyTuesday, R, Data Visualization]
 <blockquote>
 <p>I got bitten by the famous procrastination bug earlier this year, so I missed out on #TidyTuesday’s week 3(2020) challenge. As a make-up, I thought I should do it here instead and maybe someone will learn one or two things about security, digital privacy to be precise.</p>
 </blockquote>
-<div id="introduction" class="section level3">
-<h3>INTRODUCTION</h3>
+<p><br></p>
+<div id="introduction" class="section level4">
+<h4>Introduction</h4>
 <p>Exposing ourselves to cyber attacks comes as easy as having access to the internet. Almost every website you visit will require you to create an account to be able to access significant information or services from them - So where exactly does the problem with password strength begin? Memory methinks…</p>
-<p>The whole purpose of memory is to preserve information. Events, names, faces, mathematical formulae etcetera, all seem recorgnizable every time we recollect because the mind memorizes them. I don’t know how exactly remembering works, but you will agree with me on this; the memory is sometimes very unreliable when it comes to cramming passwords. It is for this very reason that, in the quest for memorizing our passwords, we find ourselves using weak passwords.</p>
-<p>Different folk memorize passwords differently; some of us share passwords across platforms (very counter intuitive if you actually think about it re cyber security), some use personal information such as names, birthdays, spouse names(ha!) and what have you. My point is, we cannot fully trust ourselves to match brute force algorithms trying to hack their way into our facebook(s), instagram(s) and worse for me, online banking and credit card acconts. So here are a few Ps and Qs for setting up passwords.</p>
+<p>The whole purpose of memory is to preserve information. Events, names, faces, mathematical formulas etcetera, all seem recognizable every time we recollect because the mind memorizes them. I don’t know how exactly remembering works, but you will agree with me on this; the memory is sometimes very unreliable when it comes to cramming passwords. It is for this very reason that, in the quest for memorizing our passwords, we find ourselves using weak passwords.</p>
+<p>Different folk memorize passwords differently; some of us share passwords across platforms (very counter intuitive if you actually think about it re cyber security), some use personal information such as names, birthdays, pet names 😆 and what have you. My point is, we cannot fully trust ourselves to match brute force algorithms trying to hack their way into our Facebook(s), Instagram(s) and worse for me, online banking and credit card accounts. So here are a few Ps and Qs for setting up passwords.</p>
 <blockquote>
 <p>Small task <a href="https://howsecureismypassword.net/">here</a>, check how long it would take a computer to crack your bank account password.</p>
 </blockquote>
-<p>I used <a href="https://github.com/rfordatascience/tidytuesday/blob/master/data/2020/2020-01-14/readme.md">#TidyTuesday’s passwords</a> data for illustration. To keep it concise, all the code used in this hidden, click the <code>CODE</code> button to expand if you wish to see the code. Shout out to my good friend and avid data analyst Martin who helped in building a password strength metter used in ranking passwords used here, you can read more on the tool (here)[<a href="https://ndirangumartin.netlify.app/post/password-meter-in-r/" class="uri">https://ndirangumartin.netlify.app/post/password-meter-in-r/</a>]. That being said, let’s get visual.</p>
-<p>The graph bellow show a scattered distribution of a small fraction of our compromised passwords. You want to ensure that if your passwords happen to be on this chart, they are on the bottom far left of the chart i.e, the passwords are unique and exhibit stronger strengths. That way, you know that even a computer will take quite some time before cracking it. The further and lower it is along the x-axis, the greener and stronger it is.</p>
-<p>####<a href="https://xkcd.com/936/" class="uri">https://xkcd.com/936/</a></p>
+<p>I used <a href="https://github.com/rfordatascience/tidytuesday/blob/master/data/2020/2020-01-14/readme.md">#TidyTuesday’s passwords</a> data with some more compromised passwords from kaggle for illustration. To keep it concise, all the code used in this post can be found <a href="https://github.com/CarlvinJerry/sources/blob/master/content/post/password-etiquette/index.Rmd">here</a>. Shout out to my good friend and avid data analyst Martin who helped in building a password strength meter used in ranking passwords used here, you can read more on the tool (here)[<a href="https://ndirangumartin.netlify.app/post/password-meter-in-r/" class="uri">https://ndirangumartin.netlify.app/post/password-meter-in-r/</a>]. That being said, let’s get visual.</p>
+<p><br></p>
 </div>
-<div id="data-importation" class="section level1">
-<h1>Data Importation</h1>
-<p>The code chunk below imports, cleans and generates the chart from the data.</p>
-<div id="data-inspection" class="section level4">
-<h4>1.0.0 Data Inspection</h4>
-<p>Once our sample data set is loaded, we check for features present. We first need to load all the libraries needed for data analysis and manipulation.</p>
+<div id="skimming-through-the-data" class="section level2">
+<h2>Skimming through the data</h2>
+<p>The graph bellow shows a scattered distribution of a small fraction of our compromised passwords. You want to ensure that if your passwords get parsed through this chart, they are on the bottom, far left of the chart i.e, the passwords are unique and exhibit stronger strengths. That way, you know that even a computer will take quite some time before cracking it. The further and lower it is along the x-axis,the smaller it should be to indicate uniqueness and the stronger it is hence the green color.</p>
 <p><img src="/post/password-etiquette/index_files/figure-html/ChatterPlot-1.png" width="672" /></p>
-<p>The function above takes in a list of required libraries, checks if they are already installed and installs them if not. It then loads all the packages one at a go.</p>
+<p>On the contrary, we have quite a lot of passwords clustered in between 0-35 on the strength meter. If you look at those passwords, it should be quite obvious that they’re weak. This would explain why we have them here as our data. This chart shows most of the aspects of a password that I’ll be discussing below.</p>
+<p><br></p>
+</div>
+<div id="creating-secure-passwords" class="section level2">
+<h2>Creating secure passwords</h2>
+<div id="dont-share-passwords" class="section level3">
+<h3>#1.Don’t share passwords</h3>
+<p>I mean, think about your bank accounts if your excuse is “I don’t have any vital information on me anyway”. Every time you share passwords across platforms, you make life easier for an attacker. Chances are this shared password is really strong and so you might think, why not? But here’s the catch, a wise hacker understands that you might have done this, and all he has to do is gain access to that account you think has no information about you and look for an identity. With this little precious piece of information, it’s easier for them to try out the accounts you know are actually important. Bank accounts and online shopping cards could tell you this if they were human.</p>
+</div>
+<div id="regularly-change-your-passwords" class="section level3">
+<h3>#2.Regularly change your passwords</h3>
+<p>First of all, if you’re too lazy to change a default password that some sites offer newbies, you deserve to be hacked. Start by creating a password of your own. Every now and then, you want to review and update your passwords because hackers are improving on a daily too.</p>
+</div>
+<div id="personal-information-is-a-plea-to-be-hacked" class="section level3">
+<h3>#3.Personal information is a plea to be hacked</h3>
+<p>I remember using my own name on MySpace for a password, good days those ones. Times have changed and so should you. Hackers who guess passwords start basic. Your name will be first, then popular pet names because they saw you pause with your chicken on Facebook. To put it in perspective, here’s how cute you look to hackers when you use your personal information as passwords. Same goes for using dictionary words for passwords.</p>
 </center>
 <figure>
-<img src=".\packages.png" title="fig:" alt="packages" />
+<img src="https://github.com/CarlvinJerry/sources/blob/master/static/MyImages/beware.jpg?raw=true" title="fig:" alt="Weak password!" />
 <figcaption>
-Figure 1: Loaded packages
+Figure 1: The challenge
 </figcaption>
 </figure>
 </center>
-</div>
-<div id="observing-the-data-structure" class="section level4">
-<h4>1.1.0 Observing the data structure</h4>
-<pre class="r"><code>dim(mobileBanking.Df)
-## [1] 43 11</code></pre>
-<p>The data set has 43 rows with 11 Variables. We therefore explore the data types of each variable/column.</p>
-<pre class="r"><code>#Check Categorical VS Numeric Characters----
-cat_vars &lt;- names(mobileBanking.Df)[which(sapply(mobileBanking.Df, is.character))]
-cat_vars
-##  [1] &quot;Gender&quot;                       &quot;Age.Range&quot;                   
-##  [3] &quot;Have.Bak.Account&quot;             &quot;Bank.account.connected.to.MB&quot;
-##  [5] &quot;MB.used.for&quot;                  &quot;Importance&quot;                  
-##  [7] &quot;Benefit&quot;                      &quot;Bank.Visit&quot;                  
-##  [9] &quot;MB.Safety&quot;                    &quot;Influence&quot;                   
-## [11] &quot;Satisfaction&quot;
-
-numeric_vars &lt;- names(mobileBanking.Df)[which(sapply(mobileBanking.Df, is.numeric))]
-numeric_vars
-## character(0)</code></pre>
-<p>To identify the data types, we can check for numeric and categorical variables present in the data. In our case, all the variables in our data set are categorical. We will therefore explore the data from a categorical approach rather than numeric. There exists different visualization methods for different data types. Now that we have established the general structure of the data, we can check for missing values, <code>NAs</code>.</p>
-<pre class="r"><code>#Checking data for any missing values
-colSums(sapply(mobileBanking.Df, is.na))
-##                       Gender                    Age.Range 
-##                            0                            0 
-##             Have.Bak.Account Bank.account.connected.to.MB 
-##                            0                            0 
-##                  MB.used.for                   Importance 
-##                            0                            0 
-##                      Benefit                   Bank.Visit 
-##                            0                            0 
-##                    MB.Safety                    Influence 
-##                            0                            0 
-##                 Satisfaction 
-##                            0</code></pre>
-<p>We have no columns with missing values in our data. We can therefore proceed to analysis without worrying about missing values. In a case whereby there exists NA values, one can choose whether to replace the nulls with the most appropriate values or remove the rows with nulls from the data. This is important for later stages of analysis that include data modelling, like Machine Learning.</p>
-<p><br>
-<br></p>
-</div>
-<div id="data-summary" class="section level4">
-<h4>1.1.1 Data Summary</h4>
-<pre class="r"><code>#Data Summary----
-summary(mobileBanking.Df)
-##     Gender           Age.Range         Have.Bak.Account  
-##  Length:43          Length:43          Length:43         
-##  Class :character   Class :character   Class :character  
-##  Mode  :character   Mode  :character   Mode  :character  
-##  Bank.account.connected.to.MB MB.used.for         Importance       
-##  Length:43                    Length:43          Length:43         
-##  Class :character             Class :character   Class :character  
-##  Mode  :character             Mode  :character   Mode  :character  
-##    Benefit           Bank.Visit         MB.Safety        
-##  Length:43          Length:43          Length:43         
-##  Class :character   Class :character   Class :character  
-##  Mode  :character   Mode  :character   Mode  :character  
-##   Influence         Satisfaction      
-##  Length:43          Length:43         
-##  Class :character   Class :character  
-##  Mode  :character   Mode  :character</code></pre>
-<p><br></p>
-<p>The base R <code>Summary()</code> function comes in handy at summarizing data. In our case, there is no statistical measures since all our variables are categorical. Note that the function also specifies the specific data types. There are more than enough ways to inspect data structures in R.</p>
-<p><br>
-<br></p>
-</div>
-<div id="getting-insights-from-the-data" class="section level3">
-<h3>2.0.0 Getting Insights from the data</h3>
-<div id="descriptive-statistics-for-categorical-data" class="section level4">
-<h4>2.1.0 Descriptive Statistics For Categorical Data</h4>
-<p>The main goal of descriptive statistics is to inform data analysts on the main features of either numerical or categorical data, using sample summaries represented as either tables, individual numbers or charts and graphs. Since we only have categorical data, I will illustrate the most used forms of descriptive statistics for the same. However, like I mentioned earlier, there are more than enough ways to analyze data in R.</p>
-<p><br></p>
-<div id="frequencies" class="section level5">
-<h5>2.1.1 Frequencies</h5>
-<p><strong>Frequencies</strong> illustrate the number of occurrences or observations of a particular category in data. We use <a href="https://en.wikipedia.org/wiki/Contingency_table">contigency tables</a> to present this information. In R this can be achieved using the <strong><em>table()</em></strong> function.</p>
-<p>From out data, the total distribution of respondents based on gender looks like this;</p>
-<pre class="r"><code>#Gender frequencies
-#library(kableExtra)
-table(mobileBanking.Df$Gender)
-## 
-## Female   Male 
-##     20     23</code></pre>
-<p>We can illustrate multiple attributes using cross classification tables such as;</p>
-<pre class="r"><code>#library(kableExtra)
-# Cross classification counts for gender by Mobile banking safety opinion
-table(mobileBanking.Df$Gender, mobileBanking.Df$MB.Safety)
-##         
-##          NotAtAll Somewhat Very
-##   Female        3       11    6
-##   Male          0       19    4</code></pre>
-<p>Multidimensional tables with three or more categories can also be achieved using the <strong><em>ftable()</em></strong> . As an example, let’s check out the number of respondents based on gender, mobile banking safety opinion and how often they visit the bank.</p>
-<pre class="r"><code>#Counts by gender, opinion and bank visits
-table_ &lt;- table(mobileBanking.Df$Gender, mobileBanking.Df$MB.Safety, mobileBanking.Df$Bank.Visit)
-ftable(table_)
-##                  FewTimesAyear OnceMonth
-##                                         
-## Female NotAtAll              3         0
-##        Somewhat             11         0
-##        Very                  5         1
-## Male   NotAtAll              0         0
-##        Somewhat             15         4
-##        Very                  4         0</code></pre>
 <p><br></p>
 </div>
-<div id="proportions" class="section level5">
-<h5>2.1.1 Proportions</h5>
-<p>Proportions are basically contingency tables represented as percentages. From our previous tables, we can do proportions for the same by applying <strong><em>prop.table()</em></strong> to output produced by the *<strong>table()</strong> function. Proportions for the above will then be;</p>
-<pre class="r"><code>#library(kableExtra)
-#Gender frequencies proportions
-prop.table(table(mobileBanking.Df$Gender))
-## 
-##    Female      Male 
-## 0.4651163 0.5348837
-
-#Percentage idistribution for Gender by mobile banking safety
-prop.table(table(mobileBanking.Df$Gender, mobileBanking.Df$MB.Safety))
-##         
-##            NotAtAll   Somewhat       Very
-##   Female 0.06976744 0.25581395 0.13953488
-##   Male   0.00000000 0.44186047 0.09302326
-
-#Percentage by gender, opinion and bank visits, rounding off to 2 decimal places
-table_ &lt;- table(mobileBanking.Df$Gender, mobileBanking.Df$MB.Safety, mobileBanking.Df$Bank.Visit)
-ftable(round(prop.table(table_),2))
-##                  FewTimesAyear OnceMonth
-##                                         
-## Female NotAtAll           0.07      0.00
-##        Somewhat           0.26      0.00
-##        Very               0.12      0.02
-## Male   NotAtAll           0.00      0.00
-##        Somewhat           0.35      0.09
-##        Very               0.09      0.00</code></pre>
-<p><br></p>
-</div>
-<div id="marginals" class="section level5">
-<h5>2.1.2 Marginals</h5>
-<p>Marginals measure counts across columns or rows in a contingency table. <strong><em>Margin.table()</em></strong> gives us the frequencies while <strong><em>prop.table()</em></strong> gives us the percentages. Using our previous examples on frequencies;</p>
-<pre class="r"><code># FREQUENCY MARGINALS
-# row marginals - totals for each gender across mobile banking opinion
-margin.table(table(mobileBanking.Df$Gender, mobileBanking.Df$MB.Safety), 1)
-## 
-## Female   Male 
-##     20     23
-
-# colum marginals -  totals for each gender across mobile banking opinion
-margin.table(table(mobileBanking.Df$Gender, mobileBanking.Df$MB.Safety), 2)
-## 
-## NotAtAll Somewhat     Very 
-##        3       30       10
-
-# PERCENTAGE MARGINALS
-# row marginals - row percentages across gender
-prop.table(table(mobileBanking.Df$Gender, mobileBanking.Df$MB.Safety), margin = 1)
-##         
-##          NotAtAll Somewhat     Very
-##   Female 0.150000 0.550000 0.300000
-##   Male   0.000000 0.826087 0.173913
-
-# colum marginals - column percentages acrossmobile banking opinion
-prop.table(table(mobileBanking.Df$Gender, mobileBanking.Df$MB.Safety), margin = 2)
-##         
-##           NotAtAll  Somewhat      Very
-##   Female 1.0000000 0.3666667 0.6000000
-##   Male   0.0000000 0.6333333 0.4000000</code></pre>
-</div>
-</div>
-<div id="visualizing-distributions" class="section level4">
-<h4>2.2.0 Visualizing Distributions</h4>
-<p>The code chunk bellow is a function that takes in our data set and plots all the present variables in it. Since we have categorical variable only, we will use <strong>bar plots</strong> for visualization. They are the most appropriate for categorical data.</p>
-<pre class="r"><code>#Loading Data into R  toc_depth: 2
-mobileBanking.Df &lt;- read.csv(&quot;J://Personalprojects//Blogsite//data//MobileBankinginKenya.csv&quot;, header = TRUE, stringsAsFactors = FALSE )
-mobileBanking.Df &lt;- mobileBanking.Df[,-1] #Remove the number column which is Irrelevant
-
-#Check Categorical VS Numeric Characters----
-cat_vars &lt;- names(mobileBanking.Df)[which(sapply(mobileBanking.Df, is.character))]
-numeric_vars &lt;- names(mobileBanking.Df)[which(sapply(mobileBanking.Df, is.numeric))]
-
-
-####Convert character to factors----
-library(data.table)</code></pre>
-<pre><code>## 
-## Attaching package: &#39;data.table&#39;</code></pre>
-<pre><code>## The following objects are masked from &#39;package:dplyr&#39;:
-## 
-##     between, first, last</code></pre>
-<pre class="r"><code>setDT(mobileBanking.Df)[,(cat_vars) := lapply(.SD, as.factor), .SDcols = cat_vars]
-
-mobileBanking.Df_cat &lt;- mobileBanking.Df[,.SD, .SDcols = cat_vars]
-    ##mobileBanking.Df_cont &lt;- mobileBanking.Df[,.SD,.SDcols = numeric_vars]
-
-#Functions for Plots---
-library(ggplot2)
-library(gridExtra)</code></pre>
-<pre><code>## 
-## Attaching package: &#39;gridExtra&#39;</code></pre>
-<pre><code>## The following object is masked from &#39;package:dplyr&#39;:
-## 
-##     combine</code></pre>
-<pre class="r"><code>plotHist &lt;- function(data_in, i) {
-  data &lt;- data.frame(x=data_in[[i]])
-  p &lt;- ggplot(data=data, aes(x=factor(x))) + stat_count() + xlab(colnames(data_in)[i]) + theme_light() + 
-    theme(axis.text.x = element_text(angle = 90, hjust =1))
-  return (p)
-}
-
-doPlots &lt;- function(data_in, fun, ii, ncol=3) {
-  pp &lt;- list()
-  for (i in ii) {
-    p &lt;- fun(data_in=data_in, i=i)
-    pp &lt;- c(pp, list(p))
-  }
-  do.call(&quot;grid.arrange&quot;, c(pp, ncol=ncol))
-}
-
-plotDen &lt;- function(data_in, i){
-  data &lt;- data.frame(x=data_in[[i]], SalePrice = data_in$SalePrice)
-  p &lt;- ggplot(data= data) + geom_line(aes(x = x), stat = &#39;density&#39;, size = 1,alpha = 1.0) +
-    xlab(paste0((colnames(data_in)[i]), &#39;\n&#39;, &#39;Skewness: &#39;,round(skewness(data_in[[i]], na.rm = TRUE), 2))) + theme_light() 
-  return(p)
-  
-}</code></pre>
-<p><br></p>
-</div>
+<div id="longer-passwords-are-safer-passwords" class="section level3">
+<h3>#4. Longer passwords are safer passwords</h3>
 <div id="variable-distributions" class="section level4">
 <h4>Variable Distributions</h4>
-<pre class="r"><code>#Plotting categorical values----
-#Bar plots
-doPlots(mobileBanking.Df_cat, fun = plotHist, ii = 1:4, ncol = 2)</code></pre>
-<p><img src="/post/password-etiquette/index_files/figure-html/barplots1-1.png" width="672" /></p>
-<p><br></p>
-</div>
-<div id="gender" class="section level4">
-<h4>Gender</h4>
-<p>It can be seen that a larger number of respondents were male, this is however by a small margin. If we had a larger data set we could have more female respondents.</p>
-<p><br></p>
-</div>
-<div id="age-range" class="section level4">
-<h4>Age Range</h4>
-<p>A majority of respondents were younger guys between age <strong>21-30</strong>, followed by the <strong>31-40</strong> age bracket. The least respondents were those above age <strong>41</strong>. This could be probably because the older people chose not to participate in the survey as opposed to the younger ones, or that they somehow never got to opportunity to do so. A good example is the medium by which the survey was conducted, which the older people didn’t have.</p>
-<p><br></p>
-</div>
-<div id="have-bank-account-linked-to-mobile-banking" class="section level4">
-<h4>Have Bank Account &amp; Linked To Mobile Banking</h4>
-<p>All the respondents had bank accounts. A very small number had their business bank accounts linked to mobile banking. Majority had linked their current accounts probably due to the convenience that comes with mobile banking like frequent or timeless withdrawals.</p>
-<p><br>
-<br></p>
-<p><img src="/post/password-etiquette/index_files/figure-html/barplots2-1.png" width="672" /></p>
-<p><br></p>
-</div>
-<div id="uses-of-mobile-banking-importance-and-benefits" class="section level4">
-<h4>Uses Of Mobile Banking, Importance And Benefits</h4>
-<p>Most respondents use mobile banking services for making payments. This is followed by cash withdrawals. Airtime purchase and money transfer happen to be the least uses for the service. This could be because they are easily accessible needs unlike cash withdrawal and making payments in terms of mobility convenience.</p>
-<p>Most respondents found mobile banking services <strong>very important</strong>, probably owing to the affordable cost charges and good service which could mean less usability issues when using the services.</p>
-<p><br>
-<br></p>
-<p><img src="/post/password-etiquette/index_files/figure-html/barplots3-1.png" width="672" /></p>
-<p><br></p>
-</div>
-<div id="bank-visits" class="section level4">
-<h4>Bank Visits</h4>
-<p>We had most users who visit their banks a few times a year while the least do it once a month. This means that generally, fewer people visit the bank physically. This could be a major impact of mobile banking services.</p>
-<p><br></p>
-</div>
-<div id="mobile-banking-safety-influence-and-satisfaction" class="section level4">
-<h4>Mobile Banking Safety, Influence And Satisfaction</h4>
-<p>Despite being majorly satisfied by the services, most respondents did not find mobile banking services very safe. It is also seen as time saving which is probably why we had very few bank visits in general.</p>
+<p>Here we have another plot showing distribution of our passwords based on length.</p>
+<p><img src="/post/password-etiquette/index_files/figure-html/passwords%20length-1.png" width="672" /></p>
 <p><br></p>
 </div>
 </div>
-</div>
-<div id="conclusion-from-variable-distributions" class="section level1">
-<h1>Conclusion from variable distributions</h1>
-<p>It can be concluded that mobile banking is mainly preferred by younger people, a majority being of the male gender. However, the only benefit most users find from mobile banking seems to be the convenience it brings. Safety is still a major concern.</p>
-<p><br>
-<br></p>
+<div id="fa-is-your-friend-use-it" class="section level3">
+<h3>#5. 2FA is your friend, use it</h3>
+<p>Two-factor authentication offers an extra protection to your accounts. In an event someone cracks your password, they will require a security code to gain access to the account. This code is usually sent to a mobile number registered to the said account, one cannot access the account without keying in the right code. Have it enabled if it’s available.</p>
+</center>
+<figure>
+<img src="https://github.com/CarlvinJerry/sources/blob/master/static/MyImages/comic.png?raw=true" title="fig:" alt="Weak password!" />
+<figcaption>
+Source: <a href="https://xkcd.com/936/">comics</a>
+</figcaption>
+</figure>
+</center>
+<p><br></p>
 <blockquote>
-<p>That’s basically it for exploratory data analysis. I made sure to cover the basics, meaning there’s still much to be added on to this; more visualizations, <a href="https://www.researchgate.net/post/What_are_the_best_R_packages_for_exploratory_data_analysis_of_psychological_data">packages</a> that simplify the whole process etc…This is to be continued. For a detailed documentation on the same, <a href="https://r4ds.had.co.nz/index.html">here’s</a> <a href="https://twitter.com/hadleywickham?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor">Hadley Wickham’s</a> <strong>R for Data Science</strong> book you can use as a reference point.</p>
+<p>Much as it’s possible to do all these on your own, a password manager is your best shot. With a password manager, you only have to worry about one <code>master password</code>. A password manager stores all your sensitive passwords for you, runs frequent checks on them and generates new stronger passwords for you as well, that way your memory won’t fail you. Most password managers automatically recognize a website whenever visited and will automatically fill in your credentials. I personally use the free version of <a href="https://www.lastpass.com/">Lastpass</a>, there are many more which are entirely free or on subscription basis. You can read more about them <a href="https://en.wikipedia.org/wiki/Password_manager">here</a>. I’m out 😄.</p>
 </blockquote>
 <p><br></p>
 <center>
 <p><img src="https://fontmeme.com/permalink/190129/8b378e9ce35b7a28dd150c4f1d656807.png" /></p>
 <center>
 <p><br></p>
+</div>
 </div>
