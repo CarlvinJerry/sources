@@ -122,12 +122,12 @@ div.blue { background-color:#e6f0ff; border-radius: 5px; padding: 20px;}
 R has a standard set of packages, each with different tasks. You can find some packages for download  
 [**here**](https://cran.cnr.berkeley.edu/). The code chunk below installs and loads the specific packages we need for this task. Take note of comments at each line of code, initiated by an octothorp.
 
-```{r, install_packages,cache=TRUE, eval=FALSE, background='#F7F7F7'}
+```{r background='#F7F7F7', install_packages, eval=FALSE}
 # Install packages
 install.packages("twitteR") #------Extracts data from twitter
 install.packages("httr") #--------Tools for Working with URLs and HTTP
 ```
-```{r, load_packages,cache=TRUE, eval=FALSE, background='#F7F7F7'}
+```{r, load_packages,cache=F, eval=FALSE, background='#F7F7F7'}
 # We can now load the two packages
 library("twitteR")
 require("httr") #-------------Both require() and library() can be used to call an installed package
@@ -136,7 +136,7 @@ require("httr") #-------------Both require() and library() can be used to call a
 <br>
 
 **NB:** Windows users might need to download a certification file and store it in the working directory. This certificate file initiates a handshake between R and the Twitter API.
-```{r, download_cert,cache=TRUE, eval=FALSE, background='#F7F7F7'}
+```{r, download_cert, eval=FALSE, background='#F7F7F7'}
 # Download "cacert.pem" file
 download.file(url = "https://curl.haxx.se/ca/cacert.pem", destfile = "cacert.pem")
 ```
@@ -160,7 +160,7 @@ access_secret <- "hjksdha08097afnjhaa90uaf"
 # 3.Query data from twitter
 We can now go ahead and fetch our data. Due to limitations on the twitter standard apps, it is advisable to store your data in R locally. This will reduce the number of times you have to make requests to fetch data. You will therefore do much more with your app that way regardless of the limitations- Or you can as well buy the premium rights. In my example below, I am fetching data for a user on twitter called @UKenyatta.
 
-```{r, fetch_data,cache=TRUE, eval=FALSE, background='#F7F7F7'}
+```{r, fetch_data, eval=FALSE, background='#F7F7F7'}
 # Connect to Twitter
 setup_twitter_oauth(consumer_key, consumer_secret, access_token, access_secret)
 tweets <- userTimeline("UKenyatta", n = 3200) # Standard twitter apps are limited to 3200 tweets per                                                  #download session. This could come out less depending on

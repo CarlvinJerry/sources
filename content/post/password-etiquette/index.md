@@ -24,7 +24,7 @@ find ourselves using weak passwords.
 Different folk memorize passwords differently; some of us share
 passwords across platforms (very counter intuitive if you actually think
 about it re cyber security), some use personal information such as
-names, birthdays, pet names 😃 and what have you. My point is, we cannot
+names, birthdays, pet names 😆 and what have you. My point is, we cannot
 fully trust ourselves to match brute force algorithms trying to hack
 their way into our Facebook(s), Instagram(s) and worse for me, online
 banking and credit card accounts. So here are a few Ps and Qs for
@@ -97,10 +97,10 @@ your passwords because hackers are improving on a daily too.
 I remember using my own name on MySpace for a password, good days those
 ones. Times have changed and so should you. Hackers who guess passwords
 start basic. Your name will be first, then popular pet names because
-they saw you pause with your chicken on Facebook. To put it in
-perspective, here’s how cute you look to hackers when you use your
-personal information as passwords. Same goes for using dictionary words
-for passwords.
+they saw you pose with your cats on Facebook. To put it in perspective,
+here’s how cute you look to hackers when you use your personal
+information as passwords. Same goes for using dictionary words for
+passwords.
 
 </center>
 <figure>
