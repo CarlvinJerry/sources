@@ -2,7 +2,7 @@
 > insight.” – Carly Fiorina, former chief executive officer, Hewlett
 > Packard.
 
-### INTRODUCTION
+#### INTRODUCTION
 
 If you are familiar with data analysis then I’m certain that you fully
 relate to the above statement. After all, it would be pointless to play
@@ -53,8 +53,7 @@ responses to a mobile banking survey in Kenya. If you would like to
 follow along with the same data, you can download it
 [here](https://github.com/CarlvinJerry/sources/blob/master/data/Mobile%20Banking%20in%20Kenya.csv).
 
-Data Importation
-================
+#### DATA IMPORTATION
 
 The code chunk below imports our data set into R.
 
@@ -174,9 +173,9 @@ types. There are more than enough ways to inspect data structures in R.
 
 <br> <br>
 
-### 2.0.0 Getting Insights from the data
+#### 2.0.0 Getting Insights from the data
 
-#### 2.1.0 Descriptive Statistics For Categorical Data
+##### 2.1.0 Descriptive Statistics For Categorical Data
 
 The main goal of descriptive statistics is to inform data analysts on
 the main features of either numerical or categorical data, using sample
@@ -303,7 +302,7 @@ gives us the percentages. Using our previous examples on frequencies;
     ##   Female 1.0000000 0.3666667 0.6000000
     ##   Male   0.0000000 0.6333333 0.4000000
 
-#### 2.2.0 Visualizing Distributions
+##### 2.2.0 Visualizing Distributions
 
 The code chunk bellow is a function that takes in our data set and plots
 all the present variables in it. Since we have categorical variable
@@ -433,8 +432,7 @@ saving which is probably why we had very few bank visits in general.
 
 <br>
 
-Conclusion from variable distributions
-======================================
+#### Conclusion from variable distributions
 
 It can be concluded that mobile banking is mainly preferred by younger
 people, a majority being of the male gender. However, the only benefit

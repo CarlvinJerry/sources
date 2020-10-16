@@ -1,5 +1,5 @@
 ---
-title: "Digital Nudging"
+title: "DIGITAL NUDGING"
 summary: "Influencing online User decisions on Twitter through nudge units-A hackathon experience." 
 subtitle: "Influencing online User decisions on Twitter through nudge units"
 disable_comments: false # Optional, disable Disqus comments if true
@@ -24,15 +24,18 @@ categories: [Data Mining,Machine Learning]
 indent: true
 ---
 
+<script src="/rmarkdown-libs/header-attrs/header-attrs.js"></script>
 
 
-<div id="introduction" class="section level1">
-<h1>Introduction:</h1>
+<div id="introduction" class="section level4">
+<h4>INTRODUCTION</h4>
 <p>Here’s a fun fact; An average human being (probably an adult) makes close to 30,000 conscious decisions every day. This isn’t entirely true though, in fact, I just made that number up. I could be right because if you think about it, how many decisions would you say you make on a day to day basis? Depending on who you are the above obviously varies widely and you know best. We all make <strong><strong>n</strong></strong> decisions every day- what to do, eat, buy or hit. The real question however is, do our daily choices solely depend on our consciousness? Are there any other factors at hand that influence our decision making process? Are all these factors, if any, always straight forward choices or do we sometimes get <strong>“nudged”</strong> into these choices we make?</p>
 <p><strong>Nudge theory</strong> basically states that; by understanding how people think and what drives their decisions, we can use those factors to steer them into making decisions differently, through positive reinforcement. Research has shown that, by presenting choices differently rather than in a legislative manner, people can be influenced into making specific desired choices. This theory is widely used in <a href="https://en.wikipedia.org/wiki/Behavioral_economics"><strong>behavioral economics</strong></a> by presenting subtle <strong>nudge units</strong> intended to influence people’s thoughts about financial products. The theory was however initially more of a moral aspect meant to help people make better decisions in life and not as a tool for commercial gain. Over years of practice, different applications of the theory emerged.</p>
 <p>Now that we have a basic understanding of what nudge theory is about, we can explore an applicable example. This post mainly focuses on a short research project I happened to be part of, actually my first hackathon experience hosted by Safaricom PLC. Let’s dive in!</p>
-<div id="the-challenge" class="section level3">
-<h3>The Challenge</h3>
+<p><br></p>
+</div>
+<div id="the-challenge" class="section level4">
+<h4>THE CHALLENGE</h4>
 <p>This photo a team mate took at the hackathon contains a problem statement for the challenge:</p>
 </center>
 <figure>
@@ -43,15 +46,14 @@ Figure 1: The challenge
 </figure>
 </center>
 </div>
-</div>
-<div id="tools-used" class="section level1">
-<h1>Tools used:</h1>
+<div id="tools-used" class="section level4">
+<h4>TOOLS USED:</h4>
 <p>Our twitter data was fetched using <strong>R</strong>, I have done a post on setting up a twitter API to fetch twitter data <a href="https://beyondrawdata.rbind.io/2019/01/25/data-mining-in-r/">here</a>. <strong>R</strong> has several packages (such as <strong>“tweeteR”</strong> and <strong>“rtweet”</strong>) that one can use to stream data from twitter. Our data cleaning and pre-processing was mainly done in <strong>Python</strong>.</p>
 <blockquote>
 <p><strong>Note:</strong> To keep this post concise, code for the workings has been minimized. <a href="https://github.com/CarlvinJerry/sources/blob/master/content/post/2019-02-20-digital-nudging-rmd.Rmd">The source code for this post can be found here,</a> for anyone interested in trying out the same process. The code is well commented for easier understanding as well.</p>
 </blockquote>
-<div id="fetching-data" class="section level4">
-<h4>1.Fetching Data</h4>
+<div id="fetching-data" class="section level5">
+<h5>1.Fetching Data</h5>
 <p>The team agreed on a few terms to query data on from twitter. For an unbiased range of topics, we settled on fetching tweets under trending topics and a few more from random words. We had tweets from or containing the following:</p>
 <ul>
 <li><strong>#MenConference2019</strong><br />
@@ -97,8 +99,8 @@ Figure 1: The challenge
 [88] &quot;profile_image_url&quot;      </code></pre>
 <p><br></p>
 </div>
-<div id="data-pre-processing." class="section level4">
-<h4>2.Data pre-processing.</h4>
+<div id="data-pre-processing." class="section level5">
+<h5>2.Data pre-processing.</h5>
 <p>This stage involved cleaning up our data by removing the unwanted columns/variables. We decided to do with a select few variables we thought would be most appropriate for our case study. We chose the following <strong>seven variables:</strong></p>
 <ul>
 <li><strong>Text</strong> - This column contained the actual tweets text.</li>
@@ -112,8 +114,8 @@ Figure 1: The challenge
 <p>Code for the data cleanup and variables setting that was done in Python can be found <a href="https://github.com/Ogutu-Brian/DataCleanup/blob/develop/analysis.py">here</a>.</p>
 <p><br></p>
 </div>
-<div id="re-importing-data-in-r-and-setting-up-for-the-models" class="section level4">
-<h4>2.1 Re-importing Data in R and setting up for the Models</h4>
+<div id="re-importing-data-in-r-and-setting-up-for-the-models" class="section level5">
+<h5>2.1 Re-importing Data in R and setting up for the Models</h5>
 <p>After cleaning up the data, we imported it into R, the code chunk shows a preview of the top 4 rows of the input data.</p>
 <pre><code>                                                                                                                                                                    Text
 1074                                                                                                                                                            Want to know how to optimize hyper-parameters in Caret with cost-specific functions? #rstats #datascience https://t.co/cupvirSXU9
@@ -196,18 +198,18 @@ Figure 1: The challenge
 <p>From the table above, we can observe a new column “Characters”. This was an additional variable derived by counting the number of characters in the tweet text.</p>
 <p><br></p>
 </div>
+</div>
 <div id="model-specifications" class="section level4">
 <h4>3.Model Specifications</h4>
 <p>Due to the nature of our problem,(we had several uncorrelated variables) we decided to do a classification analysis. This means we had to come up with a classifier model to regress <strong>n</strong> variables based on our dependent variable, the <strong>Location</strong> variable. The main challenge of classifier models is knowing what really goes on inside the models that leads to the final output. Even with higher levels of accuracy in some models, it is quite difficult o understand the paths of a given model. However, using <strong>Random forests</strong> and <strong>Decision Tree</strong> classifiers can give us a graphical representation of the criteria followed by the models to arrive at a given output. Another upper hand of decision tree models is that they require minimal data cleaning, less time consuming. Here is a detailed read on <a href="https://medium.com/x8-the-ai-community/decision-trees-an-intuitive-introduction-86c2b39c1a6c">how decision trees work</a>.</p>
 </div>
-</div>
-<div id="creating-train-test-sets." class="section level1">
-<h1>Creating Train &amp; Test Sets.</h1>
+<div id="subsetting-data-to-train-test-sets" class="section level4">
+<h4>SUBSETTING DATA TO <code>TRAIN</code> &amp; <code>TEST</code> SETS</h4>
 <p>For the training and test data sets, we randomly split our data set into two sates. Usually, the best practice is to train the model with with a larger proportion of the data set. We therefore took <strong>80%</strong> for training and <strong>20%</strong> for test purposes.</p>
 <p><br></p>
 </div>
-<div id="model-training." class="section level1">
-<h1>Model Training.</h1>
+<div id="model-training" class="section level4">
+<h4>MODEL TRAINING</h4>
 <p>We trained our decision tree model to predict a <strong>class</strong> “location”. Whether a location is <strong>geotagged</strong> or <strong>not geotagged</strong> based on whether the user is verified, protected, has over 500 followers, is retweeted by another verified user and the number of characters in their tweet. Bellow is the visual output of the trained model.</p>
 </center>
 <figure>
@@ -226,21 +228,21 @@ For our case, we only focus on what we found:</p>
 <li><p>Finally, looking at depth 4 which originates from the node that checks is number of characters is <strong>equal to or more than 122</strong>, we can see that <strong>12 percent</strong> of users had tweets with character equal to or more than 124, with <strong>88 percent probability</strong> of geotagging their tweets.</p></li>
 </ol>
 <p><br></p>
-<div id="model-testing-and-performance-accuracy." class="section level4">
-<h4>3.1 Model Testing and performance accuracy.</h4>
+<div id="model-testing-and-performance-accuracy." class="section level5">
+<h5>3.1 Model Testing and performance accuracy.</h5>
 <p>With our model trained and outputs observed, we were able to run a test with our test subset. Here is our confusion matrix.</p>
 </div>
 </div>
-<div id="confusion-matrix" class="section level1">
-<h1>Confusion matrix</h1>
+<div id="confusion-matrix" class="section level4">
+<h4>CONFUSION MATRIX</h4>
 <pre><code>          predict_geotags
              NON-TAGGED TAGGED
   NON-TAGGED         90    248
   TAGGED              2   1043</code></pre>
 <p><br></p>
 </div>
-<div id="model-accuracy" class="section level1">
-<h1>Model Accuracy</h1>
+<div id="model-accuracy" class="section level4">
+<h4>MODEL ACCURACY</h4>
 <pre><code>&gt; #performance
 &gt; accuracy_Test &lt;- sum(diag(table_mat)) / sum(table_mat)
 &gt; print(paste(&#39;Accuracy for test is&#39;, accuracy_Test))
@@ -252,17 +254,17 @@ For our case, we only focus on what we found:</p>
 </center>
 <p>For a better accuracy level, the model’s hyper-parameters can be tweaked to improve performance. Another option is implementing a random forest test.</p>
 <p><br></p>
-<div id="conclusion-and-recommendation" class="section level4">
-<h4>4. Conclusion and Recommendation</h4>
+</div>
+<div id="conclusion-recommendation" class="section level4">
+<h4>CONCLUSION &amp; RECOMMENDATION</h4>
 <p>With our decision tree model, we were able to attain a high level of accuracy for a model that test whether users with <strong>tweets containing characters equal to or above 122</strong> are likely to geotag their tweets. Our <strong>nudge</strong> in this case is the number of characters in a tweet and precisely, <strong>124 or more</strong>. Our recommendation therefore would be to encourage users to tweet longer or engage them in trending topics that require one to write more, for example a TT like # MyLifeHistoryInANutshell…-in the hope that a user will eventually geotag their tweet.</p>
 <blockquote>
 <p>Come to think of it, did twitter really increase the number of characters just for tweeps to tweet more and as they said, to get more people to join twitter? I have a theory, it was a NUDGE!</p>
 </blockquote>
 <p><br></p>
 </div>
-</div>
-<div id="references" class="section level1">
-<h1>References</h1>
+<div id="references" class="section level4">
+<h4>REFERENCES</h4>
 <ol style="list-style-type: decimal">
 <li><p><a href="https://www.businessballs.com/improving-workplace-performance/nudge-theory/">Business balls official website</a></p></li>
 <li><p>Thaler, R.H., Sunstein, C.R., and Balz, J.P. Choice Architecture. SSRN Electronic Journal (2010), 1–18; <a href="https://ssrn.com/abstract=1583509" class="uri">https://ssrn.com/abstract=1583509</a></p></li>

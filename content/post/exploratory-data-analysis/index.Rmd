@@ -1,5 +1,5 @@
 --- 
-title: "Exploratory Data Analysis"
+title: "TUTORIAL: EXPLORATORY DATA ANALYSIS"
 summary: "Basics for data analysis in R."
 subtitle: "An introduction to data manipulation and analysis in R"
 disable_comments: false # Optional, enable Table of Contents for specific post
@@ -29,7 +29,7 @@ knitr::opts_chunk$set(echo = TRUE)
 
 >“The goal is to turn data into information and information into insight.” – Carly Fiorina, former chief executive officer, Hewlett Packard.
 
-### INTRODUCTION
+#### INTRODUCTION
 If you are familiar with data analysis then I'm certain that you fully relate to the above statement. After all, it would be pointless to play around with lots of data just for the love of it, sometimes not but you get the point.
 
 Data is gold, and the more you have the better off you are. However, raw unprocessed data is of no use unless you manipulate and gain insights from it. Before embarking on say statistical modelling and visualization of your data, it is very important to first have an understanding of the data itself. Exploratory Data Analysis (**EDA**) aids in  visualization, transformation, and generally cleaning or remodeling data before diving deep into information extraction.  
@@ -61,7 +61,7 @@ That being said, EDA involves the following checks among others:
   
 In this post, we will perform EDA on a sample data set containing responses to a mobile banking survey in Kenya. If you would like to follow along with the same data, you can download it [here](https://github.com/CarlvinJerry/sources/blob/master/data/Mobile%20Banking%20in%20Kenya.csv).
 
-# Data Importation
+#### DATA IMPORTATION
 The code chunk below imports our data set into R.
 ```{r MobileBankingDF, warning=FALSE}
 #Loading Data into R  toc_depth: 2
@@ -174,8 +174,8 @@ The base R ```Summary()``` function comes in handy at summarizing data. In our c
 <br>
 <br>
 
-### 2.0.0 Getting Insights from the data
-#### 2.1.0 Descriptive Statistics For Categorical Data
+#### 2.0.0 Getting Insights from the data
+##### 2.1.0 Descriptive Statistics For Categorical Data
 The main goal of descriptive statistics is to inform data analysts on the main features of either numerical or categorical data, using sample summaries represented as either tables, individual numbers or charts and graphs. Since we only have categorical data, I will illustrate the most used forms of descriptive statistics for the same. However, like I mentioned earlier, there are more than enough ways to analyze data in R.
 
 <br>
@@ -290,7 +290,7 @@ prop.table(table(mobileBanking.Df$Gender, mobileBanking.Df$MB.Safety), margin = 
 ##   Male   0.0000000 0.6333333 0.4000000
 ```
 
-#### 2.2.0 Visualizing Distributions
+##### 2.2.0 Visualizing Distributions
 The code chunk bellow is a function that takes in our data set and plots all the present variables in it. Since we have categorical variable only, we will use **bar plots** for visualization. They are the most appropriate for categorical data.
 
 ```{r Plotfunction,echo=TRUE}
@@ -408,7 +408,7 @@ Despite being majorly satisfied by the services, most respondents did not find m
 
 <br>
 
-# Conclusion from variable distributions
+#### Conclusion from variable distributions
 It can be concluded that mobile banking is mainly preferred by younger people, a majority being of the male gender. However, the only benefit most users find from mobile banking seems to be the convenience it brings. Safety is still a major concern.
 
 <br>

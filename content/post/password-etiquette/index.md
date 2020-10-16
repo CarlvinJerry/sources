@@ -1,11 +1,4 @@
-> I got bitten by the famous procrastination bug earlier this year, so I
-> missed out on \#TidyTuesday’s week 3(2020) challenge. As a make-up, I
-> thought I should do it here instead and maybe someone will learn one
-> or two things about security, digital privacy to be precise.
-
-<br>
-
-#### Introduction
+#### INTRODUCTION
 
 Exposing ourselves to cyber attacks comes as easy as having access to
 the internet. Almost every website you visit will require you to create
@@ -24,7 +17,7 @@ find ourselves using weak passwords.
 Different folk memorize passwords differently; some of us share
 passwords across platforms (very counter intuitive if you actually think
 about it re cyber security), some use personal information such as
-names, birthdays, pet names 😆 and what have you. My point is, we cannot
+names, birthdays, pet names 😃 and what have you. My point is, we cannot
 fully trust ourselves to match brute force algorithms trying to hack
 their way into our Facebook(s), Instagram(s) and worse for me, online
 banking and credit card accounts. So here are a few Ps and Qs for
@@ -48,8 +41,7 @@ That being said, let’s get visual.
 
 <br>
 
-Skimming through the data
--------------------------
+#### SKIMMING THROUGH THE DATA
 
 The graph bellow shows a scattered distribution of a small fraction of
 our compromised passwords. You want to ensure that if your passwords get
@@ -69,10 +61,9 @@ that I’ll be discussing below.
 
 <br>
 
-Creating secure passwords
--------------------------
+#### CREATING SECURE PASSWORDS
 
-### \#1.Don’t share passwords
+#### 1.Don’t share passwords
 
 I mean, think about your bank accounts if your excuse is “I don’t have
 any vital information on me anyway”. Every time you share passwords
@@ -85,14 +76,14 @@ precious piece of information, it’s easier for them to try out the
 accounts you know are actually important. Bank accounts and online
 shopping cards could tell you this if they were human.
 
-### \#2.Regularly change your passwords
+#### 2.Regularly change your passwords
 
 First of all, if you’re too lazy to change a default password that some
 sites offer newbies, you deserve to be hacked. Start by creating a
 password of your own. Every now and then, you want to review and update
 your passwords because hackers are improving on a daily too.
 
-### \#3.Personal information is a plea to be hacked
+#### 3.Personal information is a plea to be hacked
 
 I remember using my own name on MySpace for a password, good days those
 ones. Times have changed and so should you. Hackers who guess passwords
@@ -109,9 +100,9 @@ password!](https://github.com/CarlvinJerry/sources/blob/master/static/MyImages/b
 </figure>
 </center>
 
-### \#4. Longer passwords are safer passwords
+#### 4. Longer passwords are safer passwords
 
-#### Variable Distributions
+#### A look Variable Distributions
 
 Here we have another plot showing distribution of our passwords based on
 length.
@@ -120,7 +111,7 @@ length.
 
 <br>
 
-### \#5. 2FA is your friend, use it
+#### 5. 2FA is your friend, use it
 
 Two-factor authentication offers an extra protection to your accounts.
 In an event someone cracks your password, they will require a security
@@ -151,7 +142,7 @@ Source: [comics](https://xkcd.com/936/)
 > credentials. I personally use the free version of
 > [Lastpass](https://www.lastpass.com/), there are many more which are
 > entirely free or on subscription basis. You can read more about them
-> [here](https://en.wikipedia.org/wiki/Password_manager). I’m out 😄.
+> [here](https://en.wikipedia.org/wiki/Password_manager). Stay safe 😄.
 
 <br>
 

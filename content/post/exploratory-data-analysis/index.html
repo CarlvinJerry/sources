@@ -1,5 +1,5 @@
 --- 
-title: "Exploratory Data Analysis"
+title: "TUTORIAL: EXPLORATORY DATA ANALYSIS"
 summary: "Basics for data analysis in R."
 subtitle: "An introduction to data manipulation and analysis in R"
 disable_comments: false # Optional, enable Table of Contents for specific post
@@ -22,13 +22,14 @@ tags: [Twitter, R, Data Visualization]
 
 ---
 
+<script src="/rmarkdown-libs/header-attrs/header-attrs.js"></script>
 
 
 <blockquote>
 <p>“The goal is to turn data into information and information into insight.” – Carly Fiorina, former chief executive officer, Hewlett Packard.</p>
 </blockquote>
-<div id="introduction" class="section level3">
-<h3>INTRODUCTION</h3>
+<div id="introduction" class="section level4">
+<h4>INTRODUCTION</h4>
 <p>If you are familiar with data analysis then I’m certain that you fully relate to the above statement. After all, it would be pointless to play around with lots of data just for the love of it, sometimes not but you get the point.</p>
 <p>Data is gold, and the more you have the better off you are. However, raw unprocessed data is of no use unless you manipulate and gain insights from it. Before embarking on say statistical modelling and visualization of your data, it is very important to first have an understanding of the data itself. Exploratory Data Analysis (<strong>EDA</strong>) aids in visualization, transformation, and generally cleaning or remodeling data before diving deep into information extraction.</p>
 <p>There are no set rules to be followed when performing EDA. As a data preparation phase, one is allowed to decide what suits them best in order to gain an understanding of their data. However, there are two most important questions one should seek to answer while studying their data:</p>
@@ -60,12 +61,13 @@ tags: [Twitter, R, Data Visualization]
 </ul>
 <p>In this post, we will perform EDA on a sample data set containing responses to a mobile banking survey in Kenya. If you would like to follow along with the same data, you can download it <a href="https://github.com/CarlvinJerry/sources/blob/master/data/Mobile%20Banking%20in%20Kenya.csv">here</a>.</p>
 </div>
-<div id="data-importation" class="section level1">
-<h1>Data Importation</h1>
+<div id="data-importation" class="section level4">
+<h4>DATA IMPORTATION</h4>
 <p>The code chunk below imports our data set into R.</p>
 <pre class="r"><code>#Loading Data into R  toc_depth: 2
 mobileBanking.Df &lt;- read.csv(&quot;J://Personalprojects//Blogsite//data//MobileBankinginKenya.csv&quot;, header = TRUE, stringsAsFactors = FALSE )
 mobileBanking.Df &lt;- mobileBanking.Df[,-1] #Remove the number column which is Irrelevant</code></pre>
+</div>
 <div id="data-inspection" class="section level4">
 <h4>1.0.0 Data Inspection</h4>
 <p>Once our sample data set is loaded, we check for features present. We first need to load all the libraries needed for data analysis and manipulation.</p>
@@ -149,12 +151,13 @@ summary(mobileBanking.Df)
 <p><br>
 <br></p>
 </div>
-<div id="getting-insights-from-the-data" class="section level3">
-<h3>2.0.0 Getting Insights from the data</h3>
-<div id="descriptive-statistics-for-categorical-data" class="section level4">
-<h4>2.1.0 Descriptive Statistics For Categorical Data</h4>
+<div id="getting-insights-from-the-data" class="section level4">
+<h4>2.0.0 Getting Insights from the data</h4>
+<div id="descriptive-statistics-for-categorical-data" class="section level5">
+<h5>2.1.0 Descriptive Statistics For Categorical Data</h5>
 <p>The main goal of descriptive statistics is to inform data analysts on the main features of either numerical or categorical data, using sample summaries represented as either tables, individual numbers or charts and graphs. Since we only have categorical data, I will illustrate the most used forms of descriptive statistics for the same. However, like I mentioned earlier, there are more than enough ways to analyze data in R.</p>
 <p><br></p>
+</div>
 <div id="frequencies" class="section level5">
 <h5>2.1.1 Frequencies</h5>
 <p><strong>Frequencies</strong> illustrate the number of occurrences or observations of a particular category in data. We use <a href="https://en.wikipedia.org/wiki/Contingency_table">contigency tables</a> to present this information. In R this can be achieved using the <strong><em>table()</em></strong> function.</p>
@@ -248,9 +251,8 @@ prop.table(table(mobileBanking.Df$Gender, mobileBanking.Df$MB.Safety), margin = 
 ##   Female 1.0000000 0.3666667 0.6000000
 ##   Male   0.0000000 0.6333333 0.4000000</code></pre>
 </div>
-</div>
-<div id="visualizing-distributions" class="section level4">
-<h4>2.2.0 Visualizing Distributions</h4>
+<div id="visualizing-distributions" class="section level5">
+<h5>2.2.0 Visualizing Distributions</h5>
 <p>The code chunk bellow is a function that takes in our data set and plots all the present variables in it. Since we have categorical variable only, we will use <strong>bar plots</strong> for visualization. They are the most appropriate for categorical data.</p>
 <pre class="r"><code>#Loading Data into R  toc_depth: 2
 mobileBanking.Df &lt;- read.csv(&quot;J://Personalprojects//Blogsite//data//MobileBankinginKenya.csv&quot;, header = TRUE, stringsAsFactors = FALSE )
@@ -295,6 +297,7 @@ plotDen &lt;- function(data_in, i){
   
 }</code></pre>
 <p><br></p>
+</div>
 </div>
 <div id="variable-distributions" class="section level4">
 <h4>Variable Distributions</h4>
@@ -341,10 +344,8 @@ doPlots(mobileBanking.Df_cat, fun = plotHist, ii = 1:4, ncol = 2)</code></pre>
 <p>Despite being majorly satisfied by the services, most respondents did not find mobile banking services very safe. It is also seen as time saving which is probably why we had very few bank visits in general.</p>
 <p><br></p>
 </div>
-</div>
-</div>
-<div id="conclusion-from-variable-distributions" class="section level1">
-<h1>Conclusion from variable distributions</h1>
+<div id="conclusion-from-variable-distributions" class="section level4">
+<h4>Conclusion from variable distributions</h4>
 <p>It can be concluded that mobile banking is mainly preferred by younger people, a majority being of the male gender. However, the only benefit most users find from mobile banking seems to be the convenience it brings. Safety is still a major concern.</p>
 <p><br>
 <br></p>

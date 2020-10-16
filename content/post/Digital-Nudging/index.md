@@ -1,5 +1,4 @@
-Introduction:
-=============
+#### INTRODUCTION
 
 Here’s a fun fact; An average human being (probably an adult) makes
 close to 30,000 conscious decisions every day. This isn’t entirely true
@@ -31,7 +30,9 @@ can explore an applicable example. This post mainly focuses on a short
 research project I happened to be part of, actually my first hackathon
 experience hosted by Safaricom PLC. Let’s dive in!
 
-### The Challenge
+<br>
+
+#### THE CHALLENGE
 
 This photo a team mate took at the hackathon contains a problem
 statement for the challenge:
@@ -46,8 +47,7 @@ Figure 1: The challenge
 </figure>
 </center>
 
-Tools used:
-===========
+#### TOOLS USED:
 
 Our twitter data was fetched using **R**, I have done a post on setting
 up a twitter API to fetch twitter data
@@ -62,7 +62,7 @@ pre-processing was mainly done in **Python**.
 > for anyone interested in trying out the same process. The code is well
 > commented for easier understanding as well.
 
-#### 1.Fetching Data
+##### 1.Fetching Data
 
 The team agreed on a few terms to query data on from twitter. For an
 unbiased range of topics, we settled on fetching tweets under trending
@@ -113,7 +113,7 @@ cleaning. Here is a preview of the variables in our raw data.
 
 <br>
 
-#### 2.Data pre-processing.
+##### 2.Data pre-processing.
 
 This stage involved cleaning up our data by removing the unwanted
 columns/variables. We decided to do with a select few variables we
@@ -139,7 +139,7 @@ can be found
 
 <br>
 
-#### 2.1 Re-importing Data in R and setting up for the Models
+##### 2.1 Re-importing Data in R and setting up for the Models
 
 After cleaning up the data, we imported it into R, the code chunk shows
 a preview of the top 4 rows of the input data.
@@ -249,8 +249,7 @@ models is that they require minimal data cleaning, less time consuming.
 Here is a detailed read on [how decision trees
 work](https://medium.com/x8-the-ai-community/decision-trees-an-intuitive-introduction-86c2b39c1a6c).
 
-Creating Train & Test Sets.
-===========================
+#### SUBSETTING DATA TO `TRAIN` & `TEST` SETS
 
 For the training and test data sets, we randomly split our data set into
 two sates. Usually, the best practice is to train the model with with a
@@ -259,8 +258,7 @@ training and **20%** for test purposes.
 
 <br>
 
-Model Training.
-===============
+#### MODEL TRAINING
 
 We trained our decision tree model to predict a **class** “location”.
 Whether a location is **geotagged** or **not geotagged** based on
@@ -310,13 +308,12 @@ For our case, we only focus on what we found:
 
 <br>
 
-#### 3.1 Model Testing and performance accuracy.
+##### 3.1 Model Testing and performance accuracy.
 
 With our model trained and outputs observed, we were able to run a test
 with our test subset. Here is our confusion matrix.
 
-Confusion matrix
-================
+#### CONFUSION MATRIX
 
               predict_geotags
                  NON-TAGGED TAGGED
@@ -325,8 +322,7 @@ Confusion matrix
 
 <br>
 
-Model Accuracy
-==============
+#### MODEL ACCURACY
 
     > #performance
     > accuracy_Test <- sum(diag(table_mat)) / sum(table_mat)
@@ -359,7 +355,7 @@ test.
 
 <br>
 
-#### 4. Conclusion and Recommendation
+#### CONCLUSION & RECOMMENDATION
 
 With our decision tree model, we were able to attain a high level of
 accuracy for a model that test whether users with **tweets containing
@@ -377,8 +373,7 @@ their tweet.
 
 <br>
 
-References
-==========
+#### REFERENCES
 
 1.  [Business balls official
     website](https://www.businessballs.com/improving-workplace-performance/nudge-theory/)
